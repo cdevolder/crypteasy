@@ -38,4 +38,9 @@ crypto3 = Crypto.create!(
   accronym: 'LTC'
   )
 
+exchangetimevalues = Exchangetimevalues.create!(
+  euros: ,
+  dollars: ,
+  yuan:
+  )
 
