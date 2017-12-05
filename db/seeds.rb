@@ -40,72 +40,72 @@ crypto3 = Crypto.create!(
   )
 
 exchangetimevalue = Exchangetimevalue.create!(
-  euros: '1000' ,
-  dollars:'1000' ,
+  euro: '1000' ,
+  dollar:'1000' ,
   yuan: '1000',
   platform: 'platform',
   Crypto: 'crypto'
   )
 
 exchangetimevalue2 = Exchangetimevalue.create!(
-  euros: '1500' ,
-  dollars:'1500' ,
+  euro: '1500' ,
+  dollar:'1500' ,
   yuan: '1500',
   platform: 'platform',
   Crypto: 'crypto2'
   )
 
 exchangetimevalue3 = Exchangetimevalue.create!(
-  euros: '5000' ,
-  dollars:'5000' ,
+  euro: '5000' ,
+  dollar:'5000' ,
   yuan: '5000',
   platform: 'platform',
   Crypto: 'crypto3'
   )
 
 exchangetimevalue4 = Exchangetimevalue.create!(
-  euros: '2000' ,
-  dollars:'2000' ,
+  euro: '2000' ,
+  dollar:'2000' ,
   yuan: '2000',
   platform: 'platform2',
   Crypto: 'crypto'
   )
 
 exchangetimevalue5 = Exchangetimevalue.create!(
-  euros: '2500' ,
-  dollars:'2500' ,
+  euro: '2500' ,
+  dollar:'2500' ,
   yuan: '2500',
   platform: 'platform2',
   Crypto: 'crypto2'
   )
 
 exchangetimevalue6 = Exchangetimevalue.create!(
-  euros: '10000' ,
-  dollars:'10000' ,
+  euro: '10000' ,
+  dollar:'10000' ,
   yuan: '10000',
   platform: 'platform2',
   Crypto: 'crypto3'
   )
 
 exchangetimevalue7 = Exchangetimevalue.create!(
-  euros: '3000' ,
-  dollars:'3000' ,
+  euro: '3000' ,
+  dollar:'3000' ,
   yuan: '3000',
   platform: 'platform3',
   Crypto: 'crypto'
   )
 
 exchangetimevalue8 = Exchangetimevalue.create!(
-  euros: '2500' ,
-  dollars:'2500' ,
+  euro: '2500' ,
+  dollar:'2500' ,
   yuan: '2500',
   platform: 'platform3',
   Crypto: 'crypto2'
   )
 
 exchangetimevalue9 = Exchangetimevalue.create!(
-  euros: '15000' ,
-  dollars:'15000' ,
+  euro: '15000' ,
+  dollar:'15000' ,
   yuan: '15000',
   platform: 'platform3',
   Crypto: 'crypto3'
