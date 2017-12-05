@@ -11,17 +11,17 @@ Crypto.destroy_all
 
 platform = Platform.create!(
   name: 'Kraken',
-  description: ''
+  description: 'ok'
   )
 
 platform2 = Platform.create!(
   name: 'Gdax',
-  description: ''
+  description: 'ok'
   )
 
 platform3 = Platform.create!(
   name: 'Bitstamp',
-  description: ''
+  description: 'ok'
   )
 
 crypto = Crypto.create!(
