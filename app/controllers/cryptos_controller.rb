@@ -1,3 +1,5 @@
+require 'cryptocompare'
+
 class CryptosController < ApplicationController
   def index
   end
