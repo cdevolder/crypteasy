@@ -1,2 +1,11 @@
 <h1>Favorites#new</h1>
 <p>Find me in app/views/favorites/new.html.erb</p>
+
+<%= simple_form_for [@favorite] do |f| %>
+  <%= f.select(:crypto_id, Crypto.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+    <%= f.select(:platform_id, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+
+  <%= f.submit "Save"%>
+<% end %>
+
+
