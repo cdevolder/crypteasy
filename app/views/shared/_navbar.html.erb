@@ -1,15 +1,16 @@
 <div class="navbar-wagon">
   <!-- Logo -->
  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "crypteasy.jpg" %>
+    <%= image_tag "crypteasy.png" %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+    <% if user_signed_in? %>
+
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Devises</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
@@ -22,8 +23,10 @@
         </ul>
       </div>
     </div>
+    <% else %>
       <!-- Login link (when logged out) -->
 <%= link_to  t(".sign_in", default: "Login | Sign up"), root_path, class: "navbar-btn-login" %>
+<% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
