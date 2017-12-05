@@ -37,9 +37,27 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: #073F79;
   font-size: 14px;
 }
+
+.navbar-btn-login {
+  cursor: pointer;
+  color: #8DC247;
+  border: 1px solid #073F79;
+  padding: 5px 25px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.8;
+}
+
+.navbar-btn-login:hover {
+  color: #8DC247;
+  opacity: 1;
+  text-decoration: none;
+  margin-top: 3px;
+}
+
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
@@ -75,3 +93,5 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+

@@ -5,7 +5,6 @@ class Exchangetimevalue < ApplicationRecord
 
   validates :dollar, presence: true
   validates :euro, presence: true
-  validates :yuan, presence: true
 
 
 end
