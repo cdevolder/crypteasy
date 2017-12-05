@@ -9,24 +9,19 @@
 
     <% if user_signed_in? %>
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Devises</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+    <%= link_to "Devises", cryptos_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Dashboard", cryptos_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+
 
     <!-- Profile picture with dropdown list -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    </div>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fa fa-sign-out fa-lg" style="color: #073F79 " aria-hidden="true"></i> <%= t(".sign_out", default: " ") %>
+    <% end %>
     <% else %>
       <!-- Login link (when logged out) -->
-<%= link_to  t(".sign_in", default: "Login | Sign up"), root_path, class: "navbar-btn-login" %>
-<% end %>
+    <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login" %>
+    <% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
