@@ -3,8 +3,8 @@ class Exchangetimevalue < ApplicationRecord
   belongs_to :platform
   belongs_to :crypto
 
-  validates :dollars, presence: true
-  validates :euros, presence: true
+  validates :dollar, presence: true
+  validates :euro, presence: true
   validates :yuan, presence: true
 
 end
