@@ -44,7 +44,7 @@ exchangetimevalue = Exchangetimevalue.create!(
   dollar:'1000' ,
   yuan: '1000',
   platform: platform,
-  Crypto: crypto
+  crypto: crypto
   )
 
 exchangetimevalue2 = Exchangetimevalue.create!(
@@ -52,7 +52,7 @@ exchangetimevalue2 = Exchangetimevalue.create!(
   dollar:'1500' ,
   yuan: '1500',
   platform: platform,
-  Crypto: crypto2
+  crypto: crypto2
   )
 
 exchangetimevalue3 = Exchangetimevalue.create!(
@@ -60,7 +60,7 @@ exchangetimevalue3 = Exchangetimevalue.create!(
   dollar:'5000' ,
   yuan: '5000',
   platform: platform,
-  Crypto: crypto3
+  crypto: crypto3
   )
 
 exchangetimevalue4 = Exchangetimevalue.create!(
@@ -68,7 +68,7 @@ exchangetimevalue4 = Exchangetimevalue.create!(
   dollar:'2000' ,
   yuan: '2000',
   platform: platform2,
-  Crypto: crypto
+  crypto: crypto
   )
 
 exchangetimevalue5 = Exchangetimevalue.create!(
@@ -76,7 +76,7 @@ exchangetimevalue5 = Exchangetimevalue.create!(
   dollar:'2500' ,
   yuan: '2500',
   platform: platform2,
-  Crypto: crypto2
+  crypto: crypto2
   )
 
 exchangetimevalue6 = Exchangetimevalue.create!(
@@ -84,7 +84,7 @@ exchangetimevalue6 = Exchangetimevalue.create!(
   dollar:'10000' ,
   yuan: '10000',
   platform: platform2,
-  Crypto: crypto3
+  crypto: crypto3
   )
 
 exchangetimevalue7 = Exchangetimevalue.create!(
@@ -92,7 +92,7 @@ exchangetimevalue7 = Exchangetimevalue.create!(
   dollar:'3000' ,
   yuan: '3000',
   platform: platform3,
-  Crypto: crypto
+  crypto: crypto
   )
 
 exchangetimevalue8 = Exchangetimevalue.create!(
@@ -100,7 +100,7 @@ exchangetimevalue8 = Exchangetimevalue.create!(
   dollar:'2500' ,
   yuan: '2500',
   platform: platform3,
-  Crypto: crypto2
+  crypto: crypto2
   )
 
 exchangetimevalue9 = Exchangetimevalue.create!(
@@ -108,6 +108,6 @@ exchangetimevalue9 = Exchangetimevalue.create!(
   dollar:'15000' ,
   yuan: '15000',
   platform: platform3,
-  Crypto: crypto3
+  crypto: crypto3
   )
 
