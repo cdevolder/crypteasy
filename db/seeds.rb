@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Platform.destroy_all
 Crypto.destroy_all
+Exchangetimevalue.destroy_all
 
 
 platform = Platform.create!(
@@ -38,7 +39,7 @@ crypto3 = Crypto.create!(
   accronym: 'LTC'
   )
 
-exchangetimevalues = Exchangetimevalues.create!(
+exchangetimevalue = Exchangetimevalue.create!(
   euros: '1000' ,
   dollars:'1000' ,
   yuan: '1000',
@@ -46,7 +47,7 @@ exchangetimevalues = Exchangetimevalues.create!(
   Crypto: 'crypto'
   )
 
-exchangetimevalues2 = Exchangetimevalues.create!(
+exchangetimevalue2 = Exchangetimevalue.create!(
   euros: '1500' ,
   dollars:'1500' ,
   yuan: '1500',
@@ -54,7 +55,7 @@ exchangetimevalues2 = Exchangetimevalues.create!(
   Crypto: 'crypto2'
   )
 
-exchangetimevalues3 = Exchangetimevalues.create!(
+exchangetimevalue3 = Exchangetimevalue.create!(
   euros: '5000' ,
   dollars:'5000' ,
   yuan: '5000',
@@ -62,7 +63,7 @@ exchangetimevalues3 = Exchangetimevalues.create!(
   Crypto: 'crypto3'
   )
 
-exchangetimevalues4 = Exchangetimevalues.create!(
+exchangetimevalue4 = Exchangetimevalue.create!(
   euros: '2000' ,
   dollars:'2000' ,
   yuan: '2000',
@@ -70,7 +71,7 @@ exchangetimevalues4 = Exchangetimevalues.create!(
   Crypto: 'crypto'
   )
 
-exchangetimevalues5 = Exchangetimevalues.create!(
+exchangetimevalue5 = Exchangetimevalue.create!(
   euros: '2500' ,
   dollars:'2500' ,
   yuan: '2500',
@@ -78,7 +79,7 @@ exchangetimevalues5 = Exchangetimevalues.create!(
   Crypto: 'crypto2'
   )
 
-exchangetimevalues6 = Exchangetimevalues.create!(
+exchangetimevalue6 = Exchangetimevalue.create!(
   euros: '10000' ,
   dollars:'10000' ,
   yuan: '10000',
@@ -86,7 +87,7 @@ exchangetimevalues6 = Exchangetimevalues.create!(
   Crypto: 'crypto3'
   )
 
-exchangetimevalues7 = Exchangetimevalues.create!(
+exchangetimevalue7 = Exchangetimevalue.create!(
   euros: '3000' ,
   dollars:'3000' ,
   yuan: '3000',
@@ -94,7 +95,7 @@ exchangetimevalues7 = Exchangetimevalues.create!(
   Crypto: 'crypto'
   )
 
-exchangetimevalues8 = Exchangetimevalues.create!(
+exchangetimevalue8 = Exchangetimevalue.create!(
   euros: '2500' ,
   dollars:'2500' ,
   yuan: '2500',
@@ -102,7 +103,7 @@ exchangetimevalues8 = Exchangetimevalues.create!(
   Crypto: 'crypto2'
   )
 
-exchangetimevalues9 = Exchangetimevalues.create!(
+exchangetimevalue9 = Exchangetimevalue.create!(
   euros: '15000' ,
   dollars:'15000' ,
   yuan: '15000',
