@@ -1,3 +1,5 @@
+require 'cryptocompare'
+
 class PlatformsController < ApplicationController
   def index
     @platforms = Platform.all

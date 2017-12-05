@@ -1,8 +1,9 @@
+require 'cryptocompare'
+
 class ExchangetimevaluesController < ApplicationController
-  def show
-  end
 
   def new
+     @exchangetimevalue = Exchangetimevalue.new
   end
 
   def create
