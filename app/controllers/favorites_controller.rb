@@ -1,3 +1,5 @@
+require 'cryptocompare'
+
 class FavoritesController < ApplicationController
   def index
   end
@@ -6,6 +8,7 @@ class FavoritesController < ApplicationController
   end
 
   def new
+     @favorite = Favorite.new
   end
 
   def create
