@@ -1,0 +1,3 @@
+exchange_value_every_1min:
+  cron: "*/1 * * * *"
+  class: "ExchangeValueJob"
