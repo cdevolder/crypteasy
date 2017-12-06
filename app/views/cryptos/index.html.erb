@@ -2,3 +2,7 @@
 <p>Find me in app/views/cryptos/index.html.erb</p>
 
 
+
+<% data2 = Cryptocompare::HistoMinute.find('BTC', 'USD') %>
+
+<%= data2["Data"] %>

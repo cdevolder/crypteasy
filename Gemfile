@@ -19,6 +19,13 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker', '~> 3.0'
 gem 'cryptocompare'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem "sidekiq-cron", "~> 0.6.3"
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+
 
 group :development, :test do
   gem 'pry-byebug'
