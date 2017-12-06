@@ -2,7 +2,7 @@ require 'cryptocompare'
 
 class FavoritesController < ApplicationController
   def index
-
+    @timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '1'")
 
   end
 

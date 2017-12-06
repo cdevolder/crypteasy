@@ -84,6 +84,7 @@ $(function() {
             content: "x: %x, y: %y"
         }
     };
+    console.log("hello");
     var barData = {
         label: "bar",
         data: [
