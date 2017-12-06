@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   resources :exchangetimevalues, only: [:show, :new, :create, :edit, :update]
 
+  require 'sidekiq/web'
+  require 'sidekiq/cron/web'
+  # authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  # end
+
+
 end
