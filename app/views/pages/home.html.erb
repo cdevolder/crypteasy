@@ -1,3 +1,35 @@
+    <%@timevalues = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '1'") %>
+    <%@timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '1'")%>
+    <%@alltimevalues = []%>
+    <%@alltimevalues1 = []%>
+    <%@min = @timevalues[0].euro.to_f%>
+    <%@max = @timevalues[0].euro.to_f%>
+    <%@timevalues.each_with_index do |timeval, ind|%>
+    <%=  @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]%>
+    <%=  @alltimevalues1 << [@timevalues1[ind].created_at.to_time.to_i, @timevalues1[ind].euro]%>
+    <%  if timeval.euro < @min%>
+    <%=    @min = timeval.euro.to_f%>
+    <% end%>
+    <% if timeval.euro > @max%>
+    <%=    @max = timeval.euro.to_f%>
+    <% end%>
+    <%=  @min = @min%>
+    <%=  @max = @max%>
+    <%end%>
+
+
+
+
+
+
+
+<div id="demochartline"><%= @alltimevalues%></div>
+<div id="demochartline1"><%= @alltimevalues1%></div>
+<div id="minval"><%= @min%></div>
+<div id="maxval"><%= @max%></div>
+
+
+
 <div class="main-content pt30">
   <div class="content">
     <div class="row">
@@ -43,3 +75,110 @@
   <%= link_to "je veux sortir batard", destroy_user_session_path, method: :delete %>
   </div>
 </div>
+
+
+
+
+        <div class="page-wrapper">
+            <main class="main-content">
+                <!--/////////////////////////////// End navbar////////////////////////////-->
+
+
+
+
+                <div class="content">
+
+                    <div class="container">
+                        <div class="page-title pt30 pb30">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ol class="breadcrumb float-right">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active">Components</li>
+                                        <li class="breadcrumb-item active">Grids</li>
+                                    </ol>
+                                    <h4 class="mb10">Grid System</h4>
+                                    <p class="mb10">Components, Easily reusable</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="grid-col">
+                                    Home Page
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="grid-col">
+                                    <div class="row">
+                                      <div class='col-md-12'>
+                                        <div class="grid-col">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">Line Chart</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                       <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class='col-md-12'>
+                                        <div class="grid-col">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">Line Chart</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                       <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class='col-md-12'>
+                                        <div class="grid-col">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">Line Chart</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                       <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-6">
+                                <div class="grid-col">
+                                  <h4 class="card-title"> Service </h4>
+                                    <p style="color: black;">
+                    le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service,
+                  </p>
+                                </div>
+                            </div>
+
+                        <div class="text-center mb30 pt70">
+                            <a target="_blank" class="btn btn-primary" href="https://getbootstrap.com/docs/4.0/layout/grid/">Learn More</a>
+                        </div>
+                    </div><!--container-->
+                </div><!--content-->
+            </main><!--main content-->
+          </div>
+
+            <!--/////////////////////////////// End Content////////////////////////////-->
