@@ -8,27 +8,23 @@
           <% end %>
         </li>
       </ul>
-
       <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user-item">
           <a data-toggle="dropdown" id="navbarcolor" class=" dropdown-toggle" >
-
             <span class="hidden-md-down"> <%= link_to "Devises", cryptos_path%></span>
           </a>
         </li>
         <li class="nav-item dropdown user-item">
           <a data-toggle="dropdown" class=" dropdown-toggle">
-
             <span class="hidden-md-down"> <%= link_to "Dashboard", dashboard_path%></span>
           </a>
         </li>
-          <% end %>
-          <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown user-item">
-            <a data-toggle="dropdown" class=" dropdown-toggle">
-
-              <span class="hidden-md-down"> <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login" %></span>
+      <% end %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown user-item">
+          <a data-toggle="dropdown" class=" dropdown-toggle">
+            <span class="hidden-md-down"> <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login"%></span>
           </a>
         </li>
       </ul>
