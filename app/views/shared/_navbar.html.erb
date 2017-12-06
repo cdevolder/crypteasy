@@ -24,10 +24,11 @@
           </a>
         </li>
           <% end %>
-        <li class="nav-item dropdown user-item">
-          <a data-toggle="dropdown" class=" dropdown-toggle">
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown user-item">
+            <a data-toggle="dropdown" class=" dropdown-toggle">
 
-            <span class="hidden-md-down"> <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login" %></span>
+              <span class="hidden-md-down"> <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login" %></span>
           </a>
         </li>
       </ul>
