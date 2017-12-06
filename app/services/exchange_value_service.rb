@@ -1,23 +1,22 @@
 class ExchangeValueService
 
-  def initialize(accronym, platform_name)
-    @platform = Platform.find_by_name(platform_name)
-    @crypto = Crypto.find_by_accronym(accronym)
+  def initialize(crypto, platform)
+    @platform = platform
+    @crypto = crypto
   end
 
   def call
+    puts "[ExchangeValueService] Find #{@crypto.accronym} for #{@platform.name}"
+
     result = Cryptocompare::Price.find(
       [@crypto.accronym],
       ['EUR', 'USD'],
       {'e' => @platform.name}
     )
 
-    euro = result[@crypto.accronym]['EUR']
-    dollar = result[@crypto.accronym]['USD']
-
-    Exchangetimevalue.create(
-      euro: euro,
-      dollar: dollar,
+    Exchangetimevalue.create!(
+      euro: result[@crypto.accronym]['EUR'],
+      dollar: result[@crypto.accronym]['USD'],
       platform: @platform,
       crypto: @crypto
     )
