@@ -2,7 +2,592 @@
 <p>Find me in app/views/cryptos/index.html.erb</p>
 
 
+            <main class="main-content">
+                <!--/////////////////////////////// End navbar////////////////////////////-->
+                <header class="header">
+                    <div class="container">
+                        <div class="navbar navbar-expand-lg">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" class=" btn-circle-round sidebar-toggler">
+                                        <i class="icon-menu"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-3 hidden-md-down">
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="text" placeholder="Find...">
+                                        <button class="icon-search" type="submit"><i class="ion-ios-search-strong"></i></button>
+                                    </form>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown hidden-sm-down">
+                                    <a data-toggle="dropdown" href="javascript:void(0)" class="btn-circle-round dropdown-toggle">
+                                        <i class="icon-bubbles"></i>
+                                        <span class="badge bg-success">5</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                        <li class="notification-header">
+                                            <span class="float-right">
+                                                <a href="#">View All</a>
+                                            </span>
+                                            5 New Messages
+                                        </li>
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb">
+                                                <img src="images/user1.jpg" alt="" class="img-fluid rounded-circle">
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">11 M ago</span>
+                                                    Mark Wood
 
-<% data2 = Cryptocompare::HistoMinute.find('BTC', 'USD') %>
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb">
+                                                <img src="images/user2.jpg" alt="" class="img-fluid rounded-circle">
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">11 H ago</span>
+                                                    Jimmy Anderson
 
-<%= data2["Data"] %>
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb">
+                                                <img src="images/user3.jpg" alt="" class="img-fluid rounded-circle">
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">23 ago</span>
+                                                    Adam Voges
+
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb">
+                                                <img src="images/user4.jpg" alt="" class="img-fluid rounded-circle">
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">Yesterday</span>
+                                                    Sarah Taylor
+
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-sm-down">
+                                    <a data-toggle="dropdown" href="javascript:void(0)" class=" btn-circle-round dropdown-toggle">
+                                        <i class="icon-bullhorn"></i>
+                                        <span class="badge bg-danger">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                        <li class="notification-header">
+                                            <span class="float-right">
+                                                <a href="#">View All</a>
+                                            </span>
+                                            3 New Notifications
+                                        </li>
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb bg-success">
+                                                <i class="icon-folder-download text-white"></i>
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">11 M ago</span>
+                                                    Download Success
+
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                        <li class="clearfix notify-item hidden-sm-down">
+                                            <a href="#" class="notify-thumb bg-primary">
+                                                <i class="ion-social-twitter text-white"></i>
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">3 Days ago</span>
+                                                    3 New Followers
+
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+                                        <li class="clearfix notify-item">
+                                            <a href="#" class="notify-thumb bg-danger">
+                                                <i class="icon-server text-white"></i>
+                                            </a>
+                                            <div class="notify-content">
+                                                <a href="#">
+                                                    <span class="float-right">5 Days ago</span>
+                                                    Server Space Low
+
+                                                </a>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet
+                                                </p>
+                                            </div>
+                                        </li><!--item-->
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown user-item">
+                                    <a data-toggle="dropdown" href="javascript:void(0)" class=" dropdown-toggle">
+                                        <img src="images/user3.jpg" width="50" alt="" class="img-fluid rounded-circle">
+                                        <span class="hidden-md-down"> Adam Voges</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right profile-dropdown">
+
+                                        <li class="dropdown-item">
+                                            <a href="#"><i class="icon-user"></i> Profile</a>
+                                        </li><!--item-->
+                                        <li class="dropdown-item">
+                                            <a href="#"><i class="icon-envelope"></i> Mailbox</a>
+                                        </li><!--item-->
+                                        <li class="dropdown-item">
+                                            <a href="#"><i class="icon-cog"></i> Settings</a>
+                                        </li><!--item-->
+                                        <li class="dropdown-item">
+                                            <a href="#"><i class="icon-power-switch"></i> Logout</a>
+                                        </li><!--item-->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </header><!--header-->
+                <!--/////////////////////////////// End Header////////////////////////////-->
+
+
+                <div class="content">
+                    <div class="container">
+                        <div class="page-title pt30 pb30">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ol class="breadcrumb float-right">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
+                                    <h4 class="mb0">Welcome Adam</h4>
+                                </div>
+                            </div>
+                        </div><!--page title-->
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3 col-sm-12">
+                                <div class="widget-info clearfix mb30 bg-warning">
+                                    <i class="ion-ios-chatbubble-outline"></i>
+                                    <div class="widget-content">
+                                        <h4 class="text-white">234</h4>
+                                        <span class="text-white-gray">New Comments</span>
+                                    </div>
+                                </div>
+                            </div><!--col-->
+                            <div class="col-md-6 col-lg-3 col-sm-12">
+                                <div class="widget-info clearfix mb30 bg-primary">
+                                    <i class="ion-ios-pricetags-outline"></i>
+                                    <div class="widget-content">
+                                        <h4 class="text-white">127</h4>
+                                        <span class="text-white-gray">New Tickets</span>
+                                    </div>
+                                </div>
+                            </div><!--col-->
+                            <div class="col-md-6 col-lg-3 col-sm-12">
+                                <div class="widget-info clearfix mb30 bg-success">
+                                    <i class="ion-ios-cart-outline"></i>
+                                    <div class="widget-content">
+                                        <h4 class="text-white">79</h4>
+                                        <span class="text-white-gray">Items Sold</span>
+                                    </div>
+                                </div>
+                            </div><!--col-->
+                            <div class="col-md-6 col-lg-3 col-sm-12">
+                                <div class="widget-info clearfix mb30 bg-danger">
+                                    <i class="ion-social-usd-outline"></i>
+                                    <div class="widget-content">
+                                        <h4 class="text-white">1952</h4>
+                                        <span class="text-white-gray">Earnings</span>
+                                    </div>
+                                </div>
+                            </div><!--col-->
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 mb30">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">New Sign Ups</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                        <canvas id="barChart"></canvas>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb30">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">Top Countries</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                        <div id="world-map-markers" style="height: 245px"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 mb30">
+                                <div class='card'>
+                                    <div class="card-top">
+                                        <h4 class="card-title">Sales Analytics</h4>
+                                    </div>
+                                    <div class='card-content'>
+                                        <div id="area-example"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb30">
+                                <div class="card">
+                                    <div class="card-top">
+                                        <h4 class="card-title">Todo List</h4>
+                                        <div class="card-options">
+
+                                        </div><!--card options-->
+                                    </div><!--card top-->
+                                    <div class="card-content pb20">
+                                        <div class="widget-todo smart-forms">
+                                            <ul class="list-unstyled">
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">assan - Assan admin dashboard </span>
+                                                    </label>
+
+                                                </li>
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">Works perfect on all devices</span>
+                                                    </label>
+
+                                                </li>
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">A simple and modern dashboard </span>
+                                                    </label>
+
+                                                </li>
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">Manager assign a task to you </span>
+                                                    </label>
+
+                                                </li>
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">Robin working on the contact form </span>
+                                                    </label>
+
+                                                </li>
+                                                <li class="todo-item">
+                                                    <label class="option block">
+                                                        <input type="checkbox" name="service" value="marketing">
+                                                        <span class="checkbox"></span>
+                                                        <span class="todo-text">Lorem ipsum dolor sit amet </span>
+                                                    </label>
+
+                                                </li>
+                                            </ul>
+                                            <input type="text" class="form-control form-control-lg" placeholder="Add New TODO">
+                                        </div>
+                                    </div><!--content-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-top">
+                                        <h4 class="card-title">Recent Orders</h4>
+<div class="card-options">
+                                            <form>
+                                                <select class="form-control form-control-sm">
+                                                    <option>Today</option>
+                                                    <option>Weekly</option>
+                                                    <option>Monthly</option>
+                                                    <option>Yearly</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div><!--card top-->
+                                    <div class="card-content pb20">
+                                        <table id="data-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Id</th>
+                                                    <th>Order Name</th>
+                                                    <th>Qty</th>
+                                                    <th>Status</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                     <th>Order Id</th>
+                                                    <th>Order Name</th>
+                                                    <th>Qty</th>
+                                                    <th>Status</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>63223</td>
+                                                    <td><a href="#">John Payer Shirt</a></td>
+                                                    <td>4</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$66.50 x4</td>
+                                                </tr>
+                                            <tr>
+                                                    <td>76867</td>
+                                                    <td><a href="#">Dell Power bank</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$35.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>24232</td>
+                                                    <td><a href="#">HP Laptop</a></td>
+                                                    <td>2</td>
+                                                    <td><span class="label label-warning">Pending</label></td>
+                                                    <td>$999.50 x2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>86784</td>
+                                                    <td><a href="#">SS Cricket Bat</a></td>
+                                                    <td>3</td>
+                                                    <td><span class="label label-danger">Cancel</label></td>
+                                                    <td>$66.50 x3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>33423</td>
+                                                    <td><a href="#">Fastrack Watch</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-warning">Pending</label></td>
+                                                    <td>$66.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>34534</td>
+                                                    <td><a href="#">Jockey Inner-wear</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$66.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>07979</td>
+                                                    <td><a href="#">Ray Bon Sunglass</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-danger">Cancel</label></td>
+                                                    <td>$66.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>34532</td>
+                                                    <td><a href="#">Puma Lower</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$66.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>08866</td>
+                                                    <td><a href="#">Adidas Shoes</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$66.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>45765</td>
+                                                    <td><a href="#">Nike Face Wash</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-warning">Pending</label></td>
+                                                    <td>$32.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>85543</td>
+                                                    <td><a href="#">Olavira face Cream</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-warning">Pending</label></td>
+                                                    <td>$6.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14345</td>
+                                                    <td><a href="#">Women's Top</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-success">Success</label></td>
+                                                    <td>$29.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>34975</td>
+                                                    <td><a href="#">Wrangler T-shirt</a></td>
+                                                    <td>1</td>
+                                                    <td><span class="label label-danger">Cancel</label></td>
+                                                    <td>$24.50</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--content-->
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb20">
+                                <div class="card mb30">
+                                    <div class="card-top">
+                                        <h4 class="card-title">Latest Activities</h4>
+                                        <div class="card-options">
+
+                                        </div><!--card options-->
+                                    </div><!--card top-->
+                                    <div class="card-content">
+                                        <ul class="list-group activity-widget">
+                                            <li class="list-group-item">
+                                                <div class="widget-icon-left">
+                                                    <div class="pull-left mr-3">
+                                                        <i class="fa fa-cloud-upload btn-icon-rounded btn-sm bg-primary"></i>
+                                                    </div>
+                                                    <div class="widget-icon-left-body clearfix">
+                                                        <small class="text-muted pull-right ml">15m</small>
+                                                        <div class="media-box-heading"><a href="#" class="text-primary m0">New File Upload</a>
+                                                        </div>
+                                                        <p class="mb0">
+                                                            <small><a href="#" class="text-muted">Bootstraplovers.com</a>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li><!--/item-->
+                                            <li class="list-group-item">
+                                                <div class="widget-icon-left">
+                                                    <div class="pull-left mr-3">
+                                                        <i class="fa fa-window-close btn-icon-rounded btn-sm bg-danger"></i>
+                                                    </div>
+                                                    <div class="widget-icon-left-body clearfix">
+                                                        <small class="text-muted pull-right ml">20m</small>
+                                                        <div class="media-box-heading"><a href="#" class="text-danger m0">Project Deadline</a>
+                                                        </div>
+                                                        <p class="mb0">
+                                                            <small><a href="#" class="text-muted">Bootstraplovers.com</a>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li><!--/item-->
+                                            <li class="list-group-item">
+                                                <div class="widget-icon-left">
+                                                    <div class="pull-left mr-3">
+                                                        <i class="fa fa-lock btn-icon-rounded btn-sm bg-info"></i>
+                                                    </div>
+                                                    <div class="widget-icon-left-body clearfix">
+                                                        <small class="text-muted pull-right ml">25m</small>
+                                                        <div class="media-box-heading"><a href="#" class="text-info m0">Password Reset</a>
+                                                        </div>
+                                                        <p class="mb0">
+                                                            <small><a href="#" class="text-muted">Bootstraplovers.com</a>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li><!--/item-->
+                                            <li class="list-group-item">
+                                                <div class="widget-icon-left">
+                                                    <div class="pull-left mr-3">
+                                                        <i class="fa fa-question btn-icon-rounded btn-sm bg-success"></i>
+                                                    </div>
+                                                    <div class="widget-icon-left-body clearfix">
+                                                        <small class="text-muted pull-right ml">35m</small>
+                                                        <div class="media-box-heading"><a href="#" class="text-success m0">New Support Ticket</a>
+                                                        </div>
+                                                        <p class="mb0">
+                                                            <small><a href="#" class="text-muted">Assan Theme</a>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li><!--/item-->
+                                            <li class="list-group-item">
+                                                <div class="widget-icon-left">
+                                                    <div class="pull-left mr-3">
+                                                        <i class="fa fa-twitter btn-icon-rounded btn-sm bg-primary"></i>
+                                                    </div>
+                                                    <div class="widget-icon-left-body clearfix">
+                                                        <small class="text-muted pull-right ml">45m</small>
+                                                        <div class="media-box-heading"><a href="#" class="text-primary m0">3 New Followers</a>
+                                                        </div>
+                                                        <p class="mb0">
+                                                            <small><a href="#" class="text-muted">twitter.com</a>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li><!--/item-->
+                                        </ul>
+                                    </div><!--content-->
+                                </div><!--card-->
+                               <div class="widget-info clearfix mb10 bg-white">
+                                    <i class="ion-social-facebook text-primary"></i>
+                                    <div class="widget-content">
+                                        <h4>6.5K</h4>
+                                        <span>Page likes</span>
+                                    </div>
+                                </div>
+                                <div class="widget-info clearfix mb10 bg-white">
+                                    <i class="ion-social-twitter text-info"></i>
+                                    <div class="widget-content">
+                                        <h4>3.5K</h4>
+                                        <span>Followers</span>
+                                    </div>
+                                </div>
+                                <div class="widget-info clearfix mb10 bg-white">
+                                    <i class="icon-user text-dark"></i>
+                                    <div class="widget-content">
+                                        <h4>10.9K</h4>
+                                        <span>Total Users</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--container-->
+                </div><!--content-->
+            </main><!--main content-->
+
+
