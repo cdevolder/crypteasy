@@ -1,2 +1,60 @@
-<h1>Cryptos#show</h1>
-<p>Find me in app/views/cryptos/show.html.erb</p>
+<h1><%= Crypto.find(params[:id]).name %></h1>
+
+<div class="content" >
+  <div class="container">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <div class="row">
+
+        <div class="col-md-8 col-sm-8 col-lg-8" style="display:flex; justify-content: space-around;">
+
+          <div class="card">
+            <div class="card-content">
+              <h4 class="mt40">
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €
+              </h4>
+            </div>
+          </div>
+
+          <div class="card text-center" >
+            <div class="card-content">
+              <h4 class="mt10" style="color:green;">
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %>
+              </h4>
+            </div>
+            <div class="card-content">
+              <h4 class="mt10" style="color:red;">
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %>
+              </h4>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-md-4 col-sm-4 col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-stripped">
+                <tbody>
+                    <% Platform.all.each do |platform| %>
+                      <tr>
+                        <td>
+                          <%= platform.name %>
+                        </td>
+                        <td>
+                          <button class="btn btn-secondary" id="btn-platform">Go</button>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
