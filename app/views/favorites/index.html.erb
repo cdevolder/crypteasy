@@ -1,6 +1,16 @@
-<% @timevalues.each do |timeval|%>
-  <%=timeval.euro%>
-<%end%>
+<div id="demochartline"><%= @alltimevalues%></div>
+<div id="demochartline1"><%= @alltimevalues1%></div>
+<div id="minval"><%= @min%></div>
+<div id="maxval"><%= @max%></div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    const coord = <%= raw @flat_coordinates.to_json %>;
+    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
 
 <h1>Favorites#index</h1>
 <p>Find me in app/views/favorites/index.html.erb</p>
@@ -218,19 +228,7 @@
                                     </div>
                                 </div>
                             </div><!--/col-->
-                             <div class='col-md-6 mb30'>
-                                <div class='card'>
-                                    <div class="card-top">
-                                        <h4 class="card-title">Bar Chart</h4>
-                                    </div>
-                                    <div class='card-content'>
-                                    <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-bar-chart"></div>
-                            </div>
-
-                                    </div>
-                                </div>
-                            </div><!--/col-->
+<!--/col-->
                          <div class='col-md-6 mb30'>
                                 <div class='card'>
                                     <div class="card-top">
@@ -244,19 +242,7 @@
                                     </div>
                                 </div>
                             </div><!--/col-->
-                            <div class='col-md-6 mb30'>
-                                <div class='card'>
-                                    <div class="card-top">
-                                        <h4 class="card-title">Pie Chart</h4>
-                                    </div>
-                                    <div class='card-content'>
-                                     <div class="flot-chart">
-                                <div class="flot-chart-pie-content" id="flot-pie-chart"></div>
-                            </div>
-
-                                    </div>
-                                </div>
-                            </div><!--/col-->
+<!--/col-->
                              <div class='col-md-12 mb30'>
                                 <div class='card'>
                                     <div class="card-top">
