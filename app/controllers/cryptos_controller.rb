@@ -21,10 +21,29 @@ class CryptosController < ApplicationController
       end
       @min = @min
       @max = @max
+    end
   end
 
   def show
     @crypto = Crypto.find(params[:id])
+    if params[:platform]
+      @timevalues = Exchangetimevalue.where("platform_id = '#{params[:platform]}' AND crypto_id = '#{params[:id]}'")
+    else
+      @timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '#{params[:id]}'")
+    end
+    @alltimevalues = []
+    @min = @timevalues[0].euro.to_f
+    @max = @timevalues[0].euro.to_f
+    @timevalues.each_with_index do |timeval, ind|
+      @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]
+      if timeval.euro < @min
+        @min = timeval.euro.to_f
+      end
+      if timeval.euro > @max
+        @max = timeval.euro.to_f
+      end
+      @min = @min
+      @max = @max
+    end
   end
-end
 end
