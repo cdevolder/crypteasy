@@ -1,10 +1,12 @@
 //Flot Bar Chart
 
-    var datas = document.getElementById("demochartline");
-    var datas1 = document.getElementById("demochartline1");
+    var datas = gon.alltimevalues;
+    var datas1 = gon.alltimevalues1;
 
-    var min = document.getElementById("minval");
-    var max = document.getElementById("maxval");
+    var min = gon.min;
+    var max = gon.min;
+
+    console.log(datas);
     min = min.innerHTML;
     max = max.innerHTML;
     datas = datas.innerHTML;
