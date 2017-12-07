@@ -22,7 +22,7 @@
         </li>
 
         <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="ion-log-out" style="color: #073F79"></i> <%=t(".sign_out", default:" ") %>
+        <i class="fa fa-sign-out fa-lg" style="color: #073F79 " aria-hidden="true"></i> <%= t(".sign_out", default: " ") %>
       <% end %>
 
       <% else %>
