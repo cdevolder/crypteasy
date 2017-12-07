@@ -14,29 +14,35 @@ Platform.destroy_all
 
 platform = Platform.create!(
   name: 'Kraken',
-  description: 'ok'
+  description: 'ok',
+  photo_url:
   )
 
 platform2 = Platform.create!(
   name: 'Gdax',
-  description: 'ok'
+  description: 'ok',
+  photo_url:
   )
 
 platform3 = Platform.create!(
   name: 'Bitstamp',
-  description: 'ok'
+  description: 'ok',
+  photo_url:
   )
 
 crypto = Crypto.create!(
   name: 'Bitcoin',
-  accronym: 'BTC'
+  accronym: 'BTC',
+  photo_url: 'https://www.cryptocompare.com/media/19633/btc.png'
   )
 
 crypto2 = Crypto.create!(
   name: 'Ethereum',
-  accronym: 'ETH'
+  accronym: 'ETH',
+  photo_url: 'https://www.cryptocompare.com/media/20646/eth_logo.png'
   )
 crypto3 = Crypto.create!(
   name: 'Litcoin',
-  accronym: 'LTC'
+  accronym: 'LTC',
+  photo_url: 'https://www.cryptocompare.com/media/19782/litecoin-logo.png'
   )
