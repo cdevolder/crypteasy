@@ -1226,7 +1226,7 @@ Cards custom style
     justify-content: space-between;
     -ms-flex-align: center;
     align-items: center;
-    padding: 5px 15px;
+    padding: 1px 5px;
     transition: opacity .2s ease-out;
     background-color: #fff;
     border-top: 2px solid #ddd;
@@ -1274,7 +1274,7 @@ Cards custom style
       color: #666;
       border-radius: 50%; }
   .card .card-content {
-    padding: 15px 15px; }
+    padding: 0px 15px; }
   .card.header-transparent .card-top {
     background-color: transparent; }
 
@@ -2063,7 +2063,7 @@ Error 404
 Charts & graphs
 */
 .flot-chart {
-  height: 250px;
+  height: 200px;
   display: block; }
   .flot-chart .flot-chart-content {
     width: 100%;
@@ -2072,3 +2072,16 @@ Charts & graphs
     width: 200px;
     height: 250px;
     margin: 0 auto; }
+
+.flot-chart1 {
+  height: 173px;
+  display: block; }
+  .flot-chart1 .flot-chart-content {
+    width: 100%;
+    height: 100%; }
+  .flot-chart1 .flot-chart-pie-content {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto; }
+
+

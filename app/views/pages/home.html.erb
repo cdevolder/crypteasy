@@ -62,158 +62,83 @@
 
 </div>
 
-<div class="main-content pt30">
-  <div class="content">
-    <div class="row">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="container">
-            <div class="mb30">
-              <div class="card">
-                <div class="card-top">
-                  <h4 class="card-title"> Service </h4>
-                </div>
-                <div class="card-content">
-                  <p>
-                    le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service,
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="container">
-            <div class="layout-accounts">
-              <div class="account-wrap">
-                <div class="account-card">
-                  <div class="account-content smart-forms">
-                    <div class="text-center">
-                      <%= link_to root_path do %>
-                        <%= image_tag "crypteasy.png", height: "50px" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <%= link_to "je veux sortir batard", destroy_user_session_path, method: :delete %>
-  </div>
+<div class="page-wrapper">
+   <main class="main-content" style="margin-bottom: 0px;">
+      <!--/////////////////////////////// End navbar////////////////////////////-->
+      <div class="content">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="row">
+                     <div class='col-md-12'>
+                        <div class='card'>
+                           <div class="card-top">
+                              <h4 class="card-title">Line Chart</h4>
+                           </div>
+                           <div class='card-content'>
+                              <div class="flot-chart1">
+                                 <div class="flot-chart-content" id="flot-line-chart0"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class='col-md-12'>
+                        <div class='card'>
+                           <div class="card-top">
+                              <h4 class="card-title">Line Chart</h4>
+                           </div>
+                           <div class='card-content'>
+                              <div class="flot-chart1">
+                                 <div class="flot-chart-content" id="flot-line-chart1"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class='col-md-12'>
+                        <div class='card'>
+                           <div class="card-top">
+                              <h4 class="card-title">Line Chart</h4>
+                           </div>
+                           <div class='card-content'>
+                              <div class="flot-chart1">
+                                 <div class="flot-chart-content" id="flot-line-chart2"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6" >
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .2); border-radius: 5px; padding-right: 5px; padding-left: 5px; margin-right: 15px; margin-left: 14px; margin-bottom: 26px;">
+                        <div style="padding: 25px;">
+                        <h4 class="card-title"> Service </h4>
+                        <p style="color: black;">
+                          Crypt easy est un comparateur en temps réel des principales plateformes de trading de crypto-monnaies.
+Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos profits.
+                        </p>
+                        </div>
+                      </div>
+                  </div>
+                    <div class="col-md-12">
+                      <%= render "devise/registrations/new" %>
+                    </div>
+
+                  </div>
+                </div>
+               </div>
+            </div>
+         </div>
+         <!--container-->
+      </div>
+      <!--content-->
+   </main>
+   <!--main content-->
 </div>
-
-
-
-
-        <div class="page-wrapper">
-            <main class="main-content">
-                <!--/////////////////////////////// End navbar////////////////////////////-->
-
-
-
-
-                <div class="content">
-
-                    <div class="container">
-                        <div class="page-title pt30 pb30">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <ol class="breadcrumb float-right">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item active">Components</li>
-                                        <li class="breadcrumb-item active">Grids</li>
-                                    </ol>
-                                    <h4 class="mb10">Grid System</h4>
-                                    <p class="mb10">Components, Easily reusable</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="grid-col">
-                                    Home Page
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-
-                                    <div class="row">
-                                      <div class='col-md-12'>
-
-                                <div class='card'>
-                                    <div class="card-top">
-                                        <h4 class="card-title">Line Chart</h4>
-                                    </div>
-                                    <div class='card-content'>
-                                       <div class="flot-chart">
-                            <div class="flot-chart-content" id="flot-line-chart0"></div>
-                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class='col-md-12'>
-
-                                <div class='card'>
-                                    <div class="card-top">
-                                        <h4 class="card-title">Line Chart</h4>
-                                    </div>
-                                    <div class='card-content'>
-                                       <div class="flot-chart">
-                            <div class="flot-chart-content" id="flot-line-chart1"></div>
-                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class='col-md-12'>
-
-                                <div class='card'>
-                                    <div class="card-top">
-                                        <h4 class="card-title">Line Chart</h4>
-                                    </div>
-                                    <div class='card-content'>
-                                       <div class="flot-chart">
-                            <div class="flot-chart-content" id="flot-line-chart2"></div>
-                        </div>
-
-                                    </div>
-                                </div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="col-md-6">
-                                <div class="grid-col">
-                                  <h4 class="card-title"> Service </h4>
-                                    <p style="color: black;">
-                    le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service, le détail du service,
-                  </p>
-                                </div>
-                            </div>
-                          </div>
-
-                        <div class="text-center mb30 pt70">
-                            <a target="_blank" class="btn btn-primary" href="https://getbootstrap.com/docs/4.0/layout/grid/">Learn More</a>
-                        </div>
-                    </div><!--container-->
-                </div><!--content-->
-            </main><!--main content-->
-          </div>
-
-          <%= render "devise/registrations/new" %>
 
             <!--/////////////////////////////// End Content////////////////////////////-->
 

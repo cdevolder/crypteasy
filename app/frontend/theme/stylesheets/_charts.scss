@@ -3,7 +3,21 @@ Charts & graphs
 */
 
 .flot-chart{
-    height:250px;
+    height:800px;
+    display:block;
+    .flot-chart-content{
+        width:100%;
+        height:100%;
+    }
+    .flot-chart-pie-content{
+        width:200px;
+        height:250px;
+        margin:0 auto;
+    }
+}
+
+.flot-chart1{
+    height:173px;
     display:block;
     .flot-chart-content{
         width:100%;
