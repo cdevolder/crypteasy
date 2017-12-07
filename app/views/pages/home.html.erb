@@ -1,7 +1,7 @@
 <div style="display: none;">
     <%@timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '1'") %>
-    <%@timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '2'")%>
-    <%@timevalues2 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '2'")%>
+    <%@timevalues1 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '2'")%>
+    <%@timevalues2 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '3'")%>
     <%@alltimevalues = []%>
     <%@alltimevalues1 = []%>
     <%@alltimevalues2 = []%>
@@ -9,8 +9,8 @@
     <%@max = @timevalues[0].euro.to_f%>
     <%@min1 = @timevalues1[0].euro.to_f%>
     <%@max1 = @timevalues1[0].euro.to_f%>
-    <%@min2 = @timevalues1[0].euro.to_f%>
-    <%@max2 = @timevalues1[0].euro.to_f%>
+    <%@min2 = @timevalues2[0].euro.to_f%>
+    <%@max2 = @timevalues2[0].euro.to_f%>
     <%@timevalues.each_with_index do |timeval, ind|%>
     <%=  @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]%>
     <%  if timeval.euro < @min%>
@@ -19,8 +19,7 @@
     <% if timeval.euro > @max%>
       <%=    @max = timeval.euro.to_f%>
     <% end%>
-    <%=  @min = @min%>
-    <%=  @max = @max%>
+
     <%end%>
 
     <%@timevalues1.each_with_index do |timeval, ind|%>
@@ -31,10 +30,7 @@
     <% if timeval.euro > @max1%>
       <%=    @max1 = timeval.euro.to_f%>
     <% end%>
-    <%=  @min = @min%>
-    <%=  @max = @max%>
-    <%=  @min1 = @min1%>
-    <%=  @max1 = @max1%>
+
     <%end%>
 
     <%@timevalues2.each_with_index do |timeval, ind|%>
@@ -45,12 +41,7 @@
     <% if timeval.euro > @max2%>
       <%=    @max2 = timeval.euro.to_f%>
     <% end%>
-    <%=  @min = @min%>
-    <%=  @max = @max%>
-    <%=  @min1 = @min1%>
-    <%=  @max1 = @max1%>
-    <%=  @min2 = @min2%>
-    <%=  @max2 = @max2%>
+
     <%end%>
 
 
@@ -169,8 +160,8 @@ Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos
     var max2 = document.getElementById("maxval2");
 
     console.log(datas);
-    console.log(max);
-    console.log(min);
+    console.log(max2);
+    console.log(min2);
 
 
     min = min.innerHTML;
