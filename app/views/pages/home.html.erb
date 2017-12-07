@@ -1,3 +1,4 @@
+<div style="display: none;">
     <%@timevalues = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '1'") %>
     <%@timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '1'")%>
     <%@alltimevalues = []%>
@@ -17,18 +18,12 @@
     <%=  @max = @max%>
     <%end%>
 
+  <div id="demochartline"><%= @alltimevalues%></div>
+  <div id="demochartline1"><%= @alltimevalues1%></div>
+  <div id="minval"><%= @min%></div>
+  <div id="maxval"><%= @max%></div>
 
-
-
-
-
-
-<div id="demochartline"><%= @alltimevalues%></div>
-<div id="demochartline1"><%= @alltimevalues1%></div>
-<div id="minval"><%= @min%></div>
-<div id="maxval"><%= @max%></div>
-
-
+</div>
 
 <div class="main-content pt30">
   <div class="content">
@@ -102,7 +97,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="grid-col">
@@ -110,10 +104,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="grid-col">
+
                                     <div class="row">
                                       <div class='col-md-12'>
-                                        <div class="grid-col">
+
                                 <div class='card'>
                                     <div class="card-top">
                                         <h4 class="card-title">Line Chart</h4>
@@ -125,11 +119,11 @@
 
                                     </div>
                                 </div>
-                              </div>
+
                             </div>
 
                             <div class='col-md-12'>
-                                        <div class="grid-col">
+
                                 <div class='card'>
                                     <div class="card-top">
                                         <h4 class="card-title">Line Chart</h4>
@@ -141,11 +135,11 @@
 
                                     </div>
                                 </div>
-                              </div>
+
                             </div>
 
                             <div class='col-md-12'>
-                                        <div class="grid-col">
+
                                 <div class='card'>
                                     <div class="card-top">
                                         <h4 class="card-title">Line Chart</h4>
@@ -157,8 +151,8 @@
 
                                     </div>
                                 </div>
-                              </div>
-                            </div>
+
+
 
 
                                     </div>
@@ -172,6 +166,7 @@
                   </p>
                                 </div>
                             </div>
+                          </div>
 
                         <div class="text-center mb30 pt70">
                             <a target="_blank" class="btn btn-primary" href="https://getbootstrap.com/docs/4.0/layout/grid/">Learn More</a>
