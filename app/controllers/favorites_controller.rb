@@ -8,6 +8,8 @@ class FavoritesController < ApplicationController
     @alltimevalues1 = []
     @min = @timevalues[0].euro.to_f
     @max = @timevalues[0].euro.to_f
+    @min1 = @timevalues1[0].euro.to_f
+    @max1 = @timevalues1[0].euro.to_f
     @timevalues.each_with_index do |timeval, ind|
       @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]
       @alltimevalues1 << [@timevalues1[ind].created_at.to_time.to_i, @timevalues1[ind].euro]
@@ -18,6 +20,12 @@ class FavoritesController < ApplicationController
       if timeval.euro > @max
         @max = timeval.euro.to_f
       end
+      if @timevalues1[ind].euro < @min
+        @min1 = @timevalues1[ind].euro.to_f
+      end
+      if @timevalues1[ind].euro > @max
+        @max1 = @timevalues1[ind].euro.to_f
+      end
       @min = @min
       @max = @max
 
@@ -26,6 +34,8 @@ class FavoritesController < ApplicationController
       gon.alltimevalues1 = @alltimevalues1
       gon.min = @min
       gon.max = @max
+      gon.min1 = @min1
+      gon.max1 = @max1
 
       @try = gon.min
 
