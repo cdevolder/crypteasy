@@ -21,6 +21,15 @@ class FavoritesController < ApplicationController
       @min = @min
       @max = @max
 
+
+      gon.alltimevalues = @alltimevalues
+      gon.alltimevalues1 = @alltimevalues1
+      gon.min = @min
+      gon.max = @max
+
+      @try = gon.min
+
+
     end
 
   end

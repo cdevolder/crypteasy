@@ -13,6 +13,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+gem 'gon'
 
 gem 'sass-rails'
 gem 'simple_form'
