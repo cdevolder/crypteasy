@@ -3,7 +3,7 @@ require 'cryptocompare'
 class CryptosController < ApplicationController
   def index
     @cryptos = Crypto.all
-   @timevalues = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '1'")
+    @timevalues = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '1'")
     @timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '1'")
     @alltimevalues = []
     @alltimevalues1 = []

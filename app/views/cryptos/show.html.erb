@@ -1,29 +1,36 @@
-<div class="content mt40">
+<div class="content mt10">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mb30">
-        <div class='card' style="display:flex; justify-content: space-around;">
+        <div class='card'>
           <div class="card-top">
-            <h4 class="card-title"><%= Crypto.find(params[:id]).name %></h4>
+            <p class="card-title text-left"><%= Crypto.find(params[:id]).name %></p>
+            <p class="card-title text-right"><%= Platform.find(params[:platform]).name %></p>
           </div>
-          <div class="card">
-            <div class='card-content'>
-              <p class="mt10">
-                Last price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <p class="mt10" style="color:green;">
-                Highest price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €
-              </p>
-              <p class="mt10" style="color:red;">
-                Lowest price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €
-              </p>
+          <div class="container">
+            <div class="row text-center">
+              <div class="card col-md-6">
+                <div class='card-content mb30'>
+                  <p>
+                    Last price:
+                    <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €
+                  </p>
+                </div>
+              </div>
+              <div class="card col-md-6">
+                <div class="card-content">
+                  <p style="color:green;">
+                    Highest price:
+                    <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €
+                  </p>
+                </div>
+                <div class="card-content">
+                  <p style="color:red;">
+                    Lowest price:
+                    <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -40,17 +47,18 @@
           <div class='card-content'>
             <table class="table table-stripped">
                 <tbody>
-                    <% Platform.all.each do |platform| %>
-                      <tr>
-                        <td>
-                          <%= platform.name %>
-                        </td>
-                        <td>
-                          <button class="btn btn-secondary" id="btn-platform">Go</button>
-                        </td>
-                      </tr>
-                    <% end %>
-                  </tr>
+                  <% 2.times do %> <!-- Line to delete -->
+                  <% Platform.all.each do |platform| %>
+                    <tr>
+                      <td>
+                        <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn" %>
+                      </td>
+                      <td>
+                        <%= link_to 'Website', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                  <% end %> <!-- Line to delete -->
                 </tbody>
               </table>
           </div>
