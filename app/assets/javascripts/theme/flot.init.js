@@ -4,18 +4,10 @@
     var datas1 = gon.alltimevalues1;
 
     var min = gon.min;
-    var max = gon.min;
+    var max = gon.max;
 
-    console.log(datas);
-    min = min.innerHTML;
-    max = max.innerHTML;
-    datas = datas.innerHTML;
-    datas1 = datas1.innerHTML;
 
-    min = JSON.parse(min);
-    max = JSON.parse(max);
-    datas = JSON.parse(datas);
-    datas1 = JSON.parse(datas1);
+
     console.log(datas);
     console.log(datas1);
     console.log(min);
