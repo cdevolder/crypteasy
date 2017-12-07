@@ -6,12 +6,33 @@
     var min = gon.min;
     var max = gon.max;
 
+    var min1 = gon.min1;
+    var max1 = gon.max1;
 
-
-    console.log(datas);
-    console.log(datas1);
     console.log(min);
     console.log(max);
+
+    var datas0 = document.getElementById("demochartline");
+    var datas10 = document.getElementById("demochartline1");
+    var min0 = document.getElementById("minval0");
+    var max0 = document.getElementById("maxval0");
+
+    min0 = min0.innerHTML;
+    max0 = max0.innerHTML;
+    data0 = datas0.innerHTML;
+    datas10 = datas10.innerHTML;
+
+    min0 = JSON.parse(min0);
+    max0 = JSON.parse(max0);
+    datas0 = JSON.parse(datas0);
+    datas10 = JSON.parse(datas10);
+
+    console.log(datas10)
+
+
+
+
+if (document.getElementById("flot-line-chart") != null){
 $(function() {
     var barOptions = {
         series: {
@@ -65,6 +86,9 @@ $(function() {
     $.plot($("#flot-line-chart"), [barData], barOptions);
 
 });
+}
+
+
 //Flot Pie Chart
 
 
