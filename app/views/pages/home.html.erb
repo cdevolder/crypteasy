@@ -1,12 +1,16 @@
 <div style="display: none;">
     <%@timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '1'") %>
     <%@timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '2'")%>
+    <%@timevalues2 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '2'")%>
     <%@alltimevalues = []%>
     <%@alltimevalues1 = []%>
+    <%@alltimevalues2 = []%>
     <%@min = @timevalues[0].euro.to_f%>
     <%@max = @timevalues[0].euro.to_f%>
     <%@min1 = @timevalues1[0].euro.to_f%>
     <%@max1 = @timevalues1[0].euro.to_f%>
+    <%@min2 = @timevalues1[0].euro.to_f%>
+    <%@max2 = @timevalues1[0].euro.to_f%>
     <%@timevalues.each_with_index do |timeval, ind|%>
     <%=  @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]%>
     <%  if timeval.euro < @min%>
@@ -33,15 +37,35 @@
     <%=  @max1 = @max1%>
     <%end%>
 
+    <%@timevalues2.each_with_index do |timeval, ind|%>
+    <%=  @alltimevalues2 << [timeval.created_at.to_time.to_i,timeval.euro]%>
+    <%  if timeval.euro < @min2%>
+      <%=    @min2 = timeval.euro.to_f%>
+    <% end%>
+    <% if timeval.euro > @max2%>
+      <%=    @max2 = timeval.euro.to_f%>
+    <% end%>
+    <%=  @min = @min%>
+    <%=  @max = @max%>
+    <%=  @min1 = @min1%>
+    <%=  @max1 = @max1%>
+    <%=  @min2 = @min2%>
+    <%=  @max2 = @max2%>
+    <%end%>
+
 
   <div id="demochartline"><%= @alltimevalues%></div>
   <div id="demochartline1"><%= @alltimevalues1%></div>
+  <div id="demochartline2"><%= @alltimevalues2%></div>
 
   <div id="minval"><%= @min%></div>
   <div id="maxval"><%= @max%></div>
 
   <div id="minval1"><%= @min1%></div>
   <div id="maxval1"><%= @max1%></div>
+
+  <div id="minval2"><%= @min2%></div>
+  <div id="maxval2"><%= @max2%></div>
 
 
 </div>
@@ -132,6 +156,7 @@ Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos
   <script type="text/javascript">
     var datas = document.getElementById("demochartline");
     var datas1 = document.getElementById("demochartline1");
+    var datas2 = document.getElementById("demochartline2");
 
 
     var min = document.getElementById("minval");
@@ -139,6 +164,9 @@ Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos
 
     var min1 = document.getElementById("minval1");
     var max1 = document.getElementById("maxval1");
+
+    var min2 = document.getElementById("minval2");
+    var max2 = document.getElementById("maxval2");
 
     console.log(datas);
     console.log(max);
@@ -151,16 +179,26 @@ Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos
     min1 = min1.innerHTML;
     max1 = max1.innerHTML;
 
+    min2 = min2.innerHTML;
+    max2 = max2.innerHTML;
+
     datas = datas.innerHTML;
     datas1 = datas1.innerHTML;
+    datas2 = datas2.innerHTML;
 
 
     min = JSON.parse(min);
     max = JSON.parse(max);
+
     min1 = JSON.parse(min1);
     max1 = JSON.parse(max1);
+
+    min2 = JSON.parse(min2);
+    max2 = JSON.parse(max2);
+
     datas = JSON.parse(datas);
     datas1 = JSON.parse(datas1);
+    datas2 = JSON.parse(datas2);
 
 
 if (document.getElementById("flot-line-chart0") && document.getElementById("demochartline")) {
@@ -298,8 +336,8 @@ $(function() {
         },
         yaxis: {
             tickDecimals: 2,
-            min: min1 - 0.5,
-            max: max1 + 0.5
+            min: min2 - 0.5,
+            max: max2 + 0.5
         },
         colors: ["#0073ff"],
         grid: {
