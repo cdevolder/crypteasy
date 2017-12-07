@@ -81,3 +81,212 @@ Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos
             <!--/////////////////////////////// End Content////////////////////////////-->
 
 
+
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+    var datas = document.getElementById("demochartline");
+    var datas1 = document.getElementById("demochartline1");
+    var datas2 = document.getElementById("demochartline2");
+
+    var min = document.getElementById("minval");
+    var max = document.getElementById("maxval");
+
+    var min0 = document.getElementById("minval0");
+    var max0 = document.getElementById("maxval0");
+
+    var min1 = document.getElementById("minval1");
+    var max1 = document.getElementById("maxval1");
+
+    console.log(min1);
+    console.log(max1);
+    console.log(min);
+
+
+    min = min.innerHTML;
+    max = max.innerHTML;
+    datas = datas.innerHTML;
+    datas1 = datas1.innerHTML;
+    datas2 = datas2.innerHTML;
+    min0 = min0.innerHTML;
+    max0 = max0.innerHTML;
+    min1 = min1.innerHTML;
+    max1 = max1.innerHTML;
+
+    min = JSON.parse(min);
+    max = JSON.parse(max);
+    datas = JSON.parse(datas);
+    datas1 = JSON.parse(datas1);
+    datas2 = JSON.parse(datas2);
+    min0 = JSON.parse(min0);
+    max0 = JSON.parse(max0);
+    min1 = JSON.parse(min1);
+    max1 = JSON.parse(max1);
+
+if document.getElementById("flot-line-chart0") {
+$(function() {
+    var barOptions = {
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 0.0
+                    }, {
+                        opacity: 0.0
+                    }]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0,
+            mode: 'time'
+        },
+        yaxis: {
+            tickDecimals: 2,
+            min: min - 5.0,
+            max: max + 5.0
+        },
+        colors: ["#0073ff"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth:0
+        },
+        legend: {
+            show: true,
+            position: "sw"
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+
+
+    var barData = {
+        label: "BTC/EUR Kraken",
+        tickDecimals: 2,
+        data: datas,
+
+    };
+    $.plot($("#flot-line-chart0"), [barData], barOptions);
+
+});
+}
+if document.getElementById("flot-line-chart1") {
+$(function() {
+    var barOptions = {
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 0.0
+                    }, {
+                        opacity: 0.0
+                    }]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0,
+            mode: 'time'
+        },
+        yaxis: {
+            tickDecimals: 2,
+            min: min0 - 0.5,
+            max: max0 + 0.5
+        },
+        colors: ["#0073ff"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth:0
+        },
+        legend: {
+            show: true,
+            position: "sw"
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+
+
+    var barData = {
+        label: "ETH/EUR Gdax",
+        tickDecimals: 2,
+        data: datas1,
+
+    };
+    $.plot($("#flot-line-chart1"), [barData], barOptions);
+
+});
+}
+
+if document.getElementById("flot-line-chart2") {
+$(function() {
+    var barOptions = {
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 0.0
+                    }, {
+                        opacity: 0.0
+                    }]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0,
+            mode: 'time'
+        },
+        yaxis: {
+            tickDecimals: 2,
+            min: min1 - 0.5,
+            max: max1 + 0.5
+        },
+        colors: ["#0073ff"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth:0
+        },
+        legend: {
+            show: true,
+            position: "sw"
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+
+
+    var barData = {
+        label: "LTC/EUR Bitstamp",
+        tickDecimals: 2,
+        data: datas2,
+
+    };
+    $.plot($("#flot-line-chart2"), [barData], barOptions);
+
+});
+}
+  </script>
+<% end %>
