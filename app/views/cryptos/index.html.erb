@@ -1,37 +1,36 @@
+<div class="container">
+  <div class="row">
+    <% @cryptos.each do |crypto|%>
+      <div class="col-xs-12 col-md-4 col-sm-3"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon"><img src="<%= crypto.photo_url %>", width="50"></div>
+          <div class="card-description-wagon"><%= crypto.name%></div>
+            <%= link_to crypto_path(crypto), :class => "card-link-wagon" do %>
+              <div class="text-center crypto-title">
+                <h4>Open <%= crypto.name %></h4>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
 
-
-
-  <div class="container">
-    <div class="row">
-      <% @cryptos.each do |crypto|%>
-        <div class="ol-xs-12 col-md-4 col-sm-3"">
-          <div class="card-index-wagon">
-            <div class="card-category-wagon"><%= crypto.name%></div>
-            <div class="card-back-wagon"></div>
-            <%= link_to 'rxctvygbuhnj', crypto_path(crypto), :class => "card-link-wagon" %>
-          </div>
-        </div>
-      <% end %>
-      <div class="col-xs-12 col-md-4 col-sm-3">
-          <div class="card-index-wagon">
-            <div class="card-category-wagon">XMR</div>
-            <div class="card-back-wagon"></div>
-          </div>
-        </div>
-        <div class="ol-xs-12 col-md-4 col-sm-3"">
-          <div class="card-index-wagon">
-            <div class="card-category-wagon">BCH</div>
-            <div class="card-back-wagon"></div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-4 col-sm-3"">
-          <div class="card-index-wagon">
-            <div class="card-category-wagon">DSH</div>
-            <div class="card-back-wagon"></div>
-          </div>
-        </div>
+    <div class="col-xs-12 col-md-4 col-sm-3">
+      <div class="card-index-wagon">
+        <div class="card-description-wagon">XMR</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-sm-3"">
+      <div class="card-index-wagon">
+        <div class="card-description-wagon">BCH</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-sm-3"">
+      <div class="card-index-wagon">
+        <div class="card-description-wagon">DSH</div>
+      </div>
     </div>
   </div>
+</div>
 
 
 
