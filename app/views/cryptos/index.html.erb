@@ -1,3 +1,17 @@
+<div id="demochartline"><%= @alltimevalues%></div>
+<div id="demochartline1"><%= @alltimevalues1%></div>
+<div id="minval"><%= @min%></div>
+<div id="maxval"><%= @max%></div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    const coord = <%= raw @flat_coordinates.to_json %>;
+    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
+
 <h1>Cryptos#index</h1>
 <p>Find me in app/views/cryptos/index.html.erb</p>
 
@@ -260,13 +274,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-8 mb30">
+                        <div class='col-md-6 mb30'>
                                 <div class='card'>
                                     <div class="card-top">
-                                        <h4 class="card-title">Sales Analytics</h4>
+                                        <h4 class="card-title">Line Chart</h4>
                                     </div>
                                     <div class='card-content'>
-                                        <div id="area-example"></div>
+                                       <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                        </div>
 
                                     </div>
                                 </div>
