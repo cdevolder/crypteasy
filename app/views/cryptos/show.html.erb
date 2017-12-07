@@ -4,13 +4,13 @@
       <div class="col-md-8 mb30">
         <div class='card' style="display:flex; justify-content: space-around;">
           <div class="card-top">
-            <h4 class="card-title"><%= Crypto.find(params[:id]).name %></h4>
+            <h4 class="card-title"><%= Crypto.find(params[:id]).name %> / <%= Platform.find(params[:platform]).name %></h4>
           </div>
           <div class="card">
             <div class='card-content'>
               <p class="mt10">
                 Last price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €
               </p>
             </div>
           </div>
@@ -18,11 +18,11 @@
             <div class="card-content">
               <p class="mt10" style="color:green;">
                 Highest price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €
               </p>
               <p class="mt10" style="color:red;">
                 Lowest price:
-                <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €
+                <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €
               </p>
             </div>
           </div>
@@ -40,17 +40,18 @@
           <div class='card-content'>
             <table class="table table-stripped">
                 <tbody>
-                    <% Platform.all.each do |platform| %>
-                      <tr>
-                        <td>
-                          <%= platform.name %>
-                        </td>
-                        <td>
-                          <button class="btn btn-secondary" id="btn-platform">Go</button>
-                        </td>
-                      </tr>
-                    <% end %>
-                  </tr>
+                  <% 2.times do %> <!-- Line to delete -->
+                  <% Platform.all.each do |platform| %>
+                    <tr>
+                      <td>
+                        <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn" %>
+                      </td>
+                      <td>
+                        <%= link_to 'Website', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                  <% end %> <!-- Line to delete -->
                 </tbody>
               </table>
           </div>
