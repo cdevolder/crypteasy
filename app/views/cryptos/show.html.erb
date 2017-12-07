@@ -40,42 +40,18 @@
           <div class='card-content'>
             <table class="table table-stripped">
                 <tbody>
+                  <% 2.times do %> <!-- Line to delete -->
                   <% Platform.all.each do |platform| %>
                     <tr>
                       <td>
-                        <%= platform.name %>
+                        <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn" %>
                       </td>
                       <td>
-                        <%= link_to 'See', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
+                        <%= link_to 'Website', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
                       </td>
                     </tr>
                   <% end %>
-<!-- To delete start -->
-                  <tr>
-                    <td>
-                      Bittrex
-                    </td>
-                    <td>
-                      <button class="btn btn-secondary" id="btn-platform">Go</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Coinbase
-                    </td>
-                    <td>
-                      <button class="btn btn-secondary" id="btn-platform">Go</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Etoro
-                    </td>
-                    <td>
-                      <button class="btn btn-secondary" id="btn-platform">Go</button>
-                    </td>
-                  </tr>
-<!-- To delete end -->
+                  <% end %> <!-- Line to delete -->
                 </tbody>
               </table>
           </div>
