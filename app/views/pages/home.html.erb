@@ -74,7 +74,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">BTC/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -86,7 +86,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">ETH/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -98,7 +98,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">LTC/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -224,8 +224,8 @@ $(function() {
         },
         yaxis: {
             tickDecimals: 2,
-            min: min - 5.0,
-            max: max + 5.0
+            min: min - ((max - min)/3),
+            max: max + ((max - min)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -236,7 +236,7 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,
@@ -286,8 +286,8 @@ $(function() {
         },
         yaxis: {
             tickDecimals: 2,
-            min: min1 - 0.5,
-            max: max1 + 0.5
+            min: min1 - ((max1 - min1)/3),
+            max: max1 + ((max1 - min1)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -298,7 +298,7 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,
@@ -347,8 +347,8 @@ $(function() {
         },
         yaxis: {
             tickDecimals: 2,
-            min: min2 - 0.5,
-            max: max2 + 0.5
+            min: min2 - ((max2 - min2)/3),
+            max: max2 + ((max2 - min2)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -359,7 +359,7 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,
