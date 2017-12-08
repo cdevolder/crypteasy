@@ -41,7 +41,7 @@ class CryptosController < ApplicationController
     @min = @timevalues[0].euro.to_f
     @max = @timevalues[0].euro.to_f
     @timevalues.each_with_index do |timeval, ind|
-      @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]
+      @alltimevalues << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
       if timeval.euro < @min
         @min = timeval.euro.to_f
       end
