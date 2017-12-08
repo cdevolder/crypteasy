@@ -215,7 +215,7 @@ $(function() {
       let gain = (quantity/(<%= @lowest_price %>)*(<%= @highest_price %>))-quantity
       let percent = (gain/quantity)*100 || 0
       document.getElementById("boxresult").innerHTML =
-        "<br><h4> Désolé pour le front, nous allons règler celà prochainement</h4><br><p>You should by your <strong><%= @crypto.name %></strong> on <strong><%= @platform_low %></strong> where the price is currently <strong><%= @lowest_price %>€</strong> and sell it on <strong><%= @platform_high %></strong> where the price is currently <strong><%= @highest_price %>€</strong>. If you invest " + quantity + "€ in <%= @crypto.name %> on <%= @platform_low %> and sell it on <%= @platform_high %> you will increase your investment by: <br> <strong>" + gain.toFixed(2) +"€</strong> <br><strong>+" + percent.toFixed(2) + "%</p></strong>";
+        "<br><h4> Désolé pour le front, nous allons règler celà prochainement</h4><br><p>You should buy your <strong><%= @crypto.name %></strong> on <strong><%= @platform_low %></strong> where the price is currently <strong><%= @lowest_price %>€</strong> and sell it on <strong><%= @platform_high %></strong> where the price is currently <strong><%= @highest_price %>€</strong>. If you invest " + quantity + "€ in <%= @crypto.name %> on <%= @platform_low %> and sell it on <%= @platform_high %> you will increase your investment by: <br> <strong>" + gain.toFixed(2) +"€</strong> <br><strong>+" + percent.toFixed(2) + "%</p></strong>";
     });
 
   </script>
