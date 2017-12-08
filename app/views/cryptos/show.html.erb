@@ -169,8 +169,8 @@ $(function() {
         },
         yaxis: {
             tickDecimals: 2,
-            min: min - 5.0,
-            max: max + 5.0
+            min: min - ((max - min)/3),
+            max: max + ((max - min)/3)
         },
         colors: ["#0073ff"],
         grid: {
