@@ -14,14 +14,14 @@
 
                 <div class="mt30 mb30">
                   <div class="tagline text-center">
-                      <span>LOG IN</span>
+                      <span style="color: #073f79">LOG IN</span>
                   </div>
                 </div>
-                <div class="section">
+                <div class="section" style="color: #8dc247" >
                   <%= f.input :email, required: false, autofocus: true %>
-                </div>
-                  <%= f.input :password, required: false %>
+                                  <%= f.input :password, required: false %>
                   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                </div>
 
                 <div class="form-footer mt30">
                   <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
