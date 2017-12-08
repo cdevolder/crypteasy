@@ -1,7 +1,7 @@
 <div style="display: none;">
-    <%@timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '1'") %>
-    <%@timevalues1 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '2'")%>
-    <%@timevalues2 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '3'")%>
+    <%@timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '1'").last(300) %>
+    <%@timevalues1 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '2'").last(300)%>
+    <%@timevalues2 = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '3'").last(300)%>
     <%@alltimevalues = []%>
     <%@alltimevalues1 = []%>
     <%@alltimevalues2 = []%>
@@ -12,7 +12,7 @@
     <%@min2 = @timevalues2[0].euro.to_f%>
     <%@max2 = @timevalues2[0].euro.to_f%>
     <%@timevalues.each_with_index do |timeval, ind|%>
-    <%=  @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]%>
+    <%=  @alltimevalues << [timeval.created_at.to_time.to_i * 1000,timeval.euro]%>
     <%  if timeval.euro < @min%>
       <%=    @min = timeval.euro.to_f%>
     <% end%>
@@ -23,7 +23,7 @@
     <%end%>
 
     <%@timevalues1.each_with_index do |timeval, ind|%>
-    <%=  @alltimevalues1 << [timeval.created_at.to_time.to_i,timeval.euro]%>
+    <%=  @alltimevalues1 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]%>
     <%  if timeval.euro < @min1%>
       <%=    @min1 = timeval.euro.to_f%>
     <% end%>
@@ -34,7 +34,7 @@
     <%end%>
 
     <%@timevalues2.each_with_index do |timeval, ind|%>
-    <%=  @alltimevalues2 << [timeval.created_at.to_time.to_i,timeval.euro]%>
+    <%=  @alltimevalues2 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]%>
     <%  if timeval.euro < @min2%>
       <%=    @min2 = timeval.euro.to_f%>
     <% end%>
@@ -74,7 +74,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">BTC/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -86,7 +86,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">ETH/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -98,7 +98,7 @@
                      <div class='col-md-12'>
                         <div class='card'>
                            <div class="card-top">
-                              <h4 class="card-title">Line Chart</h4>
+                              <h4 class="card-title" style="color: blue;">LTC/EUR Kraken</h4>
                            </div>
                            <div class='card-content'>
                               <div class="flot-chart1">
@@ -210,13 +210,22 @@ $(function() {
             }
         },
         xaxis: {
+
             tickDecimals: 0,
-            mode: 'time'
+            mode: 'time',
+            timeformat: "%m/%d/%H:%M",
+            unit: 'day',
+            ticks: {
+                    display: false
+                }
+
+
+
         },
         yaxis: {
             tickDecimals: 2,
-            min: min - 5.0,
-            max: max + 5.0
+            min: min - ((max - min)/3),
+            max: max + ((max - min)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -227,12 +236,13 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,
         tooltipOpts: {
-            content: "x: %x, y: %y"
+            content: "x: %x, y: %y",
+
         }
     };
 
@@ -267,12 +277,17 @@ $(function() {
         },
         xaxis: {
             tickDecimals: 0,
-            mode: 'time'
+            mode: 'time',
+            timeformat: "%m/%d/%H:%M",
+            unit: 'day',
+            ticks: {
+                    display: false
+                }
         },
         yaxis: {
             tickDecimals: 2,
-            min: min1 - 0.5,
-            max: max1 + 0.5
+            min: min1 - ((max1 - min1)/3),
+            max: max1 + ((max1 - min1)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -283,7 +298,7 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,
@@ -323,12 +338,17 @@ $(function() {
         },
         xaxis: {
             tickDecimals: 0,
-            mode: 'time'
+            mode: 'time',
+            timeformat: "%m/%d/%H:%M",
+            unit: 'day',
+            ticks: {
+                    display: false
+                }
         },
         yaxis: {
             tickDecimals: 2,
-            min: min2 - 0.5,
-            max: max2 + 0.5
+            min: min2 - ((max2 - min2)/3),
+            max: max2 + ((max2 - min2)/3)
         },
         colors: ["#0073ff"],
         grid: {
@@ -339,7 +359,7 @@ $(function() {
             borderWidth:0
         },
         legend: {
-            show: true,
+            show: false,
             position: "sw"
         },
         tooltip: true,

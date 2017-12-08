@@ -3,7 +3,7 @@
     <div class="account-wrap">
       <div class="account-card">
         <div class="account-content smart-forms">
-          <div class="text-center">
+          <div class="text-center" >
             <%= link_to root_path do %>
               <%= image_tag "crypteasy.png", height: "50px" %>
             <% end %>
@@ -14,16 +14,16 @@
                 <%= f.error_notification %>
 
                 <div class="mt30 mb30">
-                  <div class="tagline text-center">
-                      <span>CREATE AN ACCOUNT</span>
+                  <div class="tagline text-center" >
+                      <span style="color: #073f79">CREATE AN ACCOUNT</span>
                   </div>
                 </div>
-                <div class="section">
+                <div class="section" style="color: #8dc247">
                   <%= f.input :email, required: true, autofocus: true %>
-                </div>
+
                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                   <%= f.input :password_confirmation, required: true, class: "field prepend-icon" %>
-
+                </div>
                 <div class="form-footer mt30">
                   <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
                 </div>

@@ -1,15 +1,38 @@
-<h2>Forgot your password?</h2>
+<div class="container">
+  <div class="layout-accounts">
+    <div class="account-wrap">
+      <div class="account-card">
+        <div class="account-content smart-forms">
+          <div class="text-center">
+            <%= link_to root_path do %>
+              <%= image_tag "crypteasy.png", height: "50px" %>
+            <% end %>
+          </div>
+          <div id="contact">
+            <div class="form-body">
+              <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+                <div class="mt30 mb30">
+                  <div class="tagline text-center">
+                      <span style="color: #073f79">Forgot your password?</span>
+                  </div>
+                </div>
+                <div class="section" style="color: #8dc247" >
+                  <%= f.input :email, required: true, autofocus: true %>
+                </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+                <div class="form-footer mt30">
+                  <%= f.button :submit, "Send me reset password instructions", class: "btn btn-primary btn-block" %>
+                </div>
+              <% end %>
+              <div class="text-right">
+              <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

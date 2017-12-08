@@ -28,6 +28,22 @@ class FavoritesController < ApplicationController
       @min = @min
       @max = @max
 
+
+  def show
+    @favorite = Favorite.find(params[:id])
+    @timevalues = Exchangetimevalue.where("platform_id = '#{@favorite.platform_id}' AND crypto_id = '#{@favorite.crypto_id}'")
+    @alltimevalues = []
+    @min = @timevalues[0].euro.to_f
+    @max = @timevalues[0].euro.to_f
+    @timevalues.each_with_index do |timeval, ind|
+      @alltimevalues << [timeval.created_at.to_time.to_i,timeval.euro]
+      if timeval.euro < @min
+        @min = timeval.euro.to_f
+      end
+      if timeval.euro > @max
+        @max = timeval.euro.to_f
+      end
+    end
   end
 
   def new
