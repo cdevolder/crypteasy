@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  crypto: one
-  platform: one
   user: one
+  crypto: one
+  platform1: 1
+  platform2: 1
 
 two:
-  crypto: two
-  platform: two
   user: two
+  crypto: two
+  platform1: 1
+  platform2: 1

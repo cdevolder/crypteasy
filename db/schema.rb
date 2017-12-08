@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206085500) do
+ActiveRecord::Schema.define(version: 20171208093009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 20171206085500) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.bigint "crypto_id"
-    t.bigint "platform_id"
     t.bigint "user_id"
+    t.bigint "crypto_id"
+    t.integer "platform1"
+    t.integer "platform2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["crypto_id"], name: "index_favorites_on_crypto_id"
-    t.index ["platform_id"], name: "index_favorites_on_platform_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -91,6 +91,5 @@ ActiveRecord::Schema.define(version: 20171206085500) do
   add_foreign_key "exchangetimevalues", "cryptos"
   add_foreign_key "exchangetimevalues", "platforms"
   add_foreign_key "favorites", "cryptos"
-  add_foreign_key "favorites", "platforms"
   add_foreign_key "favorites", "users"
 end

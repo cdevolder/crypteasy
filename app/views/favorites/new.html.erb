@@ -1,11 +1,35 @@
-<h1>Favorites#new</h1>
-<p>Find me in app/views/favorites/new.html.erb</p>
-
-<%= simple_form_for [@favorite] do |f| %>
-  <%= f.select(:crypto_id, Crypto.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
-    <%= f.select(:platform_id, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
-
-  <%= f.submit "Save"%>
-<% end %>
 
 
+<div class="container">
+  <div class="layout-accounts">
+    <div class="account-wrap">
+      <div class="account-card">
+        <div class="account-content smart-forms">
+          <div class="text-center">
+          </div>
+          <div id="contact">
+            <div class="form-body">
+              <%= simple_form_for Favorite.new do |f| %>
+                <div class="section colm colm6">
+                    <%= f.select(:crypto_id, Crypto.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true })%>
+                </div>
+                <div class="section colm colm6">
+                  <%= f.select(:platform1, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+                </div>
+                <div class="section colm colm6">
+                  <%= f.select(:platform2, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+                </div>
+
+                <div class="form-footer mt30">
+                  <%= f.submit "Save", class: "btn btn-primary btn-block" %>
+                </div>
+              <% end %>
+              <div class="text-right">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
