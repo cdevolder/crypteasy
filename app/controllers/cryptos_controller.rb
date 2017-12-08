@@ -33,9 +33,9 @@ class CryptosController < ApplicationController
   def show
     @crypto = Crypto.find(params[:id])
     if params[:platform]
-      @timevalues = Exchangetimevalue.where("platform_id = '#{params[:platform]}' AND crypto_id = '#{params[:id]}'")
+      @timevalues = Exchangetimevalue.where("platform_id = '#{params[:platform]}' AND crypto_id = '#{params[:id]}'").last(300)
     else
-      @timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '#{params[:id]}'")
+      @timevalues = Exchangetimevalue.where("platform_id = '1' AND crypto_id = '#{params[:id]}'").last(300)
     end
     @alltimevalues = []
     @min = @timevalues[0].euro.to_f
