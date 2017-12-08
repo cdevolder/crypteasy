@@ -2,6 +2,7 @@ require 'cryptocompare'
 
 class CryptosController < ApplicationController
   def index
+
     @cryptos = Crypto.all
     @timevalues = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '1'")
     @timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '1'")
@@ -21,7 +22,12 @@ class CryptosController < ApplicationController
       end
       @min = @min
       @max = @max
+
     end
+        @testouille = @timevalues[0].created_at.utc.to_i
+        @test1 = @timevalues[0].created_at
+
+
   end
 
   def show
