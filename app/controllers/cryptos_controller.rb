@@ -51,5 +51,20 @@ class CryptosController < ApplicationController
       @min = @min
       @max = @max
     end
+
+
+    # Utilisé pour le calculateur sur la page crypto_show
+    last_prices = []
+    Platform.all.each do |platform|
+      last_prices << [platform.id, Exchangetimevalue.where(crypto: params[:id], platform: platform).order(:created_at).last.euro]
+    end
+
+    @highest_price = last_prices.sort {|a,b| a[1] <=> b[1]}.last.last
+    @highest_platform_id = last_prices.sort {|a,b| a[1] <=> b[1]}.last.first
+    @lowest_price = last_prices.sort {|a,b| a[1] <=> b[1]}.first.last
+    @lowest_platform_id = last_prices.sort {|a,b| a[1] <=> b[1]}.first.first
+
+    @platform_low = Platform.find(@lowest_platform_id).name
+    @platform_high = Platform.find(@highest_platform_id).name
   end
 end
