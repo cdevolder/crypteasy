@@ -177,3 +177,71 @@ Cards custom style
   color: #ffffff;
 }
 
+// Flip Card Hugo
+
+body {
+  background: #16a085;
+}
+.flip-box {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 650px;
+  height: 650px;
+  margin: 2em auto;
+  overflow: hidden;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: .5em;
+  display: block;
+  font-family: Gotham, "Proxima Nova","Open Sans",Helvetica, sans-serif;
+  text-align: center;
+  -webkit-transition:
+    box-shadow .4s .45s,
+    -webkit-transform 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-perspective: 150px;
+  -webkit-transform-origin: bottom;
+}
+[class^="flip-box-"] {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  padding: 2em;
+  z-index: 2;
+  -webkit-perspective: 150px;
+  -webkit-transition: opacity .25s .25s linear;
+}
+h1 {
+  padding-top: 5%;
+}
+p {
+  padding-top: 5%;
+}
+a {
+  display: inline-block;
+  background: #1abc9c;
+  color: #fff;
+  border-radius: .25em;
+  padding: .25em .5em;
+  text-decoration: none;
+}
+.flip-box-back {
+  -webkit-transform: rotateX(180deg);
+  -webkit-transition: color .2s .5s, background .2s .5s ease-in-out, opacity .25s .4s linear;
+  z-index: 1;
+  opacity: 0;
+}
+.flip-box.flipped {
+  -webkit-transform: rotateX(180deg) translateY(15em) translateZ(40px);
+  box-shadow: 0 0 .5em #000;
+}
+.flipped .flip-box-front {
+   opacity: 0;
+}
+.flipped .flip-box-back {
+  background: #fff;
+  color: #222;
+  z-index: 3;
+  opacity: 1;
+}
+

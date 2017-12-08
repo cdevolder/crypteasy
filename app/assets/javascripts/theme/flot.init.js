@@ -17,10 +17,7 @@
     var min0 = document.getElementById("minval0");
     var max0 = document.getElementById("maxval0");
 
-    min0 = min0.innerHTML;
-    max0 = max0.innerHTML;
-    data0 = datas0.innerHTML;
-    datas10 = datas10.innerHTML;
+
 
     min0 = JSON.parse(min0);
     max0 = JSON.parse(max0);

@@ -18,7 +18,7 @@
               <% end %>
             </p>
             <% if params[:platform] %>
-              <p class="card-title text-right"><%= Platform.find(params[:platform]).name %></p>
+              <p class="card-title text-right" ><%= Platform.find(params[:platform]).name %></p>
             <% else %>
               <p class="card-title text-right"><%= Platform.find(1).name %></p>
             <% end %>
@@ -30,9 +30,9 @@
                   <p>
                     <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
                     <% if params[:platform] %>
-                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €</p>
+                      <p id="testplatformname"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €</p>
                     <% else %>
-                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %></p>
+                      <p id="testplatformname"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %></p>
                     <% end %>
                   </p>
                 </div>
@@ -105,8 +105,63 @@
   </div>
 </div>
 
+
+<div class="flip-box">
+  <div class="flip-box-front">
+    <h1 style="color: black;">Let's Flip This!</h1>
+    <div class='card-content pb20'>
+            <table class="table table-stripped">
+                <tbody>
+                  <tr>
+                      <td>
+                        <button id="sendajax">Gdax</button>
+                      </td>
+                      <td>
+                        <%= link_to 'Website', "/cryptos/#{1}?platform=#{Platform.all[0].id}", class: "btn btn-secondary" %>
+                      </td>
+                    </tr>
+                  <% 2.times do %> <!-- Line to delete -->
+                  <% Platform.all.each do |platform| %>
+                    <tr>
+                      <td>
+                        <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn  front-toggle" %>
+                      </td>
+                      <td>
+                        <%= link_to 'Website', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                  <% end %> <!-- Line to delete -->
+                </tbody>
+              </table>
+          </div>
+
+    <a class="front-toggle" href="">Click</a>
+  </div>
+  <div class="flip-box-back">
+    <p>That was probably the coolest thing you've done all day, amiright? </p>
+    <a class="back-toggle" href="">Back</a>
+  </div>
+</div>
+
 <%= content_for(:after_js) do %>
   <script type="text/javascript">
+     let pricerrrr = document.getElementById('testplatformname');
+     let buttonajax = document.getElementById('sendajax');
+
+     let xxx = fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR&e=Kraken').then((data) => data.json()).then((json) => { console.log(json)});
+     console.log('coucou 2');
+     console.log(xxx);
+     console.log('coucou 2');
+
+    buttonajax.addEventListener('click', function() {
+        pricerrrr.innerHTML = "12345"
+        console.log('coucou 2');
+
+    });
+
+
+
     var datas = document.getElementById("demochartline");
 
 
@@ -182,7 +237,21 @@ $(function() {
     };
     $.plot($("#flot-line-chart00"), [barData], barOptions);
 
+    $('.front-toggle').click(function(e) {
+
+  $('.flip-box').addClass('flipped');
 });
+$('.back-toggle').click(function(e) {
+  e.preventDefault();
+  $('.flip-box').removeClass('flipped');
+});
+
+});
+
+
+
+
+
 
   </script>
 <% end %>
