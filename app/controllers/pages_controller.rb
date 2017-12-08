@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @favorites = current_user.favorites
   end
 end
