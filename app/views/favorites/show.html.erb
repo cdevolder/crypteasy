@@ -1,2 +1,100 @@
 <h1>Favorites#show</h1>
 <p>Find me in app/views/favorites/show.html.erb</p>
+
+<div style="display: none;">
+  <div id="demochartline"><%=@alltimevalues%></div>
+  <div id="minval"><%=@min%></div>
+  <div id="maxval"><%=@max%></div>
+</div>
+
+
+<div class='card'>
+   <div class="card-top">
+      <h4 class="card-title">Line Chart</h4>
+   </div>
+   <div class='card-content'>
+      <div class="flot-chart2">
+         <div class="flot-chart-content" id="flot-line-chart000"></div>
+      </div>
+   </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+    var datas = document.getElementById("demochartline");
+    var min = document.getElementById("minval");
+    var max = document.getElementById("maxval");
+
+
+
+    console.log(datas);
+    console.log(max);
+    console.log(min);
+
+
+    min = min.innerHTML;
+    max = max.innerHTML;
+    datas = datas.innerHTML;
+
+
+    min = JSON.parse(min);
+    max = JSON.parse(max);
+    datas = JSON.parse(datas);
+
+
+$(function() {
+    var barOptions = {
+        series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 0.0
+                    }, {
+                        opacity: 0.0
+                    }]
+                }
+            }
+        },
+        xaxis: {
+            tickDecimals: 0,
+            mode: 'time'
+        },
+        yaxis: {
+            tickDecimals: 2,
+            min: min - 5.0,
+            max: max + 5.0
+        },
+        colors: ["#0073ff"],
+        grid: {
+            color: "#999999",
+            hoverable: true,
+            clickable: true,
+            tickColor: "#D4D4D4",
+            borderWidth:0
+        },
+        legend: {
+            show: false,
+            position: "sw"
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "x: %x, y: %y"
+        }
+    };
+
+
+    var barData = {
+        label: "BTC/EUR Kraken",
+        tickDecimals: 2,
+        data: datas,
+
+    };
+    $.plot($("#flot-line-chart000"), [barData], barOptions);
+
+});
+
+  </script>
+<% end %>
