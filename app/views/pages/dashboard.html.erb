@@ -1,0 +1,8 @@
+<% @favorites = Favorite.all %>
+<% @favorites.each do |favorite| %>
+  <%= favorite.crypto.name %>
+  <%= Platform.find(favorite.platform1.to_i).name %>
+  <%= Platform.find(favorite.platform2.to_i).name %>
+<% end %>
+
+
