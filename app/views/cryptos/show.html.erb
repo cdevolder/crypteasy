@@ -32,7 +32,7 @@
                     <% if params[:platform] %>
                       <p><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €</p>
                     <% else %>
-                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %></p>
+                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €</p>
                     <% end %>
                   </p>
                 </div>
@@ -106,8 +106,8 @@
             <h4 class="card-title">Calculator</h4>
           </div>
           <div class='card-content pb20'>
-            € <input style="width:100px; height: 40px; padding-bottom: 5px;" class="text-left" id="quantity" type="number" name="quantity" min="100" max="10000" step="100" placeholder="Amount">
-            <input type="submit" value="Calculate" id="calcul" class="btn btn-outline-info" >
+            € <input style="width:100px;" class="text-left" id="quantity" type="number" name="quantity" min="100" max="10000" step="100" placeholder="Amount">
+            <input type="submit" value="Calculate" id="calcul" class="btn btn-primary" >
             <div id="boxresult"></div>
           </div>
         </div>
@@ -200,8 +200,17 @@ $(function() {
 
   <script>
     document.getElementById("calcul").addEventListener("click", function(){
+      let quantity = document.getElementById("quantity").value
+      if (quantity < 1000) {
+        alert("Little player...");
+      } else {
+        alert("Dammit...! You realize you can also loose everything?");
+      }
+
+      let gain = (quantity/(<%= @lowest_price %>)*(<%= @highest_price %>))-quantity
+      let percent = (gain/quantity)*100 || 0
       document.getElementById("boxresult").innerHTML =
-        "You should by your <strong><%= @crypto.name %></strong> on <strong><%= @platform_low %></strong> where the price is currently <strong><%= @lowest_price %>€</strong> and sell it on <strong><%= @platform_high %></strong> where the price is currently <strong><%= @highest_price %>€</strong>.";
+        "<br><h4> Désolé pour le front, nous allons règler celà prochainement</h4><br><p>You should by your <strong><%= @crypto.name %></strong> on <strong><%= @platform_low %></strong> where the price is currently <strong><%= @lowest_price %>€</strong> and sell it on <strong><%= @platform_high %></strong> where the price is currently <strong><%= @highest_price %>€</strong>. If you invest " + quantity + "€ in <%= @crypto.name %> on <%= @platform_low %> and sell it on <%= @platform_high %> you will increase your investment by: <br> <strong>" + gain.toFixed(2) +"€</strong> <br><strong>+" + percent.toFixed(2) + "%</p></strong>";
     });
 
   </script>
