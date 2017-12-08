@@ -1,8 +1,50 @@
-<% @favorites = Favorite.all %>
-<% @favorites.each do |favorite| %>
-  <%= favorite.crypto.name %>
-  <%= Platform.find(favorite.platform1.to_i).name %>
-  <%= Platform.find(favorite.platform2.to_i).name %>
-<% end %>
 
 
+
+
+<div class="container">
+  <div class="row">
+    <% if @favorites %>
+      <% @favorites.each do |favorite| %>
+        <div class="col-md-6 col-lg-4 col-sm-12">
+          <%= link_to crypto_path(favorite.crypto) do %>
+          <div class="card-dashbord-favorite">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-dashbord-favorite-image">
+                  <img src="<%= favorite.crypto.photo_url %>", width="100">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card-favorite-content">
+                  <% vp1 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform1.to_i)).last.euro %>
+                  <% vp2 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform2.to_i)).last.euro %>
+                  <% if vp1 > vp2 %>
+                    <div style="margin-bottom: 10px;">
+                      <h4 style="color: green"><%= vp1 %> €</h4>
+                      <span><%= Platform.find(favorite.platform1.to_i).name %></span>
+                    </div>
+                    <div style="margin-top: 10px;">
+                      <h4 style="color: #e8272a"><%= vp2 %> €</h4>
+                      <span><%= Platform.find(favorite.platform2.to_i).name %></span>
+                    </div>
+                  <% else %>
+                    <div style="margin-bottom: 10px;">
+                      <h4 style="color: #e8272a"><%= vp1 %> €</h4>
+                      <span><%= Platform.find(favorite.platform1.to_i).name %></span>
+                    </div>
+                    <div style="margin-top: 10px;">
+                      <h4 style="color: green"><%= vp2 %> €</h4>
+                      <span><%= Platform.find(favorite.platform2.to_i).name %></span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
