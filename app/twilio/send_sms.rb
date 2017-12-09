@@ -1,14 +1,14 @@
 require 'twilio-ruby'
 
-account_sid = "AC20ce19122a60321c188fb3bfe4ec98b5" # Your Account SID from www.twilio.com/console
-auth_token = "***"   # Your Auth Token from www.twilio.com/console
+account_sid = ENV['TWILIO_ACCOUNT_SID'] # Your Account SID from www.twilio.com/console
+auth_token = ENV['TWILIO_AUTH_TOKEN']   # Your Auth Token from www.twilio.com/console
 
 begin
   @client = Twilio::REST::Client.new account_sid, auth_token
   message = @client.messages.create(
       body: "Hello from Ruby",
       to: "+33635551536",    # Replace with your phone number
-      from: "+33644640637")  # Replace with your Twilio number
+      from: ENV['TWILIO_PHONE_NUMBER'])  # Replace with your Twilio number
 
 rescue Twilio::REST::TwilioError => e
   puts e.message
