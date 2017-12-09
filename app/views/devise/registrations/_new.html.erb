@@ -2,11 +2,11 @@
   <div class="layout-accounts">
     <div class="account-wrap">
       <div class="account-card">
-        <div class="account-content smart-forms">
+        <div class="account-content smart-forms" style="background-color: #ECECEC; box-shadow: unset;">
           <div class="text-center">
           </div>
           <div id="contact">
-            <div class="form-body" style="color: #8dc247" >
+            <div class="form-body" style="color: #8dc247;" >
               <%= simple_form_for(User.new, url: user_registration_path) do |f| %>
                 <%= f.error_notification %>
                 <div class="section" >
