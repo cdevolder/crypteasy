@@ -14,6 +14,12 @@ Rails.application.routes.draw do
 
   resources :exchangetimevalues, only: [:show, :new, :create, :edit, :update]
 
+  resources :offers, only: [:index, :show]
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
   authenticate :user, lambda { |u| u.admin } do

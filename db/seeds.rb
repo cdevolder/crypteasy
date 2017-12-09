@@ -5,28 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Crypto.destroy_all
-Platform.destroy_all
-
+Offer.destroy_all
 
 
 
 platform = Platform.create!(
   name: 'Kraken',
   description: 'ok',
-  description: 'ok'
   )
 
 platform2 = Platform.create!(
   name: 'Gdax',
   description: 'ok',
-  description: 'ok'
   )
 
 platform3 = Platform.create!(
   name: 'Bitstamp',
   description: 'ok',
-  description: 'ok'
   )
 
 crypto = Crypto.create!(
@@ -45,3 +40,37 @@ crypto3 = Crypto.create!(
   accronym: 'LTC',
   photo_url: 'https://www.cryptocompare.com/media/19782/litecoin-logo.png'
   )
+
+offer1 = Offer.create!(
+  sku: 'Bronze-offer',
+  name: 'Bronze',
+  description: 'ok',
+  price: '3'
+  )
+
+offer2 = Offer.create!(
+  sku: 'Silver-offer',
+  name: 'Silver',
+  description: 'ok',
+  price: '7'
+  )
+
+offer2 = Offer.create!(
+  sku: 'Gold-offer',
+  name: 'Gold',
+  description: 'ok',
+  price: '13'
+  )
+
+
+
+
+
+
+
+
+
+
+
+
+
