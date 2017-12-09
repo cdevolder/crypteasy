@@ -91,10 +91,22 @@
                         <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn" %>
                       </td>
                       <td>
-                        <%= link_to 'Website', "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn btn-secondary" %>
+                        <%= link_to  do %>
+                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        <% end %>
                       </td>
                     </tr>
                   <% end %>
+                  <tr>
+                      <td>
+                        <%= link_to 'Etoro', "", class: "btn" %>
+                      </td>
+                      <td>
+                        <%= link_to  do %>
+                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        <% end %>
+                      </td>
+                    </tr>
 
                 </tbody>
               </table>
@@ -106,8 +118,8 @@
             <h4 class="card-title">Calculator</h4>
           </div>
           <div class='card-content pb20'>
-            € <input style="width:100px;" class="text-left" id="quantity" type="number" name="quantity" min="100" max="10000" step="100" placeholder="Amount">
-            <input type="submit" value="Calculate" id="calcul" class="btn btn-primary" >
+            € <input class="text-left" id="quantity" type="number" name="quantity" min="100" max="10000" step="100" placeholder="Amount">
+            <button type="submit" value="Calculate" id="calcul" class="btn btn-primary text-center">Calculate!</button>
             <div id="boxresult"></div>
           </div>
         </div>
