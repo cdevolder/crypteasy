@@ -27,6 +27,8 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'twilio-ruby', '~> 5.5.1'
+
 
 
 
