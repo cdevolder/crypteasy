@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208093009) do
+ActiveRecord::Schema.define(version: 20171209213126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,24 @@ ActiveRecord::Schema.define(version: 20171208093009) do
     t.datetime "updated_at", null: false
     t.index ["crypto_id"], name: "index_favorites_on_crypto_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "sku"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "offer_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "platforms", force: :cascade do |t|
