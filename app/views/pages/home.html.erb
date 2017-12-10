@@ -125,7 +125,13 @@
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <%= render "devise/registrations/new" %>
+                    <% if user_signed_in? %>
+                    <!-- Ajouter résumé favoris -->
+                      <div class="card text-center mb20" style="height: 380px">----> Add favourites here <----</div>
+                    <!-- Fin résumé favoris -->
+                    <% else %>
+                      <%= render "devise/registrations/new" %>
+                    <% end %>
                   </div>
                 </div>
                </div>
