@@ -94,7 +94,7 @@ Cards custom style
   background-position: center;
   color: white;
   position: relative;
-  border-radius: 5px;
+  border-radius: 2px;
   color: black;
 }
 .card-user-wagon {
@@ -113,8 +113,8 @@ Cards custom style
 
 .card-description-wagon {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  width:100%;
+  margin-top: 78px;
 }
 
 .card-description-wagon h2 {
@@ -137,7 +137,7 @@ Cards custom style
   z-index: 2;
   background: black;
   opacity: 0;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .card-link-wagon:hover {
@@ -164,7 +164,7 @@ Cards custom style
   background-position: center;
   color: white;
   position: relative;
-  border-radius: 5px;
+  border-radius: 2px;
   color: #073F79;
   margin: 10px 0;
   background-color: #fff;
@@ -181,7 +181,7 @@ Cards custom style
 
 .card-dashbord-favorite {
   margin-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 2px;
   height: 10rem;
   box-shadow : 0px 0px 20px rgba(0, 0, 0, 0.2);
   margin-top: 5rem;
