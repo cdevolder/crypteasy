@@ -247,13 +247,9 @@ $(function() {
         },
         xaxis: {
 
-            tickDecimals: 0,
             mode: 'time',
-            timeformat: "%m/%d/%H:%M",
             unit: 'day',
-            ticks: {
-                    display: false
-                }
+
 
 
 
@@ -312,13 +308,11 @@ $(function() {
             }
         },
         xaxis: {
-            tickDecimals: 0,
             mode: 'time',
-            timeformat: "%m/%d/%H:%M",
             unit: 'day',
-            ticks: {
-                    display: false
-                }
+
+
+
         },
         yaxis: {
             tickDecimals: 2,
@@ -337,8 +331,11 @@ $(function() {
             show: false,
             position: "sw"
         },
-        tooltip: true,
+        tooltip: {
+    tooltip: true
+},
         tooltipOpts: {
+            xDateFormat: '%H:%M',
             content: "x: %x, y: %y"
         }
     };
@@ -373,13 +370,9 @@ $(function() {
             }
         },
         xaxis: {
-            tickDecimals: 0,
             mode: 'time',
-            timeformat: "%m/%d/%H:%M",
             unit: 'day',
-            ticks: {
-                    display: false
-                }
+
         },
         yaxis: {
             tickDecimals: 2,
