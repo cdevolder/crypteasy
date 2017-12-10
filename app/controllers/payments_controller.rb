@@ -18,6 +18,11 @@ class PaymentsController < ApplicationController
       currency:     @order.amount.currency
     )
 
+    user1 = @order.user_id
+    number = 33635551536
+    body = "#{charge.description} have been receive, enjoy your new CryptEasy experience"
+    SendSmsService.new(number, body).send
+
     @order.update(payment: charge.to_json, state: 'paid')
     redirect_to order_path(@order)
 
