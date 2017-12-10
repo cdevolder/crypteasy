@@ -118,12 +118,62 @@
             <h4 class="card-title">Calculator</h4>
           </div>
           <div class='card-content pb20'>
-            € <input class="text-left" id="quantity" type="number" name="quantity" min="100" max="10000" step="100" placeholder="Amount">
-            <button type="submit" value="Calculate" id="calcul" class="btn btn-primary text-center">Calculate!</button>
-            <div id="boxresult"></div>
+            <form action="" name="myForm">
+              € <input class="text-left" id="amount" type="number" step="100" placeholder="Amount" required>
+              <button type="submit" value="Calculate" id="myBtn" class="btn btn-primary text-center">Calculate!</button>
+            </form>
           </div>
         </div>
 
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="boxresult">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class='card mb10'>
+                    <div class="card-top">
+                      <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
+                      <p class="card-title text-left">
+                        Achetez et vendez vos <%= @crypto.name %> au meilleur taux.
+                      </p>
+                    </div>
+                    <div class="container">
+                      <div class="row text-center">
+                        <div class="card col-md-6">
+                          <div class='card-content mt20'>
+                            <p>
+                              Votre investissement: <span id="quantity"></span>€
+                              <br>
+                              Vos gains potentiels: <span id="gain"></span>€
+                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                              (<span id="percent" style="color:green;"></span>%)
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card col-md-6">
+                          <div class="card-content mt20">
+                            <p style="color:green;">
+                              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                              <%= @platform_high %>: <%= @highest_price %>€
+                            </p>
+                          </div>
+                          <div class="card-content mt20">
+                            <p style="color:red;">
+                              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                              <%= @platform_low %>: <%= @lowest_price %>€
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -216,19 +266,42 @@ $(function() {
   </script>
 
   <script>
-    document.getElementById("calcul").addEventListener("click", function(){
-      let quantity = document.getElementById("quantity").value
-      if (quantity < 1000) {
-        alert("Little player...");
-      } else {
-        alert("Dammit...! You realize you can also loose everything?");
-      }
+    // Get the modal
+    var modal = document.getElementById('myModal');
 
-      let gain = (quantity/(<%= @lowest_price %>)*(<%= @highest_price %>))-quantity
-      let percent = (gain/quantity)*100 || 0
-      document.getElementById("boxresult").innerHTML =
-        "<br><h4> Désolé pour le front, nous allons règler celà prochainement</h4><br><p>You should buy your <strong><%= @crypto.name %></strong> on <strong><%= @platform_low %></strong> where the price is currently <strong><%= @lowest_price %>€</strong> and sell it on <strong><%= @platform_high %></strong> where the price is currently <strong><%= @highest_price %>€</strong>. If you invest " + quantity + "€ in <%= @crypto.name %> on <%= @platform_low %> and sell it on <%= @platform_high %> you will increase your investment by: <br> <strong>" + gain.toFixed(2) +"€</strong> <br><strong>+" + percent.toFixed(2) + "%</p></strong>";
-    });
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+      event.preventDefault();
+      let quantity = document.getElementById("amount").value
+      if (quantity !== "") {
+        let gain = (quantity/(<%= @lowest_price %>)*(<%= @highest_price %>))-quantity;
+        let percent = (gain/quantity)*100 || 0;
+        document.getElementById("quantity").innerHTML = quantity;
+        document.getElementById("gain").innerHTML = gain.toFixed(2);
+        document.getElementById("percent").innerHTML = percent.toFixed(2);
+        modal.style.display = "block";
+      } else {
+        alert("Merci d'entrer une valeur d'investissement.");
+      }
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
 
   </script>
 
