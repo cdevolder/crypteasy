@@ -1,0 +1,9 @@
+<h1>Alerts#new</h1>
+<p>Find me in app/views/alerts/new.html.erb</p>
+
+
+<%= simple_form_for Alert.new do |f| %>
+  <%= f.input :price %>
+  <%= f.input :option, collection: ["Superieur", "Inferieur"] %>
+  <%= f.button :submit %>
+<% end %>

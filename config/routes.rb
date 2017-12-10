@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :cryptos, only: [:index, :show]
 
-  resources :favorites
+  resources :favorites do
+    resources :alerts
+  end
 
   resources :platforms, only: [:index, :show]
 
