@@ -10,8 +10,8 @@
               <%= simple_form_for(User.new, url: user_registration_path) do |f| %>
                 <%= f.error_notification %>
                 <div class="section" >
-                  <%= f.input :email, required: true, autofocus: true %>
-                  <%= f.input :phone, required: true, autofocus: true %>
+                  <%= f.input :email, label: 'Ex: contact@crypteasy.com', required: true, autofocus: true %>
+                  <%= f.input :phone, label: 'Ex: +33601020304', required: true, autofocus: true %>
                 </div>
                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                   <%= f.input :password_confirmation, required: true, class: "field prepend-icon" %>

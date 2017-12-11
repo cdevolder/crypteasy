@@ -16,7 +16,7 @@ class SendSmsService
       @client = Twilio::REST::Client.new account_sid, auth_token
       message = @client.messages.create(
           body: "#{@body}",
-          to: "+#{@number}",    # Replace with your phone number
+          to: "#{@number}",    # Replace with your phone number
           from: ENV['TWILIO_PHONE_NUMBER'])  # Replace with your Twilio number
 
     rescue Twilio::REST::TwilioError => e
