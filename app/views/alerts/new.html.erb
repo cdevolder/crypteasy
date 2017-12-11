@@ -1,9 +1,30 @@
-<h1>Alerts#new</h1>
-<p>Find me in app/views/alerts/new.html.erb</p>
 
-
-<%= simple_form_for [@favorite, @alert] do |f| %>
-  <%= f.input :price %>
-  <%= f.input :option, collection: ["Superieur", "Inferieur"] %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="layout-accounts">
+    <div class="account-wrap">
+      <div class="account-card">
+        <div class="account-content smart-forms">
+          <div class="text-center">
+          </div>
+          <div id="contact">
+            <div class="form-body">
+              <%= simple_form_for [@favorite, @alert] do |f| %>
+                <div class="section colm colm6">
+                  <%= f.input :price %>
+                </div>
+                <div class="section colm colm6">
+                  <%= f.input :option, collection: ["Superieur", "Inferieur"] %>
+                </div>
+                <div class="form-footer mt30">
+                  <%= f.submit "Create an alert", class: "btn btn-primary btn-block" %>
+                </div>
+              <% end %>
+              <div class="text-right">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

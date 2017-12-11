@@ -2,208 +2,326 @@
 <div id="demochartline"><%=@alltimevalues%></div>
 <div id="minval"><%=@min%></div>
 <div id="maxval"><%=@max%></div>
+    <%@timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '#{params[:id]}'").last(300) %>
+    <%@timevalues2 = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '#{params[:id]}'").last(300)%>
+
+        <%@alltimevalues1 = []%>
+        <%@alltimevalues2 = []%>
+        <%@min1 = @timevalues1[0].euro.to_f%>
+        <%@max1 = @timevalues1[0].euro.to_f%>
+        <%@min2 = @timevalues2[0].euro.to_f%>
+        <%@max2 = @timevalues2[0].euro.to_f%>
+    <%@timevalues1.each_with_index do |timeval, ind|%>
+    <%=  @alltimevalues1 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]%>
+    <%  if timeval.euro < @min1%>
+      <%=    @min1 = timeval.euro.to_f%>
+    <% end%>
+    <% if timeval.euro > @max1%>
+      <%=    @max1 = timeval.euro.to_f%>
+    <% end%>
+
+    <%end%>
+
+    <%@timevalues2.each_with_index do |timeval, ind|%>
+    <%=  @alltimevalues2 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]%>
+    <%  if timeval.euro < @min2%>
+      <%=    @min2 = timeval.euro.to_f%>
+    <% end%>
+    <% if timeval.euro > @max2%>
+      <%=    @max2 = timeval.euro.to_f%>
+    <% end%>
+
+    <%end%>
+
+    <div id="demochartline1"><%= @alltimevalues1%></div>
+    <div id="demochartline2"><%= @alltimevalues2%></div>
+
+    <div id="minval2"><%= @min2%></div>
+    <div id="maxval2"><%= @max2%></div>
+    <div id="minval1"><%= @min1%></div>
+    <div id="maxval1"><%= @max1%></div>
+
+  <%if params[:platform]%>
+    <div id="platformid"><%=Platform.find(params[:platform]).name%></div>
+  <%end%>
+  <div id="cryptoid"><%=Crypto.find(params[:id]).accronym%></div>
+
 </div>
 
 
-
 <div class="content mt10">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div class='card mb10'>
-          <div class="card-top">
-            <p class="card-title text-left">
-              <%= link_to cryptos_path do %>
-                <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i>
-              <% end %>
-            </p>
-            <% if params[:platform] %>
-              <p class="card-title text-right"><%= Platform.find(params[:platform]).name %></p>
-            <% else %>
-              <p class="card-title text-right"><%= Platform.find(1).name %></p>
-            <% end %>
-          </div>
-          <div class="container">
-            <div class="row text-center">
-              <div class="card col-md-6">
-                <div class='card-content mt20'>
-                  <p>
-                    <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
-                    <% if params[:platform] %>
-                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €</p>
-                    <% else %>
-                      <p><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €</p>
-                    <% end %>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8">
+            <div class='card mb10'>
+               <div class="card-top">
+                  <p class="card-title text-left">
+                     <%= link_to :back do %>
+                     <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i>
+                     <% end %>
                   </p>
-                </div>
-              </div>
-              <div class="card col-md-6">
-                <div class="card-content mt20">
-                  <p style="color:green;">
-                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                    <% if params[:platform] %>
-                      <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €
-                    <% else %>
-                      <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €
-                    <% end %>
-                  </p>
-                </div>
-                <div class="card-content mt20">
-                  <p style="color:red;">
-                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                    <% if params[:platform] %>
-                      <%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €
-                    <% else %>
-                      <%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €
-                    <% end %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-<!-- Insérer le graph ici -->
-        <div class='card'>
-           <div class="card-top">
-              <h4 class="card-title">Line Chart</h4>
-           </div>
-           <div class='card-content'>
-              <div class="flot-chart2">
-                 <div class="flot-chart-content" id="flot-line-chart00"></div>
-              </div>
-           </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb30">
-        <div class='card mb10'>
-          <div class="card-top">
-            <h4 class="card-title">Platforms</h4>
-          </div>
-          <div class='card-content pb20'>
-            <table class="table table-stripped">
-                <tbody>
-
-                  <% Platform.all.each do |platform| %>
-                    <tr>
-                      <td>
-                        <%= link_to platform.name, "/cryptos/#{Crypto.find(params[:id]).id}?platform=#{platform.id}", class: "btn" %>
-                      </td>
-                      <td>
-                        <%= link_to  do %>
-                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                        <% end %>
-                      </td>
-                    </tr>
+                  <% if params[:platform] %>
+                  <p class="card-title text-right" id="platformLegend"><%= Platform.find(params[:platform]).name %></p>
+                  <% else %>
+                  <p class="card-title text-right" id="platformLegend"><%= Platform.find(1).name %></p>
                   <% end %>
-                  <tr>
-                      <td>
-                        <%= link_to 'Etoro', "", class: "btn" %>
-                      </td>
-                      <td>
-                        <%= link_to  do %>
-                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                        <% end %>
-                      </td>
-                    </tr>
-
-                </tbody>
-              </table>
-          </div>
-        </div>
-
-        <div class='card'>
-          <div class="card-top">
-            <h4 class="card-title">Calculator</h4>
-          </div>
-          <div class='card-content pb20'>
-            <form action="" name="myForm">
-              € <input class="text-left" id="amount" type="number" step="100" placeholder="Amount" required>
-              <button type="submit" value="Calculate" id="myBtn" class="btn btn-primary text-center">Calculate!</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- POPUP -->
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="boxresult">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class='card mb10'>
-                    <div class="card-top">
-                      <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
-                      <p class="card-title text-left">
-                        Achetez et vendez vos <%= @crypto.name %> au meilleur taux.
-                      </p>
-                    </div>
-                    <div class="container">
-                      <div class="row text-center">
-                        <div class="card col-md-6">
-                          <div class='card-content mt20'>
-                            <p>
-                              Votre investissement: <span id="quantity"></span>€
-                              <br>
-                              Vos gains potentiels: <span id="gain"></span>€
-                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                              (<span id="percent" style="color:green;"></span>%)
-                            </p>
-                          </div>
+               </div>
+               <div class="container">
+                  <div class="row text-center">
+                     <div class="card col-md-6">
+                        <div class='card-content mt20'>
+                           <p>
+                              <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
+                              <% if params[:platform] %>
+                           <p id= "pricetest"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:created_at).last.euro %> €</p>
+                           <% else %>
+                           <p id= "pricetest"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:created_at).last.euro %> €</p>
+                           <% end %>
+                           </p>
                         </div>
-                        <div class="card col-md-6">
-                          <div class="card-content mt20">
-                            <p style="color:green;">
+                     </div>
+                     <div class="card col-md-6">
+                        <div class="card-content mt20">
+                           <p style="color:green;">
                               <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                              <%= @platform_high %>: <%= @highest_price %>€
-                            </p>
-                          </div>
-                          <div class="card-content mt20">
-                            <p style="color:red;">
-                              <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                              <%= @platform_low %>: <%= @lowest_price %>€
-                            </p>
-                          </div>
+                              <% if params[:platform] %>
+                              <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €</span>
+                              <% else %>
+                              <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €</span>
+                              <% end %>
+                           </p>
                         </div>
-                      </div>
-                    </div>
+                        <div class="card-content mt20">
+                           <p style="color:red;">
+                              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                              <% if params[:platform] %>
+                              <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €</span>
+                              <% else %>
+                              <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €</span>
+                              <% end %>
+                           </p>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <!-- POPUP END -->
+            <!-- Insérer le graph ici -->
+            <div class='card'>
+               <div class="card-top">
+                  <h4 class="card-title">Line Chart</h4>
+               </div>
+               <div class='card-content'>
+                  <div class="flot-chart2">
+                     <div class="flot-chart-content" id="flot-line-chart00"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 mb30">
+            <div class='card mb10'>
+               <div class="card-top">
+                  <h4 class="card-title">Platforms</h4>
+               </div>
+               <div class='card-content pb20'>
+                  <table class="table table-stripped">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <button id="selectplatKraken" style="color: blue; border: none; cursor:pointer;"> KRAKEN</button>
+                           </td>
+                           <td>
+                              <%= link_to  do %>
+                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                              <% end %>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <button id="selectplatGdax" style="color: blue; border: none; cursor:pointer;"> GDAX</button>
+                           </td>
+                           <td>
+                              <%= link_to  do %>
+                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                              <% end %>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <button id="selectplatBitstamp" style="color: blue; border: none; cursor:pointer;"> BITSTAMP</button>
+                           </td>
+                           <td>
+                              <%= link_to  do %>
+                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                              <% end %>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <button id="selectplatEtoro" style="color: blue; border: none; cursor:pointer;"> ETORO</button>
+                           </td>
+                           <td>
+                              <%= link_to  do %>
+                              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                              <% end %>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <div class='card'>
+               <div class="card-top">
+                  <h4 class="card-title">Calculator</h4>
+               </div>
+               <div class='card-content pb20'>
+                  <form action="" name="myForm">
+                     € <input class="text-left" id="amount" type="number" step="100" placeholder="Amount" required>
+                     <button type="submit" value="Calculate" id="myBtn" class="btn btn-primary text-center">Calculate!</button>
+                  </form>
+               </div>
+            </div>
+            <!-- POPUP -->
+            <div id="myModal" class="modal">
+               <!-- Modal content -->
+               <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="boxresult">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class='card mb10'>
+                              <div class="card-top">
+                                 <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
+                                 <p class="card-title text-left">
+                                    Achetez et vendez vos <%= @crypto.name %> au meilleur taux.
+                                 </p>
+                              </div>
+                              <div class="container">
+                                 <div class="row text-center">
+                                    <div class="card col-md-6">
+                                       <div class='card-content mt20'>
+                                          <p>
+                                             Votre investissement: <span id="quantity"></span>€
+                                             <br>
+                                             Vos gains potentiels: <span id="gain"></span>€
+                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                             (<span id="percent" style="color:green;"></span>%)
+                                          </p>
+                                       </div>
+                                    </div>
+                                    <div class="card col-md-6">
+                                       <div class="card-content mt20">
+                                          <p style="color:green;">
+                                             <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                             <%= @platform_high %>: <%= @highest_price %>€
+                                          </p>
+                                       </div>
+                                       <div class="card-content mt20">
+                                          <p style="color:red;">
+                                             <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                             <%= @platform_low %>: <%= @lowest_price %>€
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- POPUP END -->
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>
 
 <%= content_for(:after_js) do %>
   <script type="text/javascript">
     var datas = document.getElementById("demochartline");
+    var datas1 = document.getElementById("demochartline1");
+    var datas2 = document.getElementById("demochartline2");
+    var xtest = document.getElementById("pricetest");
 
+
+
+    var selectplat = document.getElementById("selectplatGdax");
+    var selectplatK = document.getElementById("selectplatKraken");
+    var selectplatB = document.getElementById("selectplatBitstamp");
+
+    var platformLeg = document.getElementById("platformLegend");
+
+    console.log(selectplat);
+    var platformidd = document.getElementById("platformid");
+    var theplatform = "...";
+    var cryptoidd = document.getElementById("cryptoid");
+    var highestprice = document.getElementById("highprice24");
+    console.log(platformidd);
+    if (platformidd == null) {
+      console.log("hhhhhhh");
+      platformidd = "Kraken";
+    }
+
+    else {
+      platformidd = platformidd.innerHTML;
+    }
+
+    console.log(platformidd);
+    var lowestprice = document.getElementById("lowprice24");
+    cryptoidd = cryptoidd.innerHTML;
+    console.log(highestprice);
+
+    function fn60sec() {
+    // runs every 60 sec and runs on init.
+    console.log('Executed!');
+    fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {xtest.innerHTML = json['EUR'] + "€"});
+    fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {highestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['HIGH24HOUR'] + "€"; lowestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['LOW24HOUR'] + "€"});
+}
+    fn60sec();
+    setInterval(fn60sec, 5*1000);
 
     var min = document.getElementById("minval");
     var max = document.getElementById("maxval");
 
+    var min1 = document.getElementById("minval1");
+    var max1 = document.getElementById("maxval1");
+
+    var min2 = document.getElementById("minval2");
+    var max2 = document.getElementById("maxval2");
 
 
     console.log(datas);
     console.log(max);
     console.log(min);
 
-
     min = min.innerHTML;
     max = max.innerHTML;
-    datas = datas.innerHTML;
 
+    min1 = min1.innerHTML;
+    max1 = max1.innerHTML;
+
+    min2 = min2.innerHTML;
+    max2 = max2.innerHTML;
+
+    datas = datas.innerHTML;
+    datas1 = datas1.innerHTML;
+    datas2 = datas2.innerHTML;
 
     min = JSON.parse(min);
     max = JSON.parse(max);
+
+    min1 = JSON.parse(min1);
+    max1 = JSON.parse(max1);
+
+    min2 = JSON.parse(min2);
+    max2 = JSON.parse(max2);
+
     datas = JSON.parse(datas);
+    datas1 = JSON.parse(datas1);
+    datas2 = JSON.parse(datas2);
+
+    min = Math.min(min, min1, min2);
+    max = Math.max(max, max1, max2);
 
 
 $(function() {
@@ -256,8 +374,50 @@ $(function() {
         data: datas,
 
     };
-    $.plot($("#flot-line-chart00"), [barData], barOptions);
 
+    var barData1 = {
+        label: "BTC/EUR Kraken",
+        tickDecimals: 2,
+        data: datas1,
+
+    };
+
+    var barData2 = {
+        label: "BTC/EUR Kraken",
+        tickDecimals: 2,
+        data: datas2,
+
+    };
+    var mytestchar = $.plot($("#flot-line-chart00"), [barData], barOptions);
+    // mytestchar.setData(datas);
+
+    selectplat.addEventListener("click", function(){
+      $.plot($("#flot-line-chart00"), [barData1], barOptions);
+      platformidd = "Gdax";
+      console.log('Executed!');
+    fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {xtest.innerHTML = json['EUR'] + "€"});
+    fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {highestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['HIGH24HOUR'] + "€"; lowestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['LOW24HOUR'] + "€"});
+    platformLeg.innerHTML = "Gdax";
+    });
+
+    selectplatK.addEventListener("click", function(){
+      $.plot($("#flot-line-chart00"), [barData], barOptions);
+      platformidd = "Kraken";
+      console.log('Executed!');
+    fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {xtest.innerHTML = json['EUR'] + "€"});
+    fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {highestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['HIGH24HOUR'] + "€"; lowestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['LOW24HOUR'] + "€"});
+
+    platformLeg.innerHTML = "Kraken";
+    });
+
+    selectplatB.addEventListener("click", function(){
+      $.plot($("#flot-line-chart00"), [barData2], barOptions);
+      platformidd = "Bitstamp";
+      console.log('Executed!');
+    fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {xtest.innerHTML = json['EUR'] + "€"});
+    fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {highestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['HIGH24HOUR'] + "€"; lowestprice.innerHTML = json['RAW'][`${cryptoidd}`]['EUR']['LOW24HOUR'] + "€"});
+    platformLeg.innerHTML = "Bitstamp";
+    });
 });
 
   </script>
