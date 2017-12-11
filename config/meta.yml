@@ -1,0 +1,5 @@
+meta_product_name: "Crypt-Easy"
+meta_title: "Crypt-Easy - Comparateur de cryptomonnaies"
+meta_description: "Achetez et vendez vos cryptomonnaies au meilleur prix."
+meta_image: "crypto.jpg"                           # Une image dans votre dossier app/assets/images/
+twitter_account: "@nomdevotrecompte"              # indispensable pour les Twitter Cards
