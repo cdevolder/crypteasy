@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
     )
 
     user1 = @order.user_id
-    number = 33635551536
+    number = user1.phone
     body = "#{charge.description} have been receive, enjoy your new CryptEasy experience"
     SendSmsService.new(number, body).send
 

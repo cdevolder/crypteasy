@@ -19,8 +19,8 @@
                   </div>
                 </div>
                 <div class="section" style="color: #8dc247">
-                  <%= f.input :email, required: true, autofocus: true %>
-                  <%= f.input :phone, required: true, autofocus: true %>
+                  <%= f.input :email, label: 'Ex: contact@crypteasy.com', required: true, autofocus: true %>
+                  <%= f.input :phone, label: 'Ex: +33601020304', required: true, autofocus: true %>
 
                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                   <%= f.input :password_confirmation, required: true, class: "field prepend-icon" %>
