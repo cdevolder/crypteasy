@@ -175,22 +175,38 @@
     }
 
     function doPlot(position) {
+
         $.plot($("#flot-line-chart-multi00"), [{
             data: datas,
+            fill: true,
             label: "Kraken"
         }, {
             data: datas1,
+            fill: true,
+
+
             label: "Gdax",
 
-        }], {
-            xaxes: [{
-                 tickDecimals: 0,
-            mode: 'time',
-            timeformat: "%m/%d/%H:%M",
-            unit: 'day',
-            ticks: {
-                    display: false
+        }],
+         {
+          series: {
+            lines: {
+                show: true,
+                lineWidth: 2,
+                fill: true,
+                fillColor: {
+                    colors: [{
+                        opacity: 0.3
+                    }, {
+                        opacity: 0.3
+                    }]
+
                 }
+            }
+        },
+            xaxes: [{
+                 mode: 'time',
+                unit: 'day',
             }],
             yaxes: [{
               tickDecimals: 2,
@@ -206,7 +222,7 @@
             legend: {
                 position: 'sw'
             },
-            colors: ["#0073ff"],
+            colours: ["#60f305"],
             grid: {
                 color: "#999999",
                 hoverable: true,
