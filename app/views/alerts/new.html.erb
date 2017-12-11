@@ -2,7 +2,7 @@
 <p>Find me in app/views/alerts/new.html.erb</p>
 
 
-<%= simple_form_for Alert.new do |f| %>
+<%= simple_form_for [@favorite, @alert] do |f| %>
   <%= f.input :price %>
   <%= f.input :option, collection: ["Superieur", "Inferieur"] %>
   <%= f.button :submit %>

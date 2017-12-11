@@ -1,13 +1,18 @@
 class AlertsController < ApplicationController
   def new
+    @favorite = Favorite.find(params[:favorite_id])
     @alert = Alert.new
   end
 
   def create
+    @alert = Alert.new(alert_params)
     @alert.favorite = Favorite.find(params[:favorite_id])
     @alert.user = current_user
-    @alert.option = alert_params[:option]
-    @alert.price = alert_params[:price]
+    if @alert.save
+      redirect_to favorite_path
+    else
+      render :new
+    end
   end
 
   def edit
