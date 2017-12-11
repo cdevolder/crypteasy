@@ -11,15 +11,14 @@
             <div class="form-body">
               <%= simple_form_for Favorite.new do |f| %>
                 <div class="section colm colm6">
-                    <%= f.select(:crypto_id, Crypto.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true })%>
+                    <%= f.input :crypto_id, label: "Crypto",collection: @allcrypto %>
                 </div>
                 <div class="section colm colm6">
-                  <%= f.select(:platform1, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+                  <%= f.input :platform1, label: "Platform n°1", collection: @allplatform %>
                 </div>
                 <div class="section colm colm6">
-                  <%= f.select(:platform2, Platform.all.collect {|p| [ p.name, p.id ] }, {}, { :multiple => true }) %>
+                  <%= f.input :platform2, label: "Platform n°2", collection: @allplatform %>
                 </div>
-
                 <div class="form-footer mt30">
                   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
                 </div>

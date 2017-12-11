@@ -9,7 +9,7 @@ class AlertsController < ApplicationController
     @alert.favorite = Favorite.find(params[:favorite_id])
     @alert.user = current_user
     if @alert.save
-      redirect_to favorite_path
+      redirect_to favorite_path(@alert.favorite)
     else
       render :new
     end
