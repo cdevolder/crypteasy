@@ -229,3 +229,44 @@
   background-size: cover;
   height: 400px;
 }
+
+.banner-wagon {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-wagon h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner-wagon p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.container-description-hp {
+  text-align: center;
+  background-color: #8dc247;
+  color: white;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.container-cards-hp {
+  margin-top: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.container-liste-hp {
+  margin: 50px;
+}
