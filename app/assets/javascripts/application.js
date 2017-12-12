@@ -25,7 +25,11 @@
 //= require theme/bower_components/Flot/jquery.flot.pie.js
 //= require theme/bower_components/Flot/jquery.flot.time.js
 //= require theme/bower_components/Flot/jquery.flot.tooltip.min.js
+
+//= require jscrypt/doublegraph.js
+
 //= require theme/flot.init.js
+
 
 
 //= require theme/plugins/data-tables/responsive.bootstrap4.min.js
