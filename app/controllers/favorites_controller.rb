@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     @min1 = @timevalues1[0].euro.to_f
     @max1 = @timevalues1[0].euro.to_f
     @min2 = @timevalues2[0].euro.to_f
-    @max1 = @timevalues2[0].euro.to_f
+    @max2 = @timevalues2[0].euro.to_f
     @timevalues1.each_with_index do |timeval, ind|
       @alltimevalues1 << [timeval.created_at.to_time.to_i,timeval.euro]
       if timeval.euro < @min1

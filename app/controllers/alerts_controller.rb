@@ -9,19 +9,10 @@ class AlertsController < ApplicationController
     @alert.favorite = Favorite.find(params[:favorite_id])
     @alert.user = current_user
     if @alert.save
-      redirect_to favorite_path(@alert.favorite)
+      redirect_to favorite_alerts_path
     else
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def message
   end
 
   def show
@@ -29,11 +20,13 @@ class AlertsController < ApplicationController
   end
 
   def index
-    @alerts = Alert.all
+    @alerts = Alert.where("favorite_id = '#{params[:favorite_id]}'")
   end
 
   def destroy
-    @alert.destroy
+
+    Alert.find(params[:id]).destroy
+    redirect_to favorite_alerts_path
   end
 
   def alert_params
