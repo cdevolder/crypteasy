@@ -64,53 +64,71 @@
   <div class="row mb50">
     <% if @favorites %>
       <% @favorites.each do |favorite| %>
-        <div class="col-md-12 col-lg-4 col-sm-12">
-          <%= link_to  do %>
-            <div class="card-dashbord-favorite card-dashbord-favorite1">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="card-dashbord-favorite-image">
-                    <img src="<%= favorite.crypto.photo_url %>", width="100">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="card-favorite-content">
-                    <% vp1 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform1.to_i)).last.euro %>
-                    <% vp2 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform2.to_i)).last.euro %>
-                    <% if vp1 > vp2 %>
-                      <div style="margin-bottom: 10px;">
-                        <h4 style="color: green"><%= vp1 %> €</h4>
-                        <%= Platform.find(favorite.platform1.to_i).name %>
+                    <div class="col-md-12 col-lg-4 col-sm-12">
+                      <%= link_to  do %>
+                        <div class="card-dashbord-favorite">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="card-dashbord-favorite-image">
+                                <img src="<%= favorite.crypto.photo_url %>", width="100">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="card-favorite-content">
+                                <% vp1 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform1.to_i)).last.euro %>
+                                <% vp2 = Exchangetimevalue.where(crypto: favorite.crypto, platform: Platform.find(favorite.platform2.to_i)).last.euro %>
+                                <% if vp1 > vp2 %>
+                                  <div style="margin-bottom: 10px;">
+                                    <h4 style="color: green"><%= vp1 %> €</h4>
+                                    <%= Platform.find(favorite.platform1.to_i).name %>
+                                  </div>
+                                  <div style="margin-top: 10px;">
+                                    <h4 style="color: #e8272a"><%= vp2 %> €</h4>
+                                    <%= Platform.find(favorite.platform2.to_i).name %>
+                                  </div>
+                                <% else %>
+                                  <div style="margin-bottom: 10px;">
+                                    <h4 style="color: #e8272a"><%= vp1 %> €</h4>
+                                    <%= Platform.find(favorite.platform1.to_i).name %>
+                                  </div>
+                                  <div style="margin-top: 10px;">
+                                    <h4 style="color: green"><%= vp2 %> €</h4>
+                                    <%= Platform.find(favorite.platform2.to_i).name %>
+                                  </div>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row text-center">
+                            <div class="col-md-6 offset-md-6">
+                              <div class="text-right" style="margin-right: 5px;">
+                                <%= link_to favorite_path(favorite), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer ce favoris?"} do %>
+                                  <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                      <div style="margin-top: -17px;">
+                        <div class="row text-center">
+                          <div class="col-sm-6">
+                            <div style=" background-color: white; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); margin-right: -16px;">
+                              <%= link_to favorite_path(favorite.id), class: 'card-p-ki-soule' do %>
+                                <p>View details</p>
+                              <% end %>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 card-p-ki-soule">
+                            <div style=" background-color: white; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); margin-left: -16px;">
+                              <%= link_to new_favorite_alert_path(favorite.id), class: 'card-p-ki-soule' do %>
+                                Create an alert
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div style="margin-top: 10px;">
-                        <h4 style="color: #e8272a"><%= vp2 %> €</h4>
-                        <%= Platform.find(favorite.platform2.to_i).name %>
-                      </div>
-                    <% else %>
-                      <div style="margin-bottom: 10px;">
-                        <h4 style="color: #e8272a"><%= vp1 %> €</h4>
-                        <%= Platform.find(favorite.platform1.to_i).name %>
-                      </div>
-                      <div style="margin-top: 10px;">
-                        <h4 style="color: green"><%= vp2 %> €</h4>
-                        <%= Platform.find(favorite.platform2.to_i).name %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="row text-center">
-                <div class="col-md-6 offset-md-6">
-                  <div class="text-right" style="margin-right: 5px;">
-                    <%= link_to favorite_path(favorite), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer ce favoris?"} do %>
-                      <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+                    </div>
       <% end %>
     <% end %>
 
