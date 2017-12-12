@@ -3,19 +3,14 @@
     <div class="account-wrap">
       <div class="account-card">
         <div class="account-content smart-forms">
-          <div class="text-center" >
-            <%= link_to root_path do %>
-              <%= image_tag "crypteasy.png", height: "50px" %>
-            <% end %>
-          </div>
           <div id="contact">
             <div class="form-body">
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
 
                 <div class="mt30 mb30">
-                  <div class="tagline text-center" >
-                      <span style="color: #073f79">CREATE AN ACCOUNT</span>
+                  <div class=" main-title text-center" >
+                      <h3 style="color: #073f79">CREATE AN ACCOUNT</h3>
                   </div>
                 </div>
                 <div class="section" style="color: #8dc247">
