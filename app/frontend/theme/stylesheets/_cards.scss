@@ -205,12 +205,12 @@ Cards custom style
 
 .card-wagon-hp {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
   border-radius: 3px;
+
 }
 .card-user-wagon-hp {
   position: absolute;
@@ -255,12 +255,10 @@ Cards custom style
 }
 
 .card-wagon-description-hp {
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
-  background-color: red;
   border-radius: 3px;
   height: auto;
   text-align: center;
@@ -271,9 +269,19 @@ Cards custom style
   top: 30px;
   text-align: center;
   color: #053c7a;
+
 }
 
 .avatar-large-wagon {
   width: 100px;
 
 }
+.card-wagon-hp-crypto {
+    background-size: cover !important;
+    background-position: center;
+    color: white;
+    position: relative;
+    border-radius: 3px;
+    min-height: 275px;
+    margin-top: 20px;
+  }
