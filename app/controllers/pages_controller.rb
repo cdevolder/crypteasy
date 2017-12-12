@@ -4,6 +4,51 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+  valuedispatch = Exchangetimevalue.last(1440*3)
+
+   @minimum = valuedispatch[0].euro
+   @maximum = valuedispatch[0].euro
+   @minimum1 = valuedispatch[1].euro
+   @maximum1 = valuedispatch[1].euro
+   @minimum2 = valuedispatch[2].euro
+   @maximum2 = valuedispatch[2].euro
+
+
+  @valueplat1 = []
+
+  @valueplat2 = []
+
+  @valueplat3 = []
+
+  valuedispatch.each do |value|
+    if (value.platform_id == 1 && value.crypto_id == 1)
+       @valueplat1 << [value.created_at.to_time.to_i * 1000,value.euro]
+       if value.euro < @minimum
+            @minimum = value.euro.to_f
+       end
+       if value.euro > @maximum
+            @maximum = value.euro.to_f
+       end
+    end
+    if (value.platform_id == 1 && value.crypto_id == 2)
+       @valueplat2 << [value.created_at.to_time.to_i * 1000,value.euro]
+       if value.euro < @minimum1
+         @minimum1 = value.euro.to_f
+       end
+       if value.euro > @maximum1
+         @maximum1 = value.euro.to_f
+       end
+    end
+    if (value.platform_id == 1 && value.crypto_id == 3)
+       @valueplat3 << [value.created_at.to_time.to_i * 1000,value.euro]
+        if value.euro < @minimum2
+          @minimum2 = value.euro.to_f
+        end
+        if value.euro > @maximum2
+          @maximum2 = value.euro.to_f
+        end
+    end
+  end
   end
 
   def dashboard
