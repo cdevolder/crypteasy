@@ -186,12 +186,16 @@ Cards custom style
 // card favorite index dashbord
 
 .card-dashbord-favorite {
+  background-color: white;
   position:relative;
   margin-bottom: 1rem;
   border-radius: 2px;
   height: 12rem;
   box-shadow : 0px 0px 20px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+  &:hover {
+    background-color: #bdc3c7;
+  }
 }
 
 .card-dashbord-favorite-image {
