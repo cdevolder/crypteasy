@@ -1,2 +1,65 @@
-<h1>Alerts#index</h1>
-<p>Find me in app/views/alerts/index.html.erb</p>
+
+<div class="container col-sm-8 col-sm-offset-2">
+  <div class="card-top">
+    <div class="main-title text-center mt50 mb50">
+      <h1 style="color: #053C7A;">Mes alertes actives</h1>
+    </div>
+    <div class="text-right">
+      <%= link_to new_favorite_alert_path(params[:favorite_id]) do %>
+        <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-content pb20">
+    <div id="data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="data-table" class="table table-striped table-bordered dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedly="data-table_info" style="width: 100%; border: 2px solid rgb(220, 222, 226);">
+            <thead style="color: #053C7A;">
+              <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Alert id: activate to sort column descending" aria-sort="ascending">
+                  Alert id
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Alert option: activate to sort column descending">
+                  Option
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Price: activate to sort column descending">
+                  Price
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Crypto Monnaie: activate to sort column descending">
+                  Crypto
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Platforme 1: activate to sort column descending">
+                  Plateforme 1
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Platforme 2: activate to sort column descending">
+                  Plateforme 2
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @alerts.each do |alert| %>
+                <tr role="row" class="odd">
+                  <td><%= alert.id %>
+                    <div class="text-right" style="margin-right: 5px;">
+                      <%= link_to favorite_alert_path(favorite_id: alert.favorite.id, id: alert.id), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer cette alerte?"} do %>
+                        <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
+                      <% end %>
+                    </div>
+                  </td>
+                  <td><%= alert.option %></td>
+                  <td><%= alert.price.to_s %></td>
+                  <td><%= alert.favorite.crypto.name %></td>
+                  <td><%= Platform.find(alert.favorite.platform1).name %></td>
+                  <td><%= Platform.find(alert.favorite.platform2).name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

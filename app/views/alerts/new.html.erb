@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" style="height: 90vh;">
   <div class="layout-accounts">
     <div class="account-wrap">
       <div class="account-card">
@@ -9,14 +9,19 @@
           <div id="contact">
             <div class="form-body">
               <%= simple_form_for [@favorite, @alert] do |f| %>
-                <div class="section colm colm6">
-                  <%= f.input :price %>
+                <div class="mt30 mb50">
+                  <div class="tagline text-center" >
+                      <h3 style="color: #073f79;">CREER UNE ALERTE</h3>
+                  </div>
+                </div>
+                <div class="section colm colm6 mb30">
+                  <%= f.input :option, label: "Je souhaite être informé si le prix du #{@favorite.crypto.name} est: ", collection: ["Superieur", "Inferieur"] %>
                 </div>
                 <div class="section colm colm6">
-                  <%= f.input :option, collection: ["Superieur", "Inferieur"] %>
+                  <%= f.input :price, label: "à" %>
                 </div>
-                <div class="form-footer mt30">
-                  <%= f.submit "Create an alert", class: "btn btn-primary btn-block" %>
+                <div class="form-footer mt50 mb30">
+                  <%= f.submit "ENREGISTRER", class: "btn btn-primary btn-block" %>
                 </div>
               <% end %>
               <div class="text-right">
