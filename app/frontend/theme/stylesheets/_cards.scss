@@ -180,24 +180,26 @@ Cards custom style
 // card favorite index dashbord
 
 .card-dashbord-favorite {
-  margin-bottom: 30px;
+  position:relative;
+  margin-bottom: 1rem;
   border-radius: 2px;
-  height: 10rem;
+  height: 12rem;
   box-shadow : 0px 0px 20px rgba(0, 0, 0, 0.2);
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .card-dashbord-favorite-image {
   position: absolute;
-  top: 25px;
+  top: 35px;
   left: 40px;
 }
 
 .card-favorite-content {
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 25px;
 }
+
 
 
 //cards hp//
@@ -274,8 +276,13 @@ Cards custom style
 
 .avatar-large-wagon {
   width: 100px;
-
 }
+
+.card-links {
+  position: relative;
+  top: 167px;
+}
+
 .card-wagon-hp-crypto {
     background-size: cover !important;
     background-position: center;
@@ -285,3 +292,13 @@ Cards custom style
     min-height: 275px;
     margin-top: 20px;
   }
+
+.btn-dashboard {
+  position: absolute;
+  top: 175px;
+  border: solid gray;
+  width: 90%;
+}
+
+
+
