@@ -2099,13 +2099,18 @@ Charts & graphs
 // add wagon footer
 
 .footer-wagon {
+  margin-top:30px;
   background: #F4F4F4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
+  width: 100%;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  bottom:0;
+  right:0;
+
 }
 .footer-links-wagon {
   display: flex;
@@ -2120,5 +2125,17 @@ Charts & graphs
 }
 .footer-links-wagon a:hover {
   opacity: 1;
+}
+
+.main-title {
+  margin: 30px;
+  font-family: 'Helvetica';
+  text-align: center;
+  color: #34495e;
+  padding: 10px;
+}
+
+.off-content-wrapper {
+  min-height: calc(100vh-130px);
 }
 
