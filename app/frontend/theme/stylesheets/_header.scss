@@ -259,14 +259,26 @@
   color: white;
   margin-top: 50px;
   padding: 10px;
+  min-height: 130px;
 }
 
 .container-cards-hp {
   margin-top: 50px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
 }
 
 .container-liste-hp {
   margin: 50px;
 }
+
+.textcrypto {
+  width: 50%;
+  top: 6px;
+}
+
+.textcrypto p {
+  font-size: 25px;
+}
+
