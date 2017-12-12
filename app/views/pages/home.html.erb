@@ -1,54 +1,51 @@
 
-
 <div style="display: none;">
 
-<%=valuedispatch = Exchangetimevalue.last(1440*3*3) %>
+  <%=valuedispatch = Exchangetimevalue.last(1440*3*3) %>
 
-<%=@minimum = valuedispatch[0].euro%>
-<%=@maximum = valuedispatch[0].euro%>
-
-<%=@minimum1 = valuedispatch[1].euro%>
-<%=@maximum1 = valuedispatch[1].euro%>
-
-<%=@minimum2 = valuedispatch[2].euro%>
-<%=@maximum2 = valuedispatch[2].euro%>
+  <%= @minimum = valuedispatch[0].euro %>
+  <%= @maximum = valuedispatch[0].euro %>
+   <%= @minimum1 = valuedispatch[1].euro %>
+  <%= @maximum1 = valuedispatch[1].euro %>
+   <%= @minimum2 = valuedispatch[2].euro %>
+  <%= @maximum2 = valuedispatch[2].euro %>
 
 
-<%= @valueplat1 = []%>
-<br>
-<%= @valueplat2 = []%>
-<br>
-<%= @valueplat3 = []%>
+  <%= @valueplat1 = []%>
 
-<%valuedispatch.each do |value|%>
-  <% if (value.platform_id == 1 && value.crypto_id == 1)%>
-    <%= @valueplat1 << [value.created_at.to_time.to_i * 1000,value.euro]%>
-    <%  if value.euro < @minimum%>
-      <%=    @minimum = value.euro.to_f%>
-    <% end%>
-    <% if value.euro > @maximum%>
-      <%=    @maximum = value.euro.to_f%>
-    <% end%>
-  <%end%>
-  <%if (value.platform_id == 1 && value.crypto_id == 2)%>
-    <%= @valueplat2 << [value.created_at.to_time.to_i * 1000,value.euro]%>
-    <%  if value.euro < @minimum1%>
-      <%=    @minimum1 = value.euro.to_f%>
-    <% end%>
-    <% if value.euro > @maximum1%>
-      <%=    @maximum1 = value.euro.to_f%>
-    <% end%>
-  <%end%>
-  <%if (value.platform_id == 1 && value.crypto_id == 3)%>
-    <%= @valueplat3 << [value.created_at.to_time.to_i * 1000,value.euro]%>
+  <%= @valueplat2 = []%>
+
+  <%= @valueplat3 = []%>
+
+  <%valuedispatch.each do |value|%>
+    <% if (value.platform_id == 1 && value.crypto_id == 1)%>
+      <%= @valueplat1 << [value.created_at.to_time.to_i * 1000,value.euro]%>
+      <% if value.euro < @minimum%>
+        <%=    @minimum = value.euro.to_f%>
+      <% end%>
+      <% if value.euro > @maximum%>
+        <%=    @maximum = value.euro.to_f%>
+      <% end%>
+    <%end%>
+    <%if (value.platform_id == 1 && value.crypto_id == 2)%>
+      <%= @valueplat2 << [value.created_at.to_time.to_i * 1000,value.euro]%>
+      <% if value.euro < @minimum1%>
+        <%= @minimum1 = value.euro.to_f%>
+      <% end%>
+      <% if value.euro > @maximum1%>
+        <%= @maximum1 = value.euro.to_f%>
+      <% end%>
+    <%end%>
+    <%if (value.platform_id == 1 && value.crypto_id == 3)%>
+      <%= @valueplat3 << [value.created_at.to_time.to_i * 1000,value.euro]%>
         <%  if value.euro < @minimum2%>
       <%=    @minimum2 = value.euro.to_f%>
-    <% end%>
-    <% if value.euro > @maximum2%>
-      <%=    @maximum2 = value.euro.to_f%>
-    <% end%>
+      <% end%>
+      <% if value.euro > @maximum2%>
+        <%=    @maximum2 = value.euro.to_f%>
+      <% end%>
+    <%end%>
   <%end%>
-<%end%>
 
 
   <div id="demochartline"><%= @valueplat1%></div>
@@ -67,103 +64,10 @@
 
 </div>
 
-
- 
-<div class="page-wrapper">
-   <main class="main-content" style="margin-bottom: 0px;">
-      <!--/////////////////////////////// End navbar////////////////////////////-->
-      <div class="content">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="row">
-                     <div class='col-md-12 mb10'>
-                        <div class='card'>
-                           <div class="card-top">
-                              <h4 class="card-title" style="color: #073f79;">BTC/EUR Kraken</h4>
-                           </div>
-                           <div class='card-content'>
-                              <div class="flot-chart1">
-                                 <div class="flot-chart-content" id="flot-line-chart0"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class='col-md-12 mb10'>
-                        <div class='card'>
-                           <div class="card-top">
-                              <h4 class="card-title" style="color: #073f79;">ETH/EUR Kraken</h4>
-                           </div>
-                           <div class='card-content'>
-                              <div class="flot-chart1">
-                                 <div class="flot-chart-content" id="flot-line-chart1"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class='col-md-12 mb10'>
-                        <div class='card'>
-                           <div class="card-top">
-                              <h4 class="card-title" style="color: #073f79;">LTC/EUR Kraken</h4>
-                           </div>
-                           <div class='card-content'>
-                              <div class="flot-chart1">
-                                 <div class="flot-chart-content" id="flot-line-chart2"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6" >
-                <div class="card">
-                  <div class="col-md-12">
-                    <div>
-                      <div style="padding: 15px;text-align: center; margin-top: 5px;">
-                      <h4 style="color: #073f79" > Create an account </h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <% if user_signed_in? %>
-                    <!-- Ajouter résumé favoris -->
-                      <div class="card text-center mb20" style="height: 380px">----> Add favourites here <----</div>
-                    <!-- Fin résumé favoris -->
-                    <% else %>
-                      <%= render "devise/registrations/new" %>
-                    <% end %>
-                  </div>
-                </div>
-               </div>
-            </div>
-         </div>
-         <!--container-->
-      </div>
-      <!--content-->
-   </main>
-   <!--main content-->
-</div>
-
-<div class="banner-fixed text-center mt40 mb80">
-
-</div>
-
-
-<div class="container text-center mb70" style="height: 25px; background-color: #E9EBEE; color: #073f79 ">
-  <div class="row">
-  </div>
-</div>
-
-
-
-
-
-
-///////////////////////////////////////////////////new pages////////////////////////////////////////////////////////
- <div class="banner-wagon" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.9) 0%), url('https://daks2k3a4ib2z.cloudfront.net/58d736405c7cc5f82ab7e9f9/58d743d8d470da6460dcebad_img_n_007.jpg');">
+<div class="banner-wagon" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.9) 0%), url('https://daks2k3a4ib2z.cloudfront.net/58d736405c7cc5f82ab7e9f9/58d743d8d470da6460dcebad_img_n_007.jpg');">
   <div class="banner-content-wagon">
     <h1>Crypt-Easy</h1>
-    <p>Find your best platform for your cryptocurrencies.</p>
+    <p>Find the best platform for your cryptocurrencies</p>
     <a href="#ancre" class="btn btn-primary" style="border: 0px">Decouvrir</a>
   </div>
 </div>
@@ -171,14 +75,14 @@
 <div class="container-services">
   <h2 class="text-center" style="color: #053c7a;"> <strong>Nos services</strong></h2>
   </div>
-  <div class="container-cards-hp">
+  <div class="container-cards-hp text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="card-wagon-hp">
           <div class="card-description-wagon-hp-step">
             <i class="fa fa-unlock fa-4x" aria-hidden="true" style="color: #627178" ></i>
               <div class="mt30">
-                <p>Je me connect pour pouvoir mémoriser mes préfèrences</p>
+                <p>Je me connecte pour pouvoir mémoriser mes préfèrences</p>
             </div>
           </div>
         </div>
@@ -206,48 +110,49 @@
     </div>
   </div>
 </div>
-<div class="container-description-hp" style="background-image: linear-gradient(-225deg, rgba(0,101,168,1) 0%, rgba(0,36,61,0.8) 50%), url('http://fintechnews.ch/wp-content/uploads/2016/11/Deutsche-Bank-Survey-87-of-Financial-Market-Participants-Say-Blockchain-Will-Disrupt-The-Industry-1440x564_c.jpg');">
-  <div class="row col-md-6 offset-md-3 textcrypto">
-    <p>Crypt easy est un comparateur en temps réel des principales plateformes de trading de crypto-monnaies. Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos profits</p>
+<div class="container-description-hp" style="background-image: linear-gradient(-225deg, rgba(0,101,168,1) 0%, rgba(0,36,61,0.8) 50%), url('http://fintechnews.ch/wp-content/uploads/2016/11/Deutsche-Bank-Survey-87-of-Financial-Market-Participants-Say-Blockchain-Will-Disrupt-The-Industry-1440x564_c.jpg'); height: 350px">
+  <div class="row">
+    <div class="col-md-6 mt50">
+      <p style="font-size: 30px; font-weight: lighter;">Crypt easy est un comparateur en temps réel des principales plateformes de trading de crypto-monnaies. Nous vous aidons à optimiser vos achats-revente de celles-ci pour maximiser vos profits.</p>
+    </div>
+    <div class="col-md-6">
+      <img src='https://www.kraken.com/img/facade/monitor.png' style="width: 330px"/>
+    </div>
   </div>
 </div>
 
 
-<div class="container mt30">
+<div class="container mt100">
   <h2 class="text-center" style="color: #053c7a;"><strong>Nos principales plate-formes</strong></h2>
-  </div>
-  <div class="container-cards-hp">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-wagon-hp" style="text-align: center;">
-          <img src='http://www.xbt.money/wp-content/uploads/2017/05/bitstampnewlogo.png' class="avatar-large-wagon"/>
-          <div class="card-description-wagon-hp-step">
-
-              <div class="mt30">
-
-                <p>Bitstamp est une plate-forme basé au Luxembourg qui permet les dépôts et les retraits USD, EUR, Bitcoin, Litecoin, Ethereum ou Ripple</p>
-            </div>
+</div>
+<div class="container-cards-hp pt20">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-wagon-hp" style="text-align: center;">
+        <img src='http://www.xbt.money/wp-content/uploads/2017/05/bitstampnewlogo.png' class="avatar-large-wagon"/>
+        <div class="card-description-wagon-hp-step">
+          <div class="mt30">
+            <p>Bitstamp est une plate-forme basé au Luxembourg qui permet les dépôts et les retraits USD, EUR, Bitcoin, Litecoin, Ethereum ou Ripple.</p>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-wagon-hp" style="text-align: center;" >
-          <img src='https://coin24.fr/wp-content/uploads/2017/10/gdax_rev0.png' class="avatar-large-wagon" />
-          <div class="card-description-wagon-hp-step">
-              <div class="mt30">
-
-                <p>GDAX (Global Digital Asset Exchange) est une plate-forme simple et sécurisé pour acheter et de vendre ses actifs numériques en ligne</p>
-            </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-wagon-hp" style="text-align: center;" >
+        <img src='https://coin24.fr/wp-content/uploads/2017/10/gdax_rev0.png' class="avatar-large-wagon" />
+        <div class="card-description-wagon-hp-step">
+          <div class="mt30">
+            <p>GDAX (Global Digital Asset Exchange) est une plate-forme simple et sécurisé pour acheter et de vendre ses actifs numériques en ligne.</p>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-wagon-hp" style="text-align: center;">
-          <img src='https://p6.zdassets.com/hc/settings_assets/371365/200002726/2BWurGjvX938GrfyxTDCnQ-kraken_logo_2015.png' class="avatar-large-wagon"/>
-          <div class="card-description-wagon-hp-step">
-              <div class="mt30">
-                <p>Kraken est une plate-forme qui permet le tradding d'une multitude de crypto-monnaies</p>
-            </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-wagon-hp" style="text-align: center;">
+        <img src='https://p6.zdassets.com/hc/settings_assets/371365/200002726/2BWurGjvX938GrfyxTDCnQ-kraken_logo_2015.png' class="avatar-large-wagon"/>
+        <div class="card-description-wagon-hp-step">
+          <div class="mt30">
+            <p>Kraken est une plate-forme qui permet le tradding d'une multitude de crypto-monnaies.</p>
           </div>
         </div>
       </div>
@@ -256,40 +161,97 @@
 </div>
 
 
-<div class="container mt20">
-  <h2 class="text-center" style="color: #053c7a;"> <strong>Nos principales crypto-monnaies</strong></h2>
-</div>
-  <div class="container-cards-hp">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
+
+
+<div class="container mt50" style="background-color: #ecf1f1; padding: 20px; border-radius: 3px;">
+  <div class="row mt20 mb40">
+    <div class="col-md-6 offset-md-3">
+      <h2 style="color: #053c7a;"><strong>Nos principales crypto-monnaies</strong></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="col-md-12">
         <div class="card-wagon-hp-crypto ">
           <div class="card-description-wagon-hp-step">
-            <img src='https://bitcoin.org/img/icons/opengraph.png' class="avatar-large-wagon"/>
-              <div class="mt30">
+            <div class="row">
+              <div class="col-md-2 mt40">
+                <img src='https://bitcoin.org/img/icons/opengraph.png' class="avatar-large-wagon"/>
+              </div>
+              <div class="col-md-9 mb50">
                 <h4>Bitcoin</h4>
-                <p>Le Bitcoin est une crypto-monnaie. Ils sont émis lentement,régulièrement et dégressivement, jusqu'à un maximum de 21millions dans quelques décennies</p>
+                <p>Le Bitcoin est une crypto-monnaie. Ils sont émis lentement,régulièrement et dégressivement, jusqu'à un maximum de 21millions dans quelques décennies.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-md-12">
         <div class="card-wagon-hp-crypto ">
           <div class="card-description-wagon-hp-step">
-            <img src='http://bitcoinist.com/wp-content/themes/bitcoinist/img/ETHEREUM-LOGO-2.png' class="avatar-large-wagon"/>
-              <div class="mt30">
+            <div class="row">
+              <div class="col-md-2 mt40">
+                <img src='http://bitcoinist.com/wp-content/themes/bitcoinist/img/ETHEREUM-LOGO-2.png' class="avatar-large-wagon"/>
+              </div>
+              <div class="col-md-9 mt20">
                 <h4>Ethereum</h4>
-                <p>L' Ethereum est la deuxième crypto-monnaie mondial, avec une capitalisation de plus de 15 milliards d'euros</p>
+                <p>L'Ethereum est la deuxième crypto-monnaie mondial, avec une capitalisation de plus de 15 milliards d'euros.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-wagon-hp-crypto ">
+      <div class="col-md-12 mt50">
+        <div class="card-wagon-hp-crypto">
           <div class="card-description-wagon-hp-step">
-            <img src='https://cdn.worldvectorlogo.com/logos/litecoin.svg' class="avatar-large-wagon"/>
-              <div class="mt30">
+            <div class="row">
+              <div class="col-md-2" style="margin-top: 90px">
+                <img src='https://cdn.worldvectorlogo.com/logos/litecoin.svg' class="avatar-large-wagon"/>
+              </div>
+              <div class="col-md-9" style="margin-top: 80px">
                 <h4>Litecoin</h4>
-                <p>Le Litcoin est la quatrième crypto-monnaie mondial en termes de capitalisation</p>
+                <p>Le Litcoin est la quatrième crypto-monnaie mondial en termes de capitalisation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class='col-md-12'>
+          <div class='card mb20'>
+            <div class="card-top">
+              <h4 class="card-title" style="color: #073f79;">BTC/EUR Kraken</h4>
+            </div>
+            <div class='card-content'>
+              <div class="flot-chart1">
+                <div class="flot-chart-content" id="flot-line-chart0"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-12'>
+          <div class='card mb20'>
+            <div class="card-top">
+              <h4 class="card-title" style="color: #073f79;">ETH/EUR Kraken</h4>
+            </div>
+            <div class='card-content'>
+              <div class="flot-chart1">
+                <div class="flot-chart-content" id="flot-line-chart1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-12'>
+          <div class='card mb20'>
+            <div class="card-top">
+              <h4 class="card-title" style="color: #073f79;">LTC/EUR Kraken</h4>
+            </div>
+            <div class='card-content'>
+              <div class="flot-chart1">
+                <div class="flot-chart-content" id="flot-line-chart2"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -297,7 +259,9 @@
     </div>
   </div>
 </div>
-<div class="inscription-hp">
+
+
+<div class="inscription-hp mt40 mb50">
   <%= link_to  t(".sign_in", default: "Inscription"), new_user_session_path, class: "btn btn-primary", style: 'border:0px;' %>
 </div>
 
