@@ -193,6 +193,9 @@ Cards custom style
   height: 12rem;
   box-shadow : 0px 0px 20px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+  &:hover {
+    background-color: #bdc3c7;
+  }
 }
 
 .card-dashbord-favorite-image {
