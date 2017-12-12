@@ -269,13 +269,12 @@ Cards custom style
   position: relative;
   border-radius: 3px;
   height: auto;
-  text-align: center;
+
 }
 
 .card-description-wagon-hp-step {
   left: 10px;
   top: 30px;
-  text-align: center;
   color: #053c7a;
 
 }
@@ -290,14 +289,10 @@ Cards custom style
 }
 
 .card-wagon-hp-crypto {
-    background-size: cover !important;
-    background-position: center;
-    color: white;
-    position: relative;
-    border-radius: 3px;
-    min-height: 275px;
-    margin-top: 20px;
-  }
+  background-size: cover !important;
+  color: white;
+  margin-top: 20px;
+}
 
 .btn-dashboard {
   position: absolute;
