@@ -10,11 +10,13 @@ class PagesController < ApplicationController
     @favorites = current_user.favorites
     @minmax = []
     @platname = []
+    @cryptosname = []
     if (@favorites.size >= 1)
       @crypto0 = @favorites[0].crypto_id
       @platform0a = @favorites[0].platform1
       @platform0b = @favorites[0].platform2
       @platname << [Platform.find(@favorites[0].platform1).name, Platform.find(@favorites[0].platform2).name]
+      @cryptosname << [Crypto.find(@favorites[0].crypto_id).name, Crypto.find(@favorites[0].crypto_id).accronym]
       @alltimevalues0a = []
       @alltimevalues0b = []
       @timevalues0a =  Exchangetimevalue.where("platform_id = '#{@platform0a}' AND crypto_id = '#{@crypto0}'").last(300)
@@ -43,6 +45,7 @@ class PagesController < ApplicationController
       @platform1a = @favorites[1].platform1
       @platform1b = @favorites[1].platform2
       @platname << [Platform.find(@favorites[1].platform1).name, Platform.find(@favorites[1].platform2).name]
+      @cryptosname << [Crypto.find(@favorites[1].crypto_id).name, Crypto.find(@favorites[1].crypto_id).accronym]
       @alltimevalues1a = []
       @alltimevalues1b = []
       @timevalues1a =  Exchangetimevalue.where("platform_id = '#{@platform1a}' AND crypto_id = '#{@crypto1}'").last(300)
@@ -72,6 +75,7 @@ class PagesController < ApplicationController
       @platform2a = @favorites[2].platform1
       @platform2b = @favorites[2].platform2
       @platname << [Platform.find(@favorites[2].platform1).name, Platform.find(@favorites[2].platform2).name]
+      @cryptosname << [Crypto.find(@favorites[2].crypto_id).name, Crypto.find(@favorites[2].crypto_id).accronym]
       @alltimevalues2a = []
       @alltimevalues2b = []
       @timevalues2a =  Exchangetimevalue.where("platform_id = '#{@platform2a}' AND crypto_id = '#{@crypto2}'").last(300)

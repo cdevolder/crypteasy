@@ -45,6 +45,7 @@
 
   <div id="minmax"><%= @minmax%></div>
   <div id="platname"><%= @platname%></div>
+  <div id="cryptosname"><%= @cryptosname%></div>
 
 </div>
 
@@ -114,6 +115,7 @@
     <% end %>
 
   </div>
+  <h4 class="text-center" id="titleplat"></h4>
   <% if @favorites.size >= 1%>
   <div class='card mt20'>
     <div class="card-top">
@@ -158,6 +160,13 @@
 <%= content_for(:after_js) do %>
   <script type="text/javascript">
 
+    var settitle = document.getElementById("titleplat");
+
+    var cryptosname = document.getElementById("cryptosname");
+    cryptosname = cryptosname.innerHTML;
+    cryptosname = JSON.parse(cryptosname);
+
+
     var minmax = document.getElementById("minmax");
     minmax = minmax.innerHTML;
     minmax = JSON.parse(minmax);
@@ -174,7 +183,7 @@
 
    var carddash = document.getElementsByClassName("card-dashbord-favorite1");
    console.log(carddash);
-
+      settitle.innerHTML = cryptosname[0][0] + " (" + cryptosname[0][1] + ")";
       datas = plat[0][0];
        datas1 = plat[0][1];
        $(function() {
@@ -265,6 +274,7 @@
 
    carddash[0].addEventListener("click", function() {
        console.log("click on card");
+       settitle.innerHTML = cryptosname[0][0] + " (" + cryptosname[0][1] + ")";
        datas = plat[0][0];
        datas1 = plat[0][1];
 
@@ -363,6 +373,7 @@
 if (carddash.length > 1){
    carddash[1].addEventListener("click", function() {
        console.log("click on card");
+       settitle.innerHTML = cryptosname[1][0] + " (" + cryptosname[1][1] + ")";
        datas = plat[1][0];
        datas1 = plat[1][1];
 
@@ -461,6 +472,7 @@ if (carddash.length > 1){
    if (carddash.length > 2){
    carddash[2].addEventListener("click", function() {
        console.log("click on card");
+       settitle.innerHTML = cryptosname[2][0] + " (" + cryptosname[2][1] + ")";
        datas = plat[2][0];
        datas1 = plat[2][1];
 
