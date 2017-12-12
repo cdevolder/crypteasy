@@ -1,10 +1,63 @@
 
-    <h1>Offers</h1>
-    <% @offers.each do |offer| %>
-      <%= link_to offer.name, offer_path(offer) %>
-      <h3><%= offer.name %></h3>
-      <p><%= offer.description %></p>
-      <p>Amount: <%= humanized_money_with_symbol(offer.price) %></p>
+<div class="main-title">
+    <h1>Toutes nos offres</h1>
+ </div>
 
-    <% end %>
-
+<div class="content" style="margin-top: 40px;">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-md-4">
+              <div class="plan text-center">
+                  <div class="plan-header">
+                      <h4>Basic</h4>
+                      <h1 class="text-info"> <%= @offers.first.price %> € <small> mensuel </small></h1>
+                      <h6> <%= @offers.first.sku %> </h6>
+                  </div>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'offer_id', @offers.first.id %>
+                    <%= submit_tag 'Souscrire', class: 'btn btn-primary text-center', style: 'width: 130px' %>
+                  <% end %>
+                  <ul class="list-unstyled text-center">
+                      <li><i class="fa fa-check-circle-o"></i> <strong>5</strong> Favories</li>
+                      <li><i class="fa fa-check-circle-o"></i> <strong>4</strong> Alertes SMS par favorie</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="plan text-center">
+                  <div class="plan-header">
+                      <div class="mb30"><span class="badge badge-primary">Best Value</span></div>
+                      <h4>Business</h4>
+                      <h1 class="text-primary"> <%= @offers[1].price %> € <small> mensuel</small></h1>
+                      <h6> <%= @offers[1].sku %></h6>
+                  </div>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'offer_id', @offers[1].id %>
+                    <%= submit_tag 'Souscrire', class: 'btn btn-primary text-center', style: 'width: 130px' %>
+                  <% end %>
+                  <ul class="list-unstyled text-center">
+                      <li><i class="fa fa-check-circle-o"></i> <strong>10</strong> Favories</li>
+                      <li><i class="fa fa-check-circle-o"></i> <strong>8</strong> Alertes SMS par favorie</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="plan text-center">
+                  <div class="plan-header">
+                      <h4>Complete</h4>
+                      <h1 class="text-info"> <%= @offers[2].price %> € <small> mensuel</small></h1>
+                      <h6> <%= @offers[2].sku %></h6>
+                  </div>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'offer_id', @offers[2].id %>
+                    <%= submit_tag 'Souscrire', class: 'btn btn-primary text-center', style: 'width: 130px' %>
+                  <% end %>
+                  <ul class="list-unstyled">
+                      <li><i class="fa fa-check-circle-o"></i> <strong> Illimités </strong> Favories </li>
+                      <li><i class="fa fa-check-circle-o"></i> <strong> Illimités </strong> Alertes SMS par favorie </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div><!--container-->
+</div>
