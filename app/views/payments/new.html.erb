@@ -15,7 +15,6 @@
           <h5 style="opacity: 0.7;">Status: <h3><%= @order.state %></h3></h5>
         </label>
       </article>
-  </div>
       <div class="text-center pb50 mt50">
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -26,4 +25,5 @@
           data-currency="<%= @order.amount.currency %>"></script>
       </div>
     <% end %>
+  </div>
 </div>
