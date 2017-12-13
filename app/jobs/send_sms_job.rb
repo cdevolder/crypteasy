@@ -39,18 +39,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Bitcoin a dépassé les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value3 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Bitcoin a dépassé les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value6 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Bitcoin a dépassé les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       elsif alert.favorite.crypto.accronym == "ETH"
@@ -59,18 +62,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Ethereum a dépassé les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value5 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Ethereum a dépassé les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value8 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Ethereum a dépassé les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       elsif alert.favorite.crypto.accronym == "LTC"
@@ -79,18 +85,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Litcoin a dépassé les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value4 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Litcoin a dépassé les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value7 >= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Litcoin a dépassé les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       end
@@ -103,18 +112,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Bitcoin est passé sous les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value3 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Bitcoin est passé sous les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value6 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Bitcoin est passé sous les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       elsif alert.favorite.crypto.accronym == "ETH"
@@ -123,18 +135,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Ethereum est passé sous les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value5 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Ethereum est passé sous les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value8 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Ethereum est passé sous les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       elsif alert.favorite.crypto.accronym == "LTC"
@@ -143,18 +158,21 @@ class SendSmsJob < ApplicationJob
             @phone = alert.user.phone
             @body = "Le Litcoin est passé sous les #{alert.price}€ sur la plateforme Kraken."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Gdax"
           if @value4 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Litcoin est passé sous les #{alert.price}€ sur la plateforme Gdax."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         elsif Platform.find(alert.favorite.platform1).name || Platform.find(alert.favorite.platform2).name == "Bitstamp"
           if @value7 <= alert.price.to_i
             @phone = alert.user.phone
             @body = "Le Litcoin est passé sous les #{alert.price}€ sur la plateforme Bitstamp."
             SendSmsService.new(@phone, @body).send
+            alert.destroy
           end
         end
       end
