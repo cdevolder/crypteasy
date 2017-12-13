@@ -6,23 +6,30 @@
 </div>
 
 
-<div class="container">
+<div class="container ">
   <div class="row col-md-12 mt20">
-    <h2 class="col-md-6">
-      Dashboard
-    </h2>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 offset-md-3" style="margin-top: -35px;" >
+      <div class="main-title">
+        <h2>Crypto-monnaies</h2>
+      </div>
+    </div>
+    <div class="col-md-3 text-right">
+      <%if @allplatcompact.size < 3%>
       <%= link_to new_favorite_path do %>
+      <div style="margin-top: 31px; margin-left: 86px;">
         <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
+      </div>
       <% end %>
+      <%end%>
     </div>
   </div>
-  <div class="row mb50">
+  <div class="cryptobox">
+  <div class="row mb50 " style="margin-bottom: -24px !important;">
     <% if @favorites %>
       <% @favorites.each do |favorite| %>
                     <div class="col-md-12 col-lg-4 col-sm-12">
-                      <%= link_to  do %>
-                        <div class="card-dashbord-favorite card-dashbord-favorite1">
+
+                        <div class="card-dashbord-favorite card-dashbord-favorite1" style="cursor: pointer;">
                           <div class="row">
                             <div class="col-md-6">
                               <div class="card-dashbord-favorite-image">
@@ -36,20 +43,20 @@
                                 <% if vp1 > vp2 %>
                                   <div style="margin-bottom: 10px;">
                                     <h4 style="color: green"><%= vp1 %> €</h4>
-                                    <%= Platform.find(favorite.platform1.to_i).name %>
+                                    <div style="color: blue"><%= Platform.find(favorite.platform1.to_i).name %></div>
                                   </div>
                                   <div style="margin-top: 10px;">
                                     <h4 style="color: #e8272a"><%= vp2 %> €</h4>
-                                    <%= Platform.find(favorite.platform2.to_i).name %>
+                                    <div style="color: blue"><%= Platform.find(favorite.platform2.to_i).name %></div>
                                   </div>
                                 <% else %>
                                   <div style="margin-bottom: 10px;">
                                     <h4 style="color: #e8272a"><%= vp1 %> €</h4>
-                                    <%= Platform.find(favorite.platform1.to_i).name %>
+                                    <div style="color: blue"><%= Platform.find(favorite.platform1.to_i).name %></div>
                                   </div>
                                   <div style="margin-top: 10px;">
                                     <h4 style="color: green"><%= vp2 %> €</h4>
-                                    <%= Platform.find(favorite.platform2.to_i).name %>
+                                    <div style="color: blue"><%= Platform.find(favorite.platform2.to_i).name %></div>
                                   </div>
                                 <% end %>
                               </div>
@@ -65,7 +72,7 @@
                             </div>
                           </div>
                         </div>
-                      <% end %>
+
                       <div style="margin-top: -17px;">
                         <div class="row text-center">
                           <div class="col-sm-6">
@@ -77,7 +84,7 @@
                           </div>
                           <div class="col-sm-6 card-p-ki-soule">
                             <div style=" background-color: white; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); margin-left: -16px;">
-                              <%= link_to new_favorite_alert_path(favorite.id), class: 'card-p-ki-soule' do %>
+                              <%= link_to favorite_alerts_path(favorite.id), class: 'card-p-ki-soule' do %>
                                 Create an alert
                               <% end %>
                             </div>
@@ -89,7 +96,7 @@
     <% end %>
 
   </div>
-  <h4 class="text-center" id="titleplat"></h4>
+  <h5 class="text-center main-title" id="titleplat"></h5>
   <% if @favorites.size >= 1%>
   <div class='card mt20'>
     <div class="card-top">
@@ -102,6 +109,8 @@
     </div>
   </div>
 <%end%>
+
+</div>
   <!-- Line -->
   <div class="mt50" style="background-color: gray; height: 1px;"></div>
   <!-- End line -->
@@ -121,9 +130,11 @@
         </p>
       </div>
       <div class="col-sm-3">
+        <%if @allplatcompact.size < 3%>
         <%= link_to new_favorite_path do %>
           <span class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
         <% end %>
+        <%end%>
       </div>
     </div>
   </div>
