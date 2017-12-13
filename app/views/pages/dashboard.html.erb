@@ -13,15 +13,18 @@
         <h2>Dashboard</h2>
       </div>
     </div>
-    <div class="col-md-3 text-right">
-      <%if @allplatcompact.size < 3%>
-        <%= link_to new_favorite_path do %>
-          <div style="margin-top: 31px; margin-left: 86px;">
-            <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
-          </div>
-        <% end %>
-      <%end%>
-    </div>
+    <% if @favorites != [] %>
+      <div class="col-md-3 text-right">
+        <%if @allplatcompact.size < 3%>
+          <%= link_to new_favorite_path do %>
+            <div style="margin-top: 31px; margin-left: 86px;">
+              <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favori</span>
+            </div>
+          <% end %>
+        <%end%>
+      </div>
+    <% end %>
+
   </div>
   <% if @favorites != [] %>
     <div class="cryptobox">
@@ -106,7 +109,25 @@
         </div>
       <%end%>
     </div>
-  <% end %>
+  <% else %>
+    <div class="col-sm-12">
+      <div class="row mb50 mt50">
+        <div class="col-sm-6 offset-md-3">
+          <div class="container cryptobox text-center">
+            <h5 style="color: gray">
+              Vous n'avez pas encore choisis de favori.
+            </h5>
+            <p>
+              Pour en ajouter il vous suffit de clicker sur
+              <%= link_to new_favorite_path do %>
+                <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end%>
 
 
   <!-- Line -->
@@ -127,7 +148,6 @@
           L'ajout d'un favoris vous permet de comparer, en temps réel, la valeur d'une cryptomonnaie par rapport à deux plateforme et vous permet également d'initier des alertes par SMS lorsqu'un de vos favoris atteint un seuil que vous pouvez définir.
         </p>
       </div>
-
     </div>
   </div>
 </div>
