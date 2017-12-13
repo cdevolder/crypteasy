@@ -3,8 +3,6 @@
     <div class="account-wrap">
       <div class="account-card">
         <div class="account-content smart-forms" style="background-color: #ECECEC; box-shadow: unset;">
-          <div class="text-center">
-          </div>
           <div id="contact">
             <div class="form-body" style="color: #8dc247;" >
               <%= simple_form_for(User.new, url: user_registration_path) do |f| %>
@@ -15,13 +13,10 @@
                 </div>
                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                   <%= f.input :password_confirmation, required: true, class: "field prepend-icon" %>
-
                 <div class="form-footer mt30">
                   <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
                 </div>
               <% end %>
-              <div class="text-right">
-              </div>
             </div>
           </div>
         </div>
