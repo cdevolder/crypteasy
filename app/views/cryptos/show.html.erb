@@ -28,7 +28,7 @@
   <div class="container">
     <div class="row">
        <div class="col-md-8">
-          <div class='card mb10'>
+          <div class='card mb10 boxsha'>
              <div class="card-top">
                 <p class="card-title text-left">
                    <%= link_to :back do %>
@@ -81,7 +81,7 @@
              </div>
           </div>
             <!-- Insérer le graph ici -->
-          <div class='card'>
+          <div class='card boxsha'>
              <div class="card-top">
                 <h4 class="card-title" id="titlegraph"></h4>
              </div>
@@ -94,9 +94,9 @@
        </div>
        <div class="col-md-4 mb30">
 
-            <div class='card mb10'>
+            <div class='card mb10 boxsha'>
 
-             <div class="card-top text-left" style="border-bottom: lightgray solid 0.5px; margin-bottom: 20px; border-top-color: #34495E;">
+             <div class="card-top text-left" style="border-bottom: lightgray solid 0.5px; margin-bottom: 20px;">
                 <h4 class="card-title" style="margin-bottom: 2px; margin-top: 3px;">Calculateur</h4>
              </div>
              <div class='card-content pb20' style="margin-bottom: -8px;">
@@ -112,7 +112,7 @@
 
 
 
-          <div class='card mb10'>
+          <div class='card mb10 boxsha'>
              <div class="card-top">
                 <h4 class="card-title">Platforms</h4>
              </div>
@@ -172,7 +172,7 @@
                 <div id="boxresult">
                    <div class="row">
                       <div class="col-md-12">
-                         <div class='card mb10'>
+                         <div class='card mb10 boxsha'>
                             <div class="card-top">
                                <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
                                <p class="col-md-6 card-title text-left">
