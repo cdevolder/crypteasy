@@ -271,14 +271,11 @@
 
     var platformLeg = document.getElementById("platformLegend");
 
-    console.log(selectplat);
     var platformidd = document.getElementById("platformid");
     var theplatform = "...";
     var cryptoidd = document.getElementById("cryptoid");
     var highestprice = document.getElementById("highprice24");
-    console.log(platformidd);
     if (platformidd == null) {
-      console.log("hhhhhhh");
       platformidd = "Kraken";
     }
 
@@ -286,14 +283,11 @@
       platformidd = platformidd.innerHTML;
     }
 
-    console.log(platformidd);
     var lowestprice = document.getElementById("lowprice24");
     cryptoidd = cryptoidd.innerHTML;
-    console.log(highestprice);
 
     function fn60sec() {
     // runs every 60 sec and runs on init.
-    console.log('Executed!');
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
       if (xtest.innerHTML != json['EUR'] + "€")
       {
@@ -325,9 +319,6 @@
     var max2 = document.getElementById("maxval2");
 
 
-    console.log(datas);
-    console.log(max);
-    console.log(min);
 
     min = min.innerHTML;
     max = max.innerHTML;
@@ -431,7 +422,7 @@ $(function() {
     selectplat.addEventListener("click", function(){
       $.plot($("#flot-line-chart00"), [barData1], barOptions);
       platformidd = "Gdax";
-      console.log('Executed!');
+
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
 
@@ -459,7 +450,7 @@ $(function() {
     selectplatK.addEventListener("click", function(){
       $.plot($("#flot-line-chart00"), [barData], barOptions);
       platformidd = "Kraken";
-      console.log('Executed!');
+
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
 
@@ -488,7 +479,7 @@ $(function() {
     selectplatB.addEventListener("click", function(){
       $.plot($("#flot-line-chart00"), [barData2], barOptions);
       platformidd = "Bitstamp";
-      console.log('Executed!');
+
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
 
