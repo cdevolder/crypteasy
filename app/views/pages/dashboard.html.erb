@@ -15,17 +15,17 @@
     </div>
     <div class="col-md-3 text-right">
       <%if @allplatcompact.size < 3%>
-      <%= link_to new_favorite_path do %>
-      <div style="margin-top: 31px; margin-left: 86px;">
-        <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
-      </div>
-      <% end %>
+        <%= link_to new_favorite_path do %>
+          <div style="margin-top: 31px; margin-left: 86px;">
+            <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
+          </div>
+        <% end %>
       <%end%>
     </div>
   </div>
-  <div class="cryptobox">
-    <div class="row mb50">
-      <% if @favorites %>
+  <% if @favorites != [] %>
+    <div class="cryptobox">
+      <div class="row mb50">
         <% @favorites.each do |favorite| %>
           <div class="col-md-12 col-lg-4 col-sm-12 col-xs-12">
             <div class="card-dashbord-favorite" style="cursor: pointer;">
@@ -61,17 +61,16 @@
                   </div>
                 </div>
               </div>
-              <div class="row text-center">
-                <div class="col-md-6 offset-md-6">
-                  <div class="text-right" style="margin-right: 5px;">
-                    <%= link_to favorite_path(favorite), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer ce favori?"} do %>
-                      <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
-                    <% end %>
-                  </div>
+            <div class="row text-center">
+              <div class="col-md-6 offset-md-6">
+                <div class="text-right" style="margin-right: 5px;">
+                  <%= link_to favorite_path(favorite), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer ce favori?"} do %>
+                    <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
-
+          </div>
             <div style="margin-top: -17px;">
               <div class="row text-center">
                 <div class="col-sm-6">
@@ -92,23 +91,24 @@
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
-
-    <h5 class="text-center main-title" id="titleplat"></h5>
-    <% if @favorites.size >= 1%>
-      <div class='card mt20'>
-        <div class="card-top">
-          <h4 class="card-title"></h4>
-        </div>
-        <div class='card-content'>
-          <div class="flot-chart">
-            <div class="flot-chart-content" id="flot-line-chart-multi00"></div>
+      </div>
+      <h5 class="text-center main-title" id="titleplat"></h5>
+      <% if @favorites.size >= 1%>
+        <div class='card mt20'>
+          <div class="card-top">
+            <h4 class="card-title"></h4>
+          </div>
+          <div class='card-content'>
+            <div class="flot-chart">
+              <div class="flot-chart-content" id="flot-line-chart-multi00"></div>
+            </div>
           </div>
         </div>
       <%end%>
     </div>
-  </div>
+  <% end %>
+
+
   <!-- Line -->
   <div class="mt50" style="background-color: gray; height: 1px;"></div>
   <!-- End line -->
