@@ -1,19 +1,23 @@
-<h1 class="text-center mt50 mb50">Order</h1>
+<div class="main-title">
+  <h3>Votre commande</h3>
+</div>
 
-<div class="container col-md-6 col-md-offset-3" style="background-color: white; border-radius: 5px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)">
-  <div class="main-title pt50 mb30">
-    <h3>Rappel de la commande n°<%= @order.id %>, offre "<%= @order.offer_sku %>"</h3>
+<div class="container col-md-6 col-md-offset-3 cryptobox mt30" style="background-color: #ffffff">
+  <div class="main-title">
+    <h3>Offre "<%= @order.offer_sku %>"</h3>
   </div>
-  <div class="col-md-6 pl30">
-      <article>
-        <label class="amount">
-          <h5 style="opacity: 0.7;">Amount: <h3> <%= humanized_money(@order.amount) %> € par mois </h3></h5>
+  <div class="col-md-12">
+    <article>
+      <div class="row">
+        <label class="col-md-8">
+          <h5 style="opacity: 0.7;">Montant: <h3> <%= humanized_money(@order.amount) %> € par mois </h3></h5>
         </label>
         <br>
-        <label class="mt30">
+        <label class="col-md-4">
           <h5 style="opacity: 0.7;">Status: <h3><%= @order.state %></h3></h5>
         </label>
-      </article>
-      <br>
+      </div>
+    </article>
   </div>
 </div>
+

@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
     SendSmsService.new(number, body).send
 
     @order.update(payment: charge.to_json, state: 'paid')
-    redirect_to order_path(@order)
+    redirect_to dashboard_path
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
