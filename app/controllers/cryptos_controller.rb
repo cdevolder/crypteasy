@@ -52,6 +52,37 @@ class CryptosController < ApplicationController
       @max = @max
     end
 
+        @timevalues1 = Exchangetimevalue.where("platform_id = '2' AND crypto_id = '#{params[:id]}'").last(300)
+    @timevalues2 = Exchangetimevalue.where("platform_id = '3' AND crypto_id = '#{params[:id]}'").last(300)
+
+        @alltimevalues1 = []
+        @alltimevalues2 = []
+        @min1 = @timevalues1[0].euro.to_f
+        @max1 = @timevalues1[0].euro.to_f
+        @min2 = @timevalues2[0].euro.to_f
+        @max2 = @timevalues2[0].euro.to_f
+    @timevalues1.each_with_index do |timeval, ind|
+      @alltimevalues1 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
+      if timeval.euro < @min1
+          @min1 = timeval.euro.to_f
+     end
+     if timeval.euro > @max1
+          @max1 = timeval.euro.to_f
+     end
+
+    end
+
+    @timevalues2.each_with_index do |timeval, ind|
+      @alltimevalues2 << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
+      if timeval.euro < @min2
+          @min2 = timeval.euro.to_f
+     end
+     if timeval.euro > @max2
+          @max2 = timeval.euro.to_f
+     end
+
+    end
+
 
     # Utilisé pour le calculateur sur la page crypto_show
     last_prices = []
