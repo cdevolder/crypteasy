@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   @valueplat3 = []
 
   valuedispatch.each do |value|
-    if (value.platform_id == 1 && value.crypto_id == 1)
+    if (value.platform_id == 2 && value.crypto_id == 1)
        @valueplat1 << [value.created_at.to_time.to_i * 1000,value.euro]
        if value.euro < @minimum
             @minimum = value.euro.to_f
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
             @maximum = value.euro.to_f
        end
     end
-    if (value.platform_id == 1 && value.crypto_id == 2)
+    if (value.platform_id == 2 && value.crypto_id == 2)
        @valueplat2 << [value.created_at.to_time.to_i * 1000,value.euro]
        if value.euro < @minimum1
          @minimum1 = value.euro.to_f
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
          @maximum1 = value.euro.to_f
        end
     end
-    if (value.platform_id == 1 && value.crypto_id == 3)
+    if (value.platform_id == 2 && value.crypto_id == 3)
        @valueplat3 << [value.created_at.to_time.to_i * 1000,value.euro]
         if value.euro < @minimum2
           @minimum2 = value.euro.to_f
