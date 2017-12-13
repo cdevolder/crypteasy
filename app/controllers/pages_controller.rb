@@ -68,6 +68,8 @@ class PagesController < ApplicationController
       @timevalues0b =  Exchangetimevalue.where("platform_id = '#{@platform0b}' AND crypto_id = '#{@crypto0}'").last(300)
       @min0a = @timevalues0a[0].euro.to_f
       @max0a = @timevalues0a[0].euro.to_f
+      @min0b = @timevalues0b[0].euro.to_f
+      @max0b = @timevalues0b[0].euro.to_f
 
       @timevalues0a.each_with_index do |timeval, ind|
         @alltimevalues0a << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
@@ -77,13 +79,20 @@ class PagesController < ApplicationController
         if timeval.euro > @max0a
           @max0a = timeval.euro.to_f
         end
+
       end
 
       @timevalues0b.each_with_index do |timeval, ind|
         @alltimevalues0b << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
+        if timeval.euro < @min0b
+          @min0b = timeval.euro.to_f
+        end
+        if timeval.euro > @max0b
+          @max0b = timeval.euro.to_f
+        end
       end
 
-      @minmax << [@min0a, @max0a]
+      @minmax << [[@min0a,@min0b].min, [@max0a, @max0b].max]
     end
     if (@favorites.size >= 2)
       @crypto1 = @favorites[1].crypto_id
@@ -97,6 +106,8 @@ class PagesController < ApplicationController
       @timevalues1b =  Exchangetimevalue.where("platform_id = '#{@platform1b}' AND crypto_id = '#{@crypto1}'").last(300)
       @min1a = @timevalues1a[0].euro.to_f
       @max1a = @timevalues1a[0].euro.to_f
+      @min1b = @timevalues1b[0].euro.to_f
+      @max1b = @timevalues1b[0].euro.to_f
 
       @timevalues1a.each_with_index do |timeval, ind|
         @alltimevalues1a << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
@@ -106,13 +117,20 @@ class PagesController < ApplicationController
         if timeval.euro > @max1a
           @max1a = timeval.euro.to_f
         end
+
       end
 
       @timevalues1b.each_with_index do |timeval, ind|
         @alltimevalues1b << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
+        if timeval.euro < @min1b
+          @min1b = timeval.euro.to_f
+        end
+        if timeval.euro > @max1b
+          @max1b = timeval.euro.to_f
+        end
       end
 
-      @minmax << [@min1a, @max1a]
+      @minmax << [[@min1a,@min1b].min, [@max1a, @max1b].max]
     end
 
     if (@favorites.size >= 3)
@@ -127,6 +145,8 @@ class PagesController < ApplicationController
       @timevalues2b =  Exchangetimevalue.where("platform_id = '#{@platform2b}' AND crypto_id = '#{@crypto2}'").last(300)
       @min2a = @timevalues2a[0].euro.to_f
       @max2a = @timevalues2a[0].euro.to_f
+      @min2b = @timevalues2b[0].euro.to_f
+      @max2b = @timevalues2b[0].euro.to_f
 
       @timevalues2a.each_with_index do |timeval, ind|
         @alltimevalues2a << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
@@ -140,9 +160,15 @@ class PagesController < ApplicationController
 
       @timevalues2b.each_with_index do |timeval, ind|
         @alltimevalues2b << [timeval.created_at.to_time.to_i * 1000,timeval.euro]
+        if timeval.euro < @min2b
+          @min2b = timeval.euro.to_f
+        end
+        if timeval.euro > @max2b
+          @max2b = timeval.euro.to_f
+        end
       end
 
-      @minmax << [@min2a, @max2a]
+      @minmax << [[@min2a,@min2b].min, [@max2a, @max2b].max]
     end
       @allplatcompact = []
       if (@favorites.size >= 1)
