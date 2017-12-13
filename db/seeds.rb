@@ -42,21 +42,21 @@ crypto3 = Crypto.create!(
   )
 
 offer1 = Offer.create!(
-  sku: 'Bronze-offer',
+  sku: 'Bronze',
   name: 'Bronze',
   description: 'ok',
   price: '3'
   )
 
 offer2 = Offer.create!(
-  sku: 'Silver-offer',
+  sku: 'Argent',
   name: 'Silver',
   description: 'ok',
   price: '7'
   )
 
 offer2 = Offer.create!(
-  sku: 'Gold-offer',
+  sku: 'Or',
   name: 'Gold',
   description: 'ok',
   price: '13'
