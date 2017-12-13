@@ -1,191 +1,193 @@
 <div class="container mt40">
-  <div class="main-title">
+  <div class="main-title pt30 pb30">
     <h1>Crypto-monnaies</h1>
   </div>
-  <div class="row">
-    <% @cryptos.each do |crypto|%>
+  <div class="cryptobox">
+    <div class="row" style="padding: 30px;">
+      <% @cryptos.each do |crypto|%>
+        <div class="col-xs-12 col-md-3 col-sm-4"">
+          <div class="card-index-wagon">
+            <div class="card-category-wagon">
+              <img src="<%= crypto.photo_url %>", width="60">
+            </div>
+            <div class="card-description-wagon text-center">
+              <%= crypto.name%>
+            </div>
+              <%= link_to crypto_path(crypto), :class => "card-link-wagon" do %>
+                <div class="text-center crypto-title"></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+          <div class="col-xs-12 col-md-3 col-sm-4">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.coingecko.com/assets/coin-250/monero-692618e262bdd111563bb0553d3e3fd3ae3b712d7833350c9dc4121c4b1d1c7d.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Monero
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
+        </div>
+      </div>
       <div class="col-xs-12 col-md-3 col-sm-4"">
         <div class="card-index-wagon">
           <div class="card-category-wagon">
-            <img src="<%= crypto.photo_url %>", width="60">
+            <img src="https://www.bitcoincash.org/img/bitcoincash-white.png", width="60">
           </div>
           <div class="card-description-wagon text-center">
-            <%= crypto.name%>
+            BitcoinCash
           </div>
-            <%= link_to crypto_path(crypto), :class => "card-link-wagon" do %>
-              <div class="text-center crypto-title"></div>
-            <% end %>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
       </div>
-    <% end %>
-        <div class="col-xs-12 col-md-3 col-sm-4">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.coingecko.com/assets/coin-250/monero-692618e262bdd111563bb0553d3e3fd3ae3b712d7833350c9dc4121c4b1d1c7d.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://cdn.worldvectorlogo.com/logos/dash-3.svg", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Dash
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Monero
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.bitcoincash.org/img/bitcoincash-white.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.datacoinz.com/wp-content/uploads/2017/11/Ripple.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Ripple
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          BitcoinCash
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://cdn.worldvectorlogo.com/logos/dash-3.svg", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://coincaptable.com/assets/images/coins/EOS.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            EOS
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Dash
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.datacoinz.com/wp-content/uploads/2017/11/Ripple.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.stellar.org/wp-content/themes/stellar/images/stellar-rocket-300.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Stellar Lumens
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Ripple
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://coincaptable.com/assets/images/coins/EOS.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://z.cash/theme/images/yellow-zcash-logo.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Zcash
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          EOS
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.stellar.org/wp-content/themes/stellar/images/stellar-rocket-300.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://cdn.worldvectorlogo.com/logos/nem-xem.svg", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            NEM
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Stellar Lumens
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://z.cash/theme/images/yellow-zcash-logo.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Ubiq_Logo.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Ubiq
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Zcash
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://cdn.worldvectorlogo.com/logos/nem-xem.svg", width="60">
-        </div>
-        <div class="card-description-wagon text-center">
-          NEM
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Ubiq_Logo.png", width="60">
-        </div>
-        <div class="card-description-wagon text-center">
-          Ubiq
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
-      </div>
-    </div>
 
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="http://allcoinsnews.com/wp-content/uploads/2017/03/logo-7.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="http://allcoinsnews.com/wp-content/uploads/2017/03/logo-7.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Waves
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Waves
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.cryptocoinsnews.com/wp-content/uploads/2014/02/vtc.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.cryptocoinsnews.com/wp-content/uploads/2014/02/vtc.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Vertcoin
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Vertcoin
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.coingecko.com/assets/coin-250/titcoin-03124a113833a8f4b072964ba7d7ac8bdddc12192d7e032056fca2803225b11d.png", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.coingecko.com/assets/coin-250/titcoin-03124a113833a8f4b072964ba7d7ac8bdddc12192d7e032056fca2803225b11d.png", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Titcoin
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Titcoin
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-sm-4"">
-      <div class="card-index-wagon">
-        <div class="card-category-wagon">
-          <img src="https://www.okchanger.fr/cryptocurrency/preview-file/1727", width="60">
+      <div class="col-xs-12 col-md-3 col-sm-4"">
+        <div class="card-index-wagon">
+          <div class="card-category-wagon">
+            <img src="https://www.okchanger.fr/cryptocurrency/preview-file/1727", width="60">
+          </div>
+          <div class="card-description-wagon text-center">
+            Blackcoin
+          </div>
+          <%= link_to cryptos_path, :class => "card-link-wagon" do %>
+            <div class="text-center crypto-title"></div>
+          <% end %>
         </div>
-        <div class="card-description-wagon text-center">
-          Blackcoin
-        </div>
-        <%= link_to cryptos_path, :class => "card-link-wagon" do %>
-          <div class="text-center crypto-title"></div>
-        <% end %>
       </div>
     </div>
   </div>
