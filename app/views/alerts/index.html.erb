@@ -36,23 +36,27 @@
                 <th class="sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;" aria-label="Platforme 2: activate to sort column descending">
                   Plateforme 2
                 </th>
+                <th tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" style="width: 86px;">
+                  Supprimer
+                </th>
               </tr>
             </thead>
             <tbody>
               <% @alerts.each do |alert| %>
                 <tr role="row" class="odd">
-                  <td><%= alert.id %>
-                    <div class="text-right" style="margin-right: 5px;">
-                      <%= link_to favorite_alert_path(favorite_id: alert.favorite.id, id: alert.id), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer cette alerte?"} do %>
-                        <i class="fa fa-trash-o" aria-hidden="true" style="color: gray"></i>
-                      <% end %>
-                    </div>
-                  </td>
+                  <td><%= alert.id %></td>
                   <td><%= alert.option %></td>
                   <td><%= alert.price.to_s %></td>
                   <td><%= alert.favorite.crypto.name %></td>
                   <td><%= Platform.find(alert.favorite.platform1).name %></td>
                   <td><%= Platform.find(alert.favorite.platform2).name %></td>
+                  <td>
+                    <div class="text-center" style="margin-right: 5px;">
+                      <%= link_to favorite_alert_path(favorite_id: alert.favorite.id, id: alert.id), method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer cette alerte?"} do %>
+                        <i class="fa fa-trash-o fa-lg" aria-hidden="true" style="color: gray"></i>
+                      <% end %>
+                    </div>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
