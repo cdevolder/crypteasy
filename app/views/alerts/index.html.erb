@@ -4,11 +4,19 @@
     <div class="main-title text-center mt50 mb50">
       <h1 style="color: #053C7A;">Mes alertes actives</h1>
     </div>
-    <div class="text-right">
-      <%= link_to new_favorite_alert_path(params[:favorite_id]) do %>
-        <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
-      <% end %>
-    </div>
+    <% if current_user.orders.where(state: 'paid') != [] %>
+      <div class="text-right">
+        <%= link_to new_favorite_alert_path(params[:favorite_id]) do %>
+          <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-right">
+        <%= link_to offers_path, data: {confirm: "Vous devez être membre premium pour recevoir des alertes SMS."} do %>
+          <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="card-content pb20">
