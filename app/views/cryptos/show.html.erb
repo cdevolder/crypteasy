@@ -254,6 +254,12 @@
   };
 
 
+    var boole00 = 0;
+    var boole0 = 0;
+    var boole1 = 0;
+    var boole2 = 0;
+
+
 
 
     var datas = document.getElementById("demochartline");
@@ -289,13 +295,24 @@
     function fn60sec() {
     // runs every 60 sec and runs on init.
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
-      if (xtest.innerHTML != json['EUR'] + "€")
+
+
+       if ((xtest.innerHTML != json['EUR'] + "€"))
       {
         xtest.innerHTML = json['EUR'] + "€";
         $(function() {
+          if (boole00 == 1){
           blink('#pricetest');
+        }
+        else{
+          boole00 = 1;
+        }
         });
       }
+      boole0 = 1;
+      boole1 = 1;
+      boole2 = 1;
+
 
 
 
@@ -425,12 +442,15 @@ $(function() {
 
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
-
-        if (xtest.innerHTML != json['EUR'] + "€")
+      boole1 = 0;
+      if ((xtest.innerHTML != json['EUR'] + "€"))
       {
         xtest.innerHTML = json['EUR'] + "€";
         $(function() {
+          if (boole1 == 1){
           blink('#pricetest');
+        }
+
         });
       }
 
@@ -454,14 +474,17 @@ $(function() {
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
 
-        if (xtest.innerHTML != json['EUR'] + "€")
+      boole0 = 0;
+       if ((xtest.innerHTML != json['EUR'] + "€"))
       {
         xtest.innerHTML = json['EUR'] + "€";
         $(function() {
+          if (boole0 == 1){
           blink('#pricetest');
+        }
+
         });
       }
-
 
 
     });
@@ -482,14 +505,18 @@ $(function() {
 
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${cryptoidd}&tsyms=EUR&e=${platformidd}&extraParams=your_app_name`).then((data) => data.json()).then((json) => {
 
-
-      if (xtest.innerHTML != json['EUR'] + "€")
+        boole2 = 0;
+       if ((xtest.innerHTML != json['EUR'] + "€"))
       {
         xtest.innerHTML = json['EUR'] + "€";
         $(function() {
+          if (boole2 == 1){
           blink('#pricetest');
+        }
+
         });
       }
+
 
 
 
