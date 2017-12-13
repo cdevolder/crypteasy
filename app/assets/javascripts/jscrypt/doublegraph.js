@@ -144,7 +144,7 @@
                        lines: {
                            show: true,
                            lineWidth: 2,
-                           fill: true,
+                           fill: false,
                            fillColor: {
                                colors: [{
                                    opacity: 0.3
@@ -228,7 +228,7 @@ if (carddash.length > 1){
 
                $.plot($("#flot-line-chart-multi00"), [{
                    data: datas,
-                   fill: true,
+                   fill: false,
                    label: platname[1][0]
                }, {
                    data: datas1,
@@ -242,7 +242,7 @@ if (carddash.length > 1){
                        lines: {
                            show: true,
                            lineWidth: 2,
-                           fill: true,
+                           fill: false,
                            fillColor: {
                                colors: [{
                                    opacity: 0.3
@@ -340,7 +340,7 @@ if (carddash.length > 1){
                        lines: {
                            show: true,
                            lineWidth: 2,
-                           fill: true,
+                           fill: false,
                            fillColor: {
                                colors: [{
                                    opacity: 0.3
