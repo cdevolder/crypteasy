@@ -51,6 +51,8 @@ class PagesController < ApplicationController
   end
   end
 
+
+
   def dashboard
     @favorites = current_user.favorites
     @minmax = []
