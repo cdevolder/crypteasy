@@ -94,7 +94,7 @@
                    },
                    tooltip: true,
                    tooltipOpts: {
-                       content: "x: %x  y: %y",
+                       content: "Time: %x  Value: %y",
 
                        onHover: function(flotItem, $tooltipEl) {
                            // console.log(flotItem, $tooltipEl);
@@ -185,7 +185,7 @@
                    },
                    tooltip: true,
                    tooltipOpts: {
-                       content: "x: %x  y: %y",
+                       content: "Time: %x  Value: %y",
 
                        onHover: function(flotItem, $tooltipEl) {
                            // console.log(flotItem, $tooltipEl);
@@ -283,7 +283,7 @@ if (carddash.length > 1){
                    },
                    tooltip: true,
                    tooltipOpts: {
-                       content: "x: %x  y: %y",
+                       content: "Time: %x  Value: %y",
 
                        onHover: function(flotItem, $tooltipEl) {
                            // console.log(flotItem, $tooltipEl);
@@ -381,7 +381,7 @@ if (carddash.length > 1){
                    },
                    tooltip: true,
                    tooltipOpts: {
-                       content: "x: %x  y: %y",
+                       content: "Time: %x  Value: %y",
 
                        onHover: function(flotItem, $tooltipEl) {
                        }
