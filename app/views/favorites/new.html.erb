@@ -1,25 +1,38 @@
 
 
-<div class="container">
+<div class="container" style="margin-top: 60px;">
   <div class="layout-accounts">
     <div class="account-wrap">
       <div class="account-card">
         <div class="account-content smart-forms">
           <div class="main-title text-center">
-              <h3 style="color: #073f79">Ajouter un favoris</h3>
+              <h2 style="color: #073f79">Ajouter un favori</h2>
           </div>
           <div id="contact">
             <div class="form-body">
               <%= simple_form_for Favorite.new do |f| %>
-                <div class="section colm colm6">
-                    <%= f.input :crypto_id, label: "Crypto",collection: @allcrypto %>
+
+                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez une Crypto</h5>
+                <div class="row" style="margin-bottom: 30px;">
+                    <div class="section colm col-sm-12 text-center">
+                        <%= f.input :crypto_id, label: "Crypto",collection: @allcrypto %>
+                    </div>
+
                 </div>
-                <div class="section colm colm6">
-                  <%= f.input :platform1, label: "Platform n°1", collection: @allplatform %>
+                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez vos Platforms</h5>
+                <div class="row">
+                  <div class="section colm col-sm-6 text-center">
+                    <%= f.input :platform1, label: "Platform n°1", collection: @allplatform %>
+                  </div>
+                  <div class="section colm col-sm-6 text-center">
+                    <%= f.input :platform2, label: "Platform n°2", collection: @allplatform %>
+                  </div>
                 </div>
-                <div class="section colm colm6">
-                  <%= f.input :platform2, label: "Platform n°2", collection: @allplatform %>
-                </div>
+
+
+
+
+
                 <div class="form-footer mt30">
                   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
                 </div>
