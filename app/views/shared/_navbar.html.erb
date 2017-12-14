@@ -30,7 +30,8 @@
     <% end %>
     <% else %>
       <!-- Login link (when logged out) -->
-    <%= link_to  t(".sign_in", default: "Login | Sign up"), new_user_session_path, class: "navbar-btn-login" %>
+    <%= link_to  t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-btn-login" %>
+
     <% end %>
   </div>
 </header>
