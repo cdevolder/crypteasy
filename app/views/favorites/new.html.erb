@@ -15,17 +15,17 @@
                 <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez une Crypto-monnaie</h5>
                 <div class="row" style="margin-bottom: 30px;">
                     <div class="section colm col-sm-12 text-center">
-                        <%= f.input :crypto_id, label: "Crypto-monnaie",collection: @allcrypto %>
+                        <%= f.input :crypto_id, label: "Crypto-monnaie",collection: @allcrypto , :include_blank => false%>
                     </div>
 
                 </div>
                 <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez vos Plate-formes</h5>
                 <div class="row">
                   <div class="section colm col-sm-6 text-center">
-                    <%= f.input :platform1, label: "Plate-forme n°1", collection: @allplatform %>
+                    <%= f.input :platform1, label: "Plate-forme n°1", collection: @allplatform,  :include_blank => false %>
                   </div>
                   <div class="section colm col-sm-6 text-center">
-                    <%= f.input :platform2, label: "Plate-forme n°2", collection: @allplatform %>
+                    <%= f.input :platform2, label: "Plate-forme n°2", collection: @allplatform.reverse,  :include_blank => false %>
                   </div>
                 </div>
 
