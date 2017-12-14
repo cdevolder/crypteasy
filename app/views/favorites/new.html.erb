@@ -12,20 +12,20 @@
             <div class="form-body">
               <%= simple_form_for Favorite.new do |f| %>
 
-                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez une Crypto</h5>
+                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez une Crypto-monnaie</h5>
                 <div class="row" style="margin-bottom: 30px;">
                     <div class="section colm col-sm-12 text-center">
-                        <%= f.input :crypto_id, label: "Crypto",collection: @allcrypto %>
+                        <%= f.input :crypto_id, label: "Crypto-monnaie",collection: @allcrypto %>
                     </div>
 
                 </div>
-                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez vos Platforms</h5>
+                <h5 class="text-center" style="color: gray; margin-bottom: 10px;">Choisissez vos Plate-formes</h5>
                 <div class="row">
                   <div class="section colm col-sm-6 text-center">
-                    <%= f.input :platform1, label: "Platform n°1", collection: @allplatform %>
+                    <%= f.input :platform1, label: "Plate-forme n°1", collection: @allplatform %>
                   </div>
                   <div class="section colm col-sm-6 text-center">
-                    <%= f.input :platform2, label: "Platform n°2", collection: @allplatform %>
+                    <%= f.input :platform2, label: "Plate-forme n°2", collection: @allplatform %>
                   </div>
                 </div>
 
@@ -34,7 +34,7 @@
 
 
                 <div class="form-footer mt30">
-                  <%= f.submit "Save", class: "btn btn-primary btn-block" %>
+                  <%= f.submit "Sauvegarder", class: "btn btn-primary btn-block" %>
                 </div>
               <% end %>
               <div class="text-right">
