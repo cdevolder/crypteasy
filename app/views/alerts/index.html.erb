@@ -8,6 +8,9 @@
   <div class="col-sm-12">
     <div class="card-content pb20">
       <div id="data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+        <% if @alerts != [] %>
+
         <div class="row">
           <% if current_user.orders.where(state: 'paid') != [] %>
             <div class="text-right">
@@ -69,6 +72,38 @@
             </tbody>
           </table>
         </div>
+
+        <% else %>
+
+        <div class="col-sm-12">
+          <div class="row mb50 mt50">
+            <div class="col-sm-6 offset-md-3">
+              <div class="container cryptobox text-center">
+                <h5 style="color: gray">
+                  Vous n'avez pas encore créé d'alerte.
+                </h5>
+                <p>
+                  Pour en ajouter il vous suffit de clicker sur
+                  <% if current_user.orders.where(state: 'paid') != [] %>
+                    <div class="">
+                      <%= link_to new_favorite_alert_path(params[:favorite_id]) do %>
+                        <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <div class="">
+                      <%= link_to offers_path, data: {confirm: "Vous devez être membre premium pour recevoir des alertes SMS."} do %>
+                        <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une alerte</span>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
       </div>
     </div>
   </div>
