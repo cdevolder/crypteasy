@@ -112,17 +112,41 @@
   <% else %>
     <div class="col-sm-12">
       <div class="row mb50 mt50">
-        <div class="col-sm-6 offset-md-3">
+        <div class="col-sm-12 ">
           <div class="container cryptobox text-center">
-            <h5 style="color: gray">
+            <h3 style="color: gray">
               Vous n'avez pas encore choisis de favori.
-            </h5>
+            </h3>
             <p>
               Pour en ajouter il vous suffit de clicker sur
-              <%= link_to new_favorite_path do %>
+
+
+            </p>
+            <%= link_to new_favorite_path do %>
                 <span class="btn"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un favoris</span>
               <% end %>
+            <p>
+              Pour voir les cryptos-monnaies il vous suffit de clicker sur
+
             </p>
+            <%= link_to cryptos_path do %>
+                <span class="btn"></i>Crypto-monnaies</span>
+              <% end %>
+            <div class="col-sm-12">
+              <div class="row mb50 mt50">
+                <div class="col-sm-2">
+                  <i class="fa fa-info-circle fa-2x mt30" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-8">
+                  <h5>
+                    Pourquoi ajouter des favoris?
+                  </h5>
+                  <p>
+                    L'ajout d'un favoris vous permet de comparer, en temps réel, la valeur d'une cryptomonnaie par rapport à deux plateforme et vous permet également d'initier des alertes par SMS lorsqu'un de vos favoris atteint un seuil que vous pouvez définir.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -131,25 +155,10 @@
 
 
   <!-- Line -->
-  <div class="mt50" style="background-color: gray; height: 1px;"></div>
   <!-- End line -->
 
 
-  <div class="col-sm-12">
-    <div class="row mb50 mt50">
-      <div class="col-sm-1">
-        <i class="fa fa-info-circle fa-2x mt30" aria-hidden="true"></i>
-      </div>
-      <div class="col-sm-8">
-        <h5>
-          Pourquoi ajouter des favoris?
-        </h5>
-        <p>
-          L'ajout d'un favoris vous permet de comparer, en temps réel, la valeur d'une cryptomonnaie par rapport à deux plateforme et vous permet également d'initier des alertes par SMS lorsqu'un de vos favoris atteint un seuil que vous pouvez définir.
-        </p>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 
