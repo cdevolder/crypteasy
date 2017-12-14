@@ -1,21 +1,20 @@
-<div class="container col-md-6 col-md-offset-3 cryptobox mt30" style="background-color: #ffffff">
-  <div class="main-title">
-    <h3>Rappel de la commande n°<%= @order.id %>, offre "<%= @order.offer_sku %>"</h3>
+
+<div class="container col-md-6 col-md-offset-3 cryptobox mt50 pb50", style="padding-left: 50px; background-color: #ffffff">
+  <div class="main-title text-center">
+    <h2>Rappel de la commande n°<%= @order.id %> : </h3>
   </div>
+  <h5>
+    Vous allez souscrire à l'abonnement "<%= @order.offer_sku %>",
+  </h5>
+  <h5>
+    Son montant mensuel est de <%= humanized_money(@order.amount) %>.00€.
+  </h5>
+  <h5>
+    L'offre s'activera immédiatement après récéption du paiement.
+  </h5>
   <div class="col-md-12 pl30">
     <%= form_tag order_payments_path(@order) do %>
-      <article>
-        <div class="row">
-          <label class="col-md-8">
-            <span><h5 style="opacity: 0.7;">Montant: <h3> <%= humanized_money(@order.amount) %> € par mois </h3></h5></span>
-          </label>
-          <br>
-          <label class="col-md-4">
-            <h5 style="opacity: 0.7;">Status: <h3><%= @order.state %></h3></h5>
-          </label>
-        </div>
-      </article>
-      <div class="col-md-4 offset-md-8 pb50 mt50">
+      <div class="pt50 text-center">
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-name="My Offer"
@@ -27,3 +26,5 @@
     <% end %>
   </div>
 </div>
+
+
