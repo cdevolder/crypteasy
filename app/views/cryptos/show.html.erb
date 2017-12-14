@@ -18,228 +18,232 @@
 
 </div>
 
-
 <div class="content mt10">
+  <p class="col-md-1 text-left pt20" style="position: sticky; top: 60px; z-index: 8;">
+    <%= link_to :back do %>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i><span>  Retour</span>
+    <% end %>
+  </p>
   <div class="main-title">
-      <h1>
-        <%= @crypto.name %> (<%= @crypto.accronym %>)
-      </h1>
-    </div>
-  <div class="container">
+    <h1>
+      <%= @crypto.name %> (<%= @crypto.accronym %>)
+    </h1>
+  </div>
+  <div class="container cryptobox" style="width: 80%;">
     <div class="row">
-       <div class="col-md-8">
-          <div class='card mb10 boxsha'>
-             <div class="card-top">
-                <p class="card-title text-left">
-                   <%= link_to :back do %>
-                   <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i>
-                   <% end %>
-                </p>
-                <% if params[:platform] %>
-                  <p class="card-title text-right" id="platformLegend"><%= Platform.find(params[:platform]).name %></p>
-                <% else %>
-                  <p class="card-title text-right" id="platformLegend"><%= Platform.find(1).name %></p>
-                <% end %>
-             </div>
-             <div class="container">
-                <div class="row text-center">
-                   <div class="card col-md-6">
-                      <div class='card-content mt20'>
-                         <p>
-                            <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
-                            <% if params[:platform] %>
-                         <p id= "pricetest"></p>
-                         <% else %>
-                         <p id= "pricetest"></p>
-                         <% end %>
-                         </p>
-                      </div>
-                   </div>
-                   <div class="card col-md-6">
-                      <div class="card-content mt20">
-                         <p style="color:green;">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                            <% if params[:platform] %>
-                            <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €</span>
-                            <% else %>
-                            <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €</span>
-                            <% end %>
-                         </p>
-                      </div>
-                      <div class="card-content mt20">
-                         <p style="color:red;">
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                            <% if params[:platform] %>
-                            <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €</span>
-                            <% else %>
-                            <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €</span>
-                            <% end %>
-                         </p>
-                      </div>
-                   </div>
-                </div>
-             </div>
+      <div class="col-md-8">
+        <div class='mb30'>
+          <div class="row">
+            <div class="col-md-4 offset-md-4 mb10">
+              <% if params[:platform] %>
+                <h3 class="text-center" id="platformLegend"><%= Platform.find(params[:platform]).name %></h3>
+              <% else %>
+                <h3 class="text-center" id="platformLegend"><%= Platform.find(1).name %></h3>
+              <% end %>
+            </div>
           </div>
-            <!-- Insérer le graph ici -->
-          <div class='card boxsha'>
-             <div class="card-top">
-                <h4 class="card-title" id="titlegraph"></h4>
-             </div>
-             <div class='card-content'>
-                <div class="flot-chart2">
-                   <div class="flot-chart-content" id="flot-line-chart00"></div>
+          <div class="container">
+            <div class="row text-center">
+              <div class="card col-md-6">
+                <div class='card-content mt20'>
+                  <p>
+                    <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
+                    <% if params[:platform] %>
+                      <p id= "pricetest"></p>
+                    <% else %>
+                      <p id= "pricetest"></p>
+                    <% end %>
+                  </p>
                 </div>
-             </div>
-          </div>
-       </div>
-       <div class="col-md-4 mb30">
-
-            <div class='card mb10 boxsha'>
-
-             <div class="card-top text-left" style="border-bottom: lightgray solid 0.5px; margin-bottom: 20px;">
-                <h4 class="card-title" style="margin-bottom: 2px; margin-top: 3px;">Calculateur</h4>
-             </div>
-             <div class='card-content pb20' style="margin-bottom: -8px;">
-                <form action="" name="myForm">
-                  <div class="text-center">
-                    <input id="amount" type="number" step="100" placeholder="Ex: 1000 €" required class="col-md-6">
-                    <button type="submit" value="Calculate" id="myBtn" class="btn btn-primary col-md-6" style="border: none;">Calculer!</button>
-                  </div>
-                </form>
-             </div>
-
-</div>
-
-
-
-          <div class='card mb10 boxsha'>
-             <div class="card-top">
-                <h4 class="card-title">Platforms</h4>
-             </div>
-             <div class='card-content pb20'>
-                <table class="table table-stripped">
-                   <tbody>
-                      <tr>
-                         <td>
-                            <button id="selectplatKraken" style="color: blue; border: none; cursor:pointer;"> KRAKEN</button>
-                         </td>
-                         <td>
-                            <%= link_to "https://www.kraken.com/signup", :target => "_blank"  do %>
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <% end %>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>
-                            <button id="selectplatGdax" style="color: blue; border: none; cursor:pointer;"> GDAX</button>
-                         </td>
-                         <td>
-                            <%= link_to "https://www.coinbase.com/users/oauth_signup?client_id=2e7433cc0730d8cb8c77dd30e04b5658aacbf7612b2bad8aa7bb97b87fc0f876&meta%5Baccount%5D=all&redirect_uri=https%3A%2F%2Fwww.gdax.com%2Foauth_redirect&response_type=code&scope=user+balance&state=dc2aadb4-763a-408f-bd6b-2d58a914edae", :target => "_blank"  do %>
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <% end %>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>
-                            <button id="selectplatBitstamp" style="color: blue; border: none; cursor:pointer;"> BITSTAMP</button>
-                         </td>
-                         <td>
-                            <%= link_to "https://www.bitstamp.net/account/register/", :target => "_blank"  do %>
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <% end %>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td>
-                            <button id="selectplatEtoro" style="color: blue; border: none; cursor:pointer;"> ETORO</button>
-                         </td>
-                         <td>
-                            <%= link_to  do %>
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <% end %>
-                         </td>
-                      </tr>
-                   </tbody>
-                </table>
-             </div>
-          </div>
-
-          <!-- POPUP -->
-          <div id="myModal" class="modal">
-             <!-- Modal content -->
-             <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="boxresult">
-                   <div class="row">
-                      <div class="col-md-12">
-                         <div class='card mb10 boxsha'>
-                            <div class="card-top">
-                               <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
-                               <p class="col-md-6 card-title text-left">
-                                  Vos <%= @crypto.name %>s au meilleur taux.
-                               </p>
-                               <p class="col-md-6 card-title text-center">
-                                  Achetez les sur <span style="color: #34495e"><strong><%= @platform_low %></strong></span> et vendez les sur <span style="color: #34495e"><strong><%= @platform_high %></strong></span> *.
-                               </p>
-                            </div>
-                            <div class="container">
-                               <div class="row text-center">
-                                <div class="card col-md-6">
-                                     <div class="card-content mt20">
-                                        <p style="color:green;">
-                                           <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                           <%= @platform_high %>: <%= @highest_price %>€
-                                        </p>
-                                     </div>
-                                     <div class="card-content mt20">
-                                        <p style="color:red;">
-                                           <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                                           <%= @platform_low %>: <%= @lowest_price %>€
-                                        </p>
-                                     </div>
-                                  </div>
-                                  <div class="card col-md-6">
-                                     <div class="card-content mt20">
-                                        <p >
-                                           Votre investissement: <span id="quantity"></span>€
-                                        </p>
-                                     </div>
-                                     <div class="card-content mt20">
-                                        <p>
-                                          Votre marge: <span id="gain"></span>€
-                                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                          (<span id="percent" style="color:green;"></span>%)
-                                        </p>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
+              </div>
+              <div class="card col-md-6">
+                <div class="card-content mt20">
+                  <p style="color:green;">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    <% if params[:platform] %>
+                      <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).last.euro %> €</span>
+                    <% else %>
+                      <span style="color:green;" id="highprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).last.euro %> €</span>
+                    <% end %>
+                  </p>
                 </div>
-                <div class="col-sm-12">
-                  <div class="row mb5 mt20">
-                    <div class="col-sm-1">
-                      <i class="fa fa-info-circle fa-2x mt20" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-sm-10">
-                      <p>
-                        * Information importante!
-                      </p>
-                      <p style="font-size: 12px;">
-                        Ces informations ne sont en aucun cas fiables à 100%. Il s'agit uniquement d'approximations par rapport au cours en temps réel sur les différentes plate-formes.
-                      </p>
-                    </div>
-                  </div>
+                <div class="card-content mt20">
+                  <p style="color:red;">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <% if params[:platform] %>
+                      <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: params[:platform]).order(:euro).first.euro %> €</span>
+                    <% else %>
+                      <span style="color:red;" id="lowprice24"><%= Exchangetimevalue.where(crypto: params[:id], platform: 1).order(:euro).first.euro %> €</span>
+                    <% end %>
+                  </p>
                 </div>
-             </div>
+              </div>
+            </div>
           </div>
-            <!-- POPUP END -->
+        </div>
+        <!-- Insérer le graph ici -->
+        <div class=''>
+          <div class="card">
+            <div class="card-top" style="padding: 15px">
+              <h4 class="card-title" id="titlegraph"></h4>
+            </div>
+            <div class='card-content'>
+              <div class="flot-chart2">
+                <div class="flot-chart-content" id="flot-line-chart00"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-   </div>
+      <div class="col-md-4">
+        <div class='mb30'>
+          <div class="text-center">
+            <h3 class="col-md-8 offset-md-2 mb20">Calculateur</h3>
+          </div>
+          <div class='card pb20 pt20 mb30' style="margin-bottom: -8px;">
+            <form action="" name="myForm">
+              <div class="text-center">
+                <input id="amount" type="number" step="100" placeholder="Ex: 1000 €" required class="col-md-6">
+                <button type="submit" value="Calculate" id="myBtn" class="btn btn-primary mt10 col-md-6" style="border: none;">Calculer!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class=''>
+          <div class="text-center">
+            <h4 class="col-md-8 offset-md-2">Platforms</h4>
+          </div>
+          <div class="card">
+            <div class='card-content mt20'>
+              <table class="table table-stripped">
+                <tbody>
+                  <tr>
+                    <td>
+                      <button id="selectplatKraken" style="color: blue; border: none; cursor:pointer;"">KRAKEN</button>
+                    </td>
+                    <td>
+                      <%= link_to "https://www.kraken.com/signup", :target => "_blank"  do %>
+                       <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button id="selectplatGdax" style="color: blue; border: none; cursor:pointer;">GDAX</button>
+                    </td>
+                    <td>
+                      <%= link_to "https://www.coinbase.com/users/oauth_signup?client_id=2e7433cc0730d8cb8c77dd30e04b5658aacbf7612b2bad8aa7bb97b87fc0f876&meta%5Baccount%5D=all&redirect_uri=https%3A%2F%2Fwww.gdax.com%2Foauth_redirect&response_type=code&scope=user+balance&state=dc2aadb4-763a-408f-bd6b-2d58a914edae", :target => "_blank"  do %>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button id="selectplatBitstamp" style="color: blue; border: none; cursor:pointer;">BITSTAMP</button>
+                    </td>
+                    <td>
+                      <%= link_to "https://www.bitstamp.net/account/register/", :target => "_blank"  do %>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button id="selectplatEtoro" style="color: blue; border: none; cursor:pointer;">ETORO</button>
+                    </td>
+                    <td>
+                      <%= link_to  do %>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button id="selectplatBittrex" style="color: blue; border: none; cursor:pointer;">BITFINEX</button>
+                    </td>
+                    <td>
+                      <%= link_to  do %>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POPUP -->
+      <div id="myModal" class="modal">
+       <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close text-right mb10">&times;</span>
+          <div id="boxresult">
+            <div class="row">
+              <div class="col-md-12">
+                <div class='mb10'>
+                  <h3 class="col-md-12 text-center">
+                    <img src="<%= Crypto.find(params[:id]).photo_url %>", width="50">
+                    Vos <%= @crypto.name %>s au meilleur taux.
+                  </h3>
+                  <div class="container">
+                    <div class="row text-center">
+                      <div class="card col-md-5 offset-md-1">
+                        <div class="card-content mt20">
+                          <p style="color:green;">
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                            <%= @platform_high %>: <%= @highest_price %>€
+                          </p>
+                        </div>
+                        <div class="card-content mt20">
+                          <p style="color:red;">
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            <%= @platform_low %>: <%= @lowest_price %>€
+                          </p>
+                        </div>
+                      </div>
+                      <div class="card col-md-5">
+                        <div class="card-content mt20">
+                          <p >
+                             Votre investissement: <span id="quantity"></span>€
+                          </p>
+                        </div>
+                        <div class="card-content mt20">
+                          <p>
+                            Marge: <span id="gain"></span>€
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            (<span id="percent" style="color:green;"></span>%)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row mt10">
+              <div class="col-md-12">
+                <p class="card-title text-center pb20">
+                  Achetez les sur <span style="color: #34495e"><strong><%= @platform_low %></strong></span> et vendez les sur <span style="color: #34495e"><strong><%= @platform_high %></strong></span> *.
+                </p>
+                <p style="font-size: 11px;">
+                  * Ces informations ne sont en aucun cas fiables à 100%. Il s'agit uniquement d'approximations par rapport au cours en temps réel sur les différentes plate-formes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- POPUP END -->
+    </div>
+  </div>
 </div>
+
+
 
 
 <%= content_for(:after_js) do %>

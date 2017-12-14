@@ -164,20 +164,7 @@ Buttons
         background-color:transparent;
     }
 }
-.btn-outline-info{
-    border:2px solid $info-color;
-    background-color:transparent;
-    color:$info-color;
-    &:hover,&:focus,&:active{
-        &:before{
-             width:100%;
-            background-color:$info-color;
-        }
-        color:#fff;
-        border-color:$info-color;
-        background-color:transparent;
-    }
-}
+
 .btn-outline-info{
     border:2px solid $info-color;
     background-color:transparent;
