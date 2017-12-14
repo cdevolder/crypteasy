@@ -74,6 +74,25 @@ Buttons
     }
 }
 
+.btn1{
+    overflow: hidden;
+    position: relative;
+    z-index:1;
+    border-radius:2px;
+    cursor:pointer;
+    font-weight:600;
+    letter-spacing: 0rem;
+    font-size:.80rem;
+    font-family:$title-font;
+    padding:10px 12px 10px!important;
+    vertical-align:middle;
+    background-color: white;
+
+    &:hover{
+        background-color: white;
+    }
+}
+
 /***icon buttons**/
 .btn.btn-icon{
     width:36px;
@@ -164,20 +183,7 @@ Buttons
         background-color:transparent;
     }
 }
-.btn-outline-info{
-    border:2px solid $info-color;
-    background-color:transparent;
-    color:$info-color;
-    &:hover,&:focus,&:active{
-        &:before{
-             width:100%;
-            background-color:$info-color;
-        }
-        color:#fff;
-        border-color:$info-color;
-        background-color:transparent;
-    }
-}
+
 .btn-outline-info{
     border:2px solid $info-color;
     background-color:transparent;
